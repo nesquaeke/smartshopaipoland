@@ -14,7 +14,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'discount',
         website: 'https://www.biedronka.pl',
         categories: ['fruits', 'bread', 'dairy'],
-        location_count: 3000
+        location_count: 3000,
+        logo: '🐞'
       },
       {
         id: 2,
@@ -22,7 +23,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'convenience',
         website: 'https://www.zabka.pl',
         categories: ['snacks', 'drinks', 'essentials'],
-        location_count: 8000
+        location_count: 8000,
+        logo: '🐸'
       },
       {
         id: 3,
@@ -30,7 +32,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'discount',
         website: 'https://www.lidl.pl',
         categories: ['organic', 'bread', 'meat', 'dairy'],
-        location_count: 800
+        location_count: 800,
+        logo: '🔵'
       },
       {
         id: 4,
@@ -38,7 +41,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'hypermarket',
         website: 'https://www.auchan.pl',
         categories: ['electronics', 'clothing', 'home', 'food'],
-        location_count: 90
+        location_count: 90,
+        logo: '🐦'
       },
       {
         id: 5,
@@ -46,7 +50,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'hypermarket',
         website: 'https://www.carrefour.pl',
         categories: ['food', 'electronics', 'clothing'],
-        location_count: 90
+        location_count: 90,
+        logo: '🛒'
       },
       {
         id: 6,
@@ -54,7 +59,8 @@ router.get('/', (req: Request, res: Response) => {
         type: 'discount',
         website: 'https://www.netto.pl',
         categories: ['fruits', 'vegetables'],
-        location_count: 400
+        location_count: 400,
+        logo: '🟡'
       }
     ],
     meta: {
@@ -76,12 +82,12 @@ router.get('/:id', (req: Request, res: Response) => {
 
   // Sample store data
   const stores: any = {
-    1: { id: 1, name: 'Biedronka', type: 'discount', website: 'https://www.biedronka.pl', categories: ['fruits', 'bread', 'dairy'], location_count: 3000 },
-    2: { id: 2, name: 'Żabka', type: 'convenience', website: 'https://www.zabka.pl', categories: ['snacks', 'drinks', 'essentials'], location_count: 8000 },
-    3: { id: 3, name: 'LIDL', type: 'discount', website: 'https://www.lidl.pl', categories: ['organic', 'bread', 'meat', 'dairy'], location_count: 800 },
-    4: { id: 4, name: 'Auchan', type: 'hypermarket', website: 'https://www.auchan.pl', categories: ['electronics', 'clothing', 'home', 'food'], location_count: 90 },
-    5: { id: 5, name: 'Carrefour', type: 'hypermarket', website: 'https://www.carrefour.pl', categories: ['food', 'electronics', 'clothing'], location_count: 90 },
-    6: { id: 6, name: 'Netto', type: 'discount', website: 'https://www.netto.pl', categories: ['fruits', 'vegetables'], location_count: 400 }
+    1: { id: 1, name: 'Biedronka', type: 'discount', website: 'https://www.biedronka.pl', categories: ['fruits', 'bread', 'dairy'], location_count: 3000, logo: '🐞' },
+    2: { id: 2, name: 'Żabka', type: 'convenience', website: 'https://www.zabka.pl', categories: ['snacks', 'drinks', 'essentials'], location_count: 8000, logo: '🐸' },
+    3: { id: 3, name: 'LIDL', type: 'discount', website: 'https://www.lidl.pl', categories: ['organic', 'bread', 'meat', 'dairy'], location_count: 800, logo: '🔵' },
+    4: { id: 4, name: 'Auchan', type: 'hypermarket', website: 'https://www.auchan.pl', categories: ['electronics', 'clothing', 'home', 'food'], location_count: 90, logo: '🐦' },
+    5: { id: 5, name: 'Carrefour', type: 'hypermarket', website: 'https://www.carrefour.pl', categories: ['food', 'electronics', 'clothing'], location_count: 90, logo: '🛒' },
+    6: { id: 6, name: 'Netto', type: 'discount', website: 'https://www.netto.pl', categories: ['fruits', 'vegetables'], location_count: 400, logo: '🟡' }
   };
 
   const store = stores[storeId];

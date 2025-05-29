@@ -427,195 +427,145 @@ export default function Home() {
               <div className="flex items-center">
                 <span className="text-3xl mr-3 drop-shadow-lg">🛒</span>
                 <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {t.siteName}
                   </h1>
-                  <span className={`text-xs font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} bg-gradient-to-r ${isDarkMode ? 'from-gray-700 to-gray-600' : 'from-gray-100 to-gray-200'} px-2 py-1 rounded-full`}>{t.motto}</span>
+                  <span className={`text-xs font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} bg-gradient-to-r ${isDarkMode ? 'from-gray-700 to-gray-600' : 'from-gray-100 to-gray-200'} px-2 py-1 rounded-full hidden sm:inline`}>{t.motto}</span>
                 </div>
-                <div className={`ml-4 px-3 py-1 rounded-full ${isDarkMode ? 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600' : 'bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200'}`}>
+                <div className={`ml-2 sm:ml-4 px-2 sm:px-3 py-1 rounded-full ${isDarkMode ? 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600' : 'bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200'}`}>
                   <span className={`text-xs font-bold ${isDarkMode ? 'text-emerald-400' : 'text-emerald-700'}`}>v.0.1.1</span>
                 </div>
               </div>
             </div>
-            <nav className="hidden md:flex space-x-4">
-              <div className="relative group">
-                <Link href="/products" className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
-                  isDarkMode ? 'text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 hover:text-gray-900 bg-gray-100/50 hover:bg-gray-200'
-                } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-gray-700 hover:border-gray-600' : 'border-gray-200 hover:border-gray-300'}`}>
-                  📦 Produkty
-                </Link>
-                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 rounded-2xl shadow-2xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
-                  isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'
-                }`}>
-                  <div className="p-4">
-                    <div className="space-y-2">
-                      <Link href="/products?category=1" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🍞</span>
-                          <span>Pieczywo</span>
-                        </div>
-                      </Link>
-                      <Link href="/products?category=2" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🥛</span>
-                          <span>Nabiał</span>
-                        </div>
-                      </Link>
-                      <Link href="/products?category=7" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🍭</span>
-                          <span>Słodycze</span>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="border-t mt-3 pt-3">
-                      <Link href="/products" className="block text-center text-blue-600 font-medium hover:text-blue-700">
-                        Zobacz wszystkie →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="relative group">
-                <Link href="/stores" className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
-                  isDarkMode ? 'text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 hover:text-gray-900 bg-gray-100/50 hover:bg-gray-200'
-                } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-gray-700 hover:border-gray-600' : 'border-gray-200 hover:border-gray-300'}`}>
-                  🏪 Sklepy
-                </Link>
-                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 rounded-2xl shadow-2xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
-                  isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'
-                }`}>
-                  <div className="p-4">
-                    <div className="space-y-2">
-                      <Link href="/stores?type=discount" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🏪</span>
-                          <span>Dyskonty</span>
-                        </div>
-                      </Link>
-                      <Link href="/stores?type=hypermarket" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🏬</span>
-                          <span>Hipermarkety</span>
-                        </div>
-                      </Link>
-                      <Link href="/stores?type=convenience" className="block px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                        <div className="flex items-center">
-                          <span className="mr-2">🏢</span>
-                          <span>Sklepy osiedlowe</span>
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="border-t mt-3 pt-3">
-                      <Link href="/stores" className="block text-center text-blue-600 font-medium hover:text-blue-700">
-                        Zobacz wszystkie →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <Link href="/promotions" className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
-                  isDarkMode ? 'text-red-400 hover:text-red-300 bg-red-900/20 hover:bg-red-800/30' : 'text-red-700 hover:text-red-800 bg-red-100/50 hover:bg-red-200'
-                } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-red-800 hover:border-red-700' : 'border-red-200 hover:border-red-300'}`}>
-                  🔥 Promocje
-                </Link>
-                <div className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 rounded-2xl shadow-2xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 ${
-                  isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'
-                }`}>
-                  <div className="p-4">
-                    <div className="text-center mb-3">
-                      <div className="text-lg font-bold text-red-600">Aktualne promocje</div>
-                      <div className="text-sm text-gray-500">Oszczędzaj do 50%</div>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between p-2 bg-red-50 rounded-lg">
-                        <span className="text-sm">🥛 Mleko Łaciate</span>
-                        <span className="text-red-600 font-bold text-sm">-25%</span>
-                      </div>
-                      <div className="flex items-center justify-between p-2 bg-red-50 rounded-lg">
-                        <span className="text-sm">🍞 Chleb</span>
-                        <span className="text-red-600 font-bold text-sm">-15%</span>
-                      </div>
-                    </div>
-                    <div className="border-t mt-3 pt-3">
-                      <Link href="/promotions" className="block text-center text-red-600 font-medium hover:text-red-700">
-                        Zobacz wszystkie promocje →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <Link href="/categories" className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden xl:flex space-x-2">
+              <Link href="/products" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 ${
                 isDarkMode ? 'text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 hover:text-gray-900 bg-gray-100/50 hover:bg-gray-200'
               } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-gray-700 hover:border-gray-600' : 'border-gray-200 hover:border-gray-300'}`}>
-                📋 Kategorie
+                📦 Produkty
               </Link>
               
-              <Link href="/smart-shopping" className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white px-5 py-2 rounded-2xl shadow-lg hover:shadow-xl transition-all font-bold hover:scale-105 border border-emerald-500">
+              <Link href="/stores" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                isDarkMode ? 'text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 hover:text-gray-900 bg-gray-100/50 hover:bg-gray-200'
+              } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-gray-700 hover:border-gray-600' : 'border-gray-200 hover:border-gray-300'}`}>
+                🏪 Sklepy
+              </Link>
+
+              <Link href="/promotions" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                isDarkMode ? 'text-red-400 hover:text-red-300 bg-red-900/20 hover:bg-red-800/30' : 'text-red-700 hover:text-red-800 bg-red-100/50 hover:bg-red-200'
+              } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-red-800 hover:border-red-700' : 'border-red-200 hover:border-red-300'}`}>
+                🔥 Promocje
+              </Link>
+              
+              <Link href="/smart-shopping" className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white px-3 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all text-sm font-bold hover:scale-105 border border-emerald-500">
+                🛒 Smart
+              </Link>
+              
+              <Link href="/ai" className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-3 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all text-sm font-bold hover:scale-105 border border-blue-500">
+                🤖 AI
+              </Link>
+            </nav>
+
+            {/* Mobile + Desktop Right Controls */}
+            <div className="flex items-center space-x-2">
+              {/* Cart Indicator */}
+              <div className="relative">
+                <button className={`relative p-2 sm:p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
+                  isDarkMode 
+                    ? 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600 text-white hover:from-gray-600 hover:to-gray-700' 
+                    : 'bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200 text-gray-800 hover:from-emerald-200 hover:to-blue-200'
+                } shadow-lg hover:shadow-xl`}>
+                  <span className="text-lg sm:text-xl">🛒</span>
+                  {cart.length > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse shadow-lg">
+                      {cart.length}
+                    </span>
+                  )}
+                </button>
+                <div className={`text-xs text-center mt-1 font-medium hidden sm:block ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {language === 'pl' ? 'Sepetim' : 'My Cart'}
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setLanguage(language === 'pl' ? 'en' : 'pl')}
+                className={`px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  isDarkMode
+                    ? 'bg-gradient-to-r from-purple-700 to-indigo-700 border border-purple-600 text-white hover:from-purple-600 hover:to-indigo-600'
+                    : 'bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 text-purple-800 hover:from-purple-200 hover:to-indigo-200'
+                } shadow-lg hover:shadow-xl`}
+              >
+                {language === 'pl' ? '🇺🇸' : '🇵🇱'}
+              </button>
+
+              <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className={`p-2 sm:p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
+                  isDarkMode
+                    ? 'bg-gradient-to-r from-yellow-600 to-orange-600 border border-yellow-500 text-white hover:from-yellow-500 hover:to-orange-500'
+                    : 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600 text-white hover:from-gray-600 hover:to-gray-700'
+                } shadow-lg hover:shadow-xl`}
+              >
+                <span className="text-lg">{isDarkMode ? '☀️' : '🌙'}</span>
+              </button>
+
+              {/* Mobile Menu Button */}
+              <div className="xl:hidden">
+                <button
+                  onClick={() => {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) {
+                      mobileMenu.classList.toggle('hidden');
+                    }
+                  }}
+                  className={`p-2 rounded-xl transition-all duration-300 ${
+                    isDarkMode 
+                      ? 'bg-gray-700 border border-gray-600 text-white hover:bg-gray-600' 
+                      : 'bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  <span className="text-xl">☰</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mobile Menu */}
+          <div id="mobile-menu" className="hidden xl:hidden pb-4">
+            <div className="grid grid-cols-2 gap-2">
+              <Link href="/products" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                isDarkMode ? 'text-gray-300 bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 bg-gray-100/50 hover:bg-gray-200'
+              } text-center`}>
+                📦 Produkty
+              </Link>
+              
+              <Link href="/stores" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                isDarkMode ? 'text-gray-300 bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 bg-gray-100/50 hover:bg-gray-200'
+              } text-center`}>
+                🏪 Sklepy
+              </Link>
+
+              <Link href="/promotions" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                isDarkMode ? 'text-red-400 bg-red-900/20 hover:bg-red-800/30' : 'text-red-700 bg-red-100/50 hover:bg-red-200'
+              } text-center`}>
+                🔥 Promocje
+              </Link>
+              
+              <Link href="/smart-shopping" className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-3 py-2 rounded-xl text-sm font-bold text-center">
                 🛒 Smart Shopping
               </Link>
               
-              <Link href="/ai" className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-5 py-2 rounded-2xl shadow-lg hover:shadow-xl transition-all font-bold hover:scale-105 border border-blue-500">
+              <Link href="/ai" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-xl text-sm font-bold text-center">
                 🤖 AI Asystent
               </Link>
               
-              <Link href="/features" className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
-                isDarkMode ? 'text-orange-400 hover:text-orange-300 bg-orange-900/20 hover:bg-orange-800/30' : 'text-orange-700 hover:text-orange-800 bg-orange-100/50 hover:bg-orange-200'
-              } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-orange-800 hover:border-orange-700' : 'border-orange-200 hover:border-orange-300'}`}>
-                🚀 Demo Features
+              <Link href="/categories" className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                isDarkMode ? 'text-gray-300 bg-gray-800/50 hover:bg-gray-700' : 'text-gray-700 bg-gray-100/50 hover:bg-gray-200'
+              } text-center`}>
+                📋 Kategorie
               </Link>
-              
-              {/* Language Switcher */}
-              <div className="flex items-center space-x-3">
-                {/* Cart Indicator */}
-                <div className="relative">
-                  <button
-                    className={`relative p-3 rounded-2xl transition-all duration-300 hover:scale-110 ${
-                      isDarkMode 
-                        ? 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600 text-white hover:from-gray-600 hover:to-gray-700' 
-                        : 'bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200 text-gray-800 hover:from-emerald-200 hover:to-blue-200'
-                    } shadow-lg hover:shadow-xl`}
-                  >
-                    <span className="text-xl">🛒</span>
-                    {cart.length > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center animate-pulse shadow-lg">
-                        {cart.length}
-                      </span>
-                    )}
-                  </button>
-                  <div className={`text-xs text-center mt-1 font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    {language === 'pl' ? 'Sepetim' : 'My Cart'}
-                  </div>
-                </div>
-                
-                <button
-                  onClick={() => setLanguage(language === 'pl' ? 'en' : 'pl')}
-                  className={`px-4 py-2 rounded-2xl font-medium transition-all duration-300 hover:scale-105 ${
-                    isDarkMode
-                      ? 'bg-gradient-to-r from-purple-700 to-indigo-700 border border-purple-600 text-white hover:from-purple-600 hover:to-indigo-600'
-                      : 'bg-gradient-to-r from-purple-100 to-indigo-100 border border-purple-200 text-purple-800 hover:from-purple-200 hover:to-indigo-200'
-                  } shadow-md hover:shadow-lg border ${isDarkMode ? 'border-gray-700 hover:border-gray-600' : 'border-gray-200 hover:border-gray-300'}`}
-                >
-                  {language === 'pl' ? '🇺🇸 EN' : '🇵🇱 PL'}
-                </button>
-                
-                {/* Dark Mode Toggle */}
-                <button
-                  onClick={() => setIsDarkMode(!isDarkMode)}
-                  className={`p-3 rounded-2xl transition-all duration-300 hover:scale-110 ${
-                    isDarkMode
-                      ? 'bg-gradient-to-r from-yellow-600 to-orange-600 border border-yellow-500 text-white hover:from-yellow-500 hover:to-orange-500'
-                      : 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600 text-white hover:from-gray-600 hover:to-gray-700'
-                  } shadow-lg hover:shadow-xl`}
-                >
-                  {isDarkMode ? '☀️' : '🌙'}
-                </button>
-              </div>
-            </nav>
+            </div>
           </div>
         </div>
       </header>
