@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,15 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          
-      - name: Create simple HTML deployment
+      - name: Create beautiful landing page
         run: |
-          mkdir -p deploy
-          cat > deploy/index.html << 'EOF'
+          mkdir -p public
+          cat > public/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="pl">
           <head>
@@ -33,13 +28,9 @@ jobs:
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>SmartShopAI - Powered by AI, Perfected for Savings</title>
             <script src="https://cdn.tailwindcss.com"></script>
-            <style>
-              body { font-family: 'Inter', sans-serif; }
-            </style>
           </head>
           <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
             <div class="max-w-7xl mx-auto px-4 py-16">
-              <!-- Header -->
               <header class="text-center mb-16">
                 <div class="flex justify-center items-center mb-6">
                   <span class="text-8xl mr-4">🛒</span>
@@ -55,9 +46,7 @@ jobs:
                 </div>
               </header>
               
-              <!-- Main Content -->
-              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Stores -->
+              <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
                   <div class="text-center">
                     <span class="text-6xl mb-4 block">🏪</span>
@@ -66,21 +55,20 @@ jobs:
                     <div class="space-y-3">
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🐞</span> Biedronka</span>
-                        <span class="text-sm text-green-600 font-bold">3000+ lokalizacji</span>
+                        <span class="text-sm text-green-600 font-bold">3000+</span>
                       </div>
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🐸</span> Żabka</span>
-                        <span class="text-sm text-green-600 font-bold">8000+ lokalizacji</span>
+                        <span class="text-sm text-green-600 font-bold">8000+</span>
                       </div>
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🔵</span> LIDL</span>
-                        <span class="text-sm text-green-600 font-bold">800+ lokalizacji</span>
+                        <span class="text-sm text-green-600 font-bold">800+</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <!-- Products -->
                 <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
                   <div class="text-center">
                     <span class="text-6xl mb-4 block">🛍️</span>
@@ -89,21 +77,20 @@ jobs:
                     <div class="space-y-3">
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🍌</span> Owoce</span>
-                        <span class="text-sm text-blue-600 font-bold">200+ produktów</span>
+                        <span class="text-sm text-blue-600 font-bold">200+</span>
                       </div>
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🥛</span> Nabiał</span>
-                        <span class="text-sm text-blue-600 font-bold">150+ produktów</span>
+                        <span class="text-sm text-blue-600 font-bold">150+</span>
                       </div>
                       <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
                         <span class="flex items-center"><span class="mr-2">🍞</span> Pieczywo</span>
-                        <span class="text-sm text-blue-600 font-bold">80+ produktów</span>
+                        <span class="text-sm text-blue-600 font-bold">80+</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <!-- AI Features -->
                 <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
                   <div class="text-center">
                     <span class="text-6xl mb-4 block">🤖</span>
@@ -124,48 +111,31 @@ jobs:
                 </div>
               </div>
               
-              <!-- Features -->
               <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-200 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">Funkcje Platformy</h2>
-                <div class="grid md:grid-cols-4 gap-6">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">🚀 Status: Live & Active</h2>
+                <div class="grid md:grid-cols-2 gap-6">
                   <div class="p-6 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200">
-                    <span class="text-4xl block mb-3">🛒</span>
-                    <h4 class="font-bold text-emerald-800 mb-2">Smart Cart</h4>
-                    <p class="text-sm text-emerald-600">Inteligentny koszyk z kalkulacją oszczędności</p>
+                    <h4 class="font-bold text-emerald-800 mb-2 text-lg">✅ Deployment Successful</h4>
+                    <p class="text-sm text-emerald-600">GitHub Pages aktywny i działający</p>
                   </div>
                   <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200">
-                    <span class="text-4xl block mb-3">🌙</span>
-                    <h4 class="font-bold text-blue-800 mb-2">Dark Mode</h4>
-                    <p class="text-sm text-blue-600">Wygodne przeglądanie w trybie ciemnym</p>
-                  </div>
-                  <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-200">
-                    <span class="text-4xl block mb-3">🌍</span>
-                    <h4 class="font-bold text-purple-800 mb-2">Multilingual</h4>
-                    <p class="text-sm text-purple-600">Obsługa języka polskiego i angielskiego</p>
-                  </div>
-                  <div class="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border border-orange-200">
-                    <span class="text-4xl block mb-3">📱</span>
-                    <h4 class="font-bold text-orange-800 mb-2">Responsive</h4>
-                    <p class="text-sm text-orange-600">Pełna obsługa na wszystkich urządzeniach</p>
+                    <h4 class="font-bold text-blue-800 mb-2 text-lg">🌐 Website Live</h4>
+                    <p class="text-sm text-blue-600">Dostępny globalnie 24/7</p>
                   </div>
                 </div>
               </div>
               
-              <!-- Footer -->
               <footer class="text-center mt-16 pt-8 border-t border-gray-200">
                 <div class="flex justify-center items-center space-x-8 mb-6">
                   <a href="https://github.com/nesquaeke/smartshopaipoland" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-700 transition-all hover:scale-105 flex items-center">
                     <span class="mr-2">💻</span> Zobacz kod na GitHub
                   </a>
-                  <div class="bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-6 py-3 rounded-xl font-bold">
-                    <span class="mr-2">🚀</span> Status: Live & Active
-                  </div>
                 </div>
                 <p class="text-gray-600">
-                  <strong>SmartShopAI</strong> - Zaawansowana platforma porównywania cen produktów spożywczych w Polsce
+                  <strong>SmartShopAI</strong> - Platforma porównywania cen produktów spożywczych w Polsce
                 </p>
                 <p class="text-sm text-gray-500 mt-2">
-                  Powered by Next.js, TypeScript, Tailwind CSS & AI Technology
+                  Powered by Next.js, TypeScript, Tailwind CSS & GitHub Actions
                 </p>
               </footer>
             </div>
@@ -173,8 +143,11 @@ jobs:
           </html>
           EOF
           
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: deploy 
+          path: public
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 
