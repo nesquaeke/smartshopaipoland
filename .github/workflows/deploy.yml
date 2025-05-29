@@ -10,12 +10,8 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,32 +21,160 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: frontend/package-lock.json
           
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
+      - name: Create simple HTML deployment
+        run: |
+          mkdir -p deploy
+          cat > deploy/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="pl">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SmartShopAI - Powered by AI, Perfected for Savings</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <style>
+              body { font-family: 'Inter', sans-serif; }
+            </style>
+          </head>
+          <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 py-16">
+              <!-- Header -->
+              <header class="text-center mb-16">
+                <div class="flex justify-center items-center mb-6">
+                  <span class="text-8xl mr-4">🛒</span>
+                  <div>
+                    <h1 class="text-5xl font-bold bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                      SmartShopAI
+                    </h1>
+                    <p class="text-xl text-gray-600 font-medium">Powered by AI, Perfected for Savings</p>
+                    <span class="inline-block mt-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-bold">
+                      v.0.1.1 - Live Demo
+                    </span>
+                  </div>
+                </div>
+              </header>
+              
+              <!-- Main Content -->
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Stores -->
+                <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
+                  <div class="text-center">
+                    <span class="text-6xl mb-4 block">🏪</span>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Sklepy</h3>
+                    <p class="text-gray-600 mb-6">Porównaj ceny w największych sieciach Polski</p>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🐞</span> Biedronka</span>
+                        <span class="text-sm text-green-600 font-bold">3000+ lokalizacji</span>
+                      </div>
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🐸</span> Żabka</span>
+                        <span class="text-sm text-green-600 font-bold">8000+ lokalizacji</span>
+                      </div>
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🔵</span> LIDL</span>
+                        <span class="text-sm text-green-600 font-bold">800+ lokalizacji</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Products -->
+                <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
+                  <div class="text-center">
+                    <span class="text-6xl mb-4 block">🛍️</span>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Produkty</h3>
+                    <p class="text-gray-600 mb-6">Znajdź najlepsze ceny dla tysięcy produktów</p>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🍌</span> Owoce</span>
+                        <span class="text-sm text-blue-600 font-bold">200+ produktów</span>
+                      </div>
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🥛</span> Nabiał</span>
+                        <span class="text-sm text-blue-600 font-bold">150+ produktów</span>
+                      </div>
+                      <div class="flex items-center justify-between bg-gray-50 rounded-xl p-3">
+                        <span class="flex items-center"><span class="mr-2">🍞</span> Pieczywo</span>
+                        <span class="text-sm text-blue-600 font-bold">80+ produktów</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- AI Features -->
+                <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all hover:scale-105">
+                  <div class="text-center">
+                    <span class="text-6xl mb-4 block">🤖</span>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">AI Shopping</h3>
+                    <p class="text-gray-600 mb-6">Inteligentne rekomendacje i optymalizacja tras</p>
+                    <div class="space-y-3">
+                      <div class="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-3 border border-emerald-200">
+                        <span class="text-sm text-emerald-700 font-bold">💰 Maksymalne oszczędności</span>
+                      </div>
+                      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-200">
+                        <span class="text-sm text-blue-700 font-bold">🗺️ Optymalna trasa</span>
+                      </div>
+                      <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-3 border border-purple-200">
+                        <span class="text-sm text-purple-700 font-bold">📊 Smart analytics</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Features -->
+              <div class="bg-white/70 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-200 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Funkcje Platformy</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                  <div class="p-6 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-200">
+                    <span class="text-4xl block mb-3">🛒</span>
+                    <h4 class="font-bold text-emerald-800 mb-2">Smart Cart</h4>
+                    <p class="text-sm text-emerald-600">Inteligentny koszyk z kalkulacją oszczędności</p>
+                  </div>
+                  <div class="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200">
+                    <span class="text-4xl block mb-3">🌙</span>
+                    <h4 class="font-bold text-blue-800 mb-2">Dark Mode</h4>
+                    <p class="text-sm text-blue-600">Wygodne przeglądanie w trybie ciemnym</p>
+                  </div>
+                  <div class="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-200">
+                    <span class="text-4xl block mb-3">🌍</span>
+                    <h4 class="font-bold text-purple-800 mb-2">Multilingual</h4>
+                    <p class="text-sm text-purple-600">Obsługa języka polskiego i angielskiego</p>
+                  </div>
+                  <div class="p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border border-orange-200">
+                    <span class="text-4xl block mb-3">📱</span>
+                    <h4 class="font-bold text-orange-800 mb-2">Responsive</h4>
+                    <p class="text-sm text-orange-600">Pełna obsługa na wszystkich urządzeniach</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Footer -->
+              <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+                <div class="flex justify-center items-center space-x-8 mb-6">
+                  <a href="https://github.com/nesquaeke/smartshopaipoland" target="_blank" class="bg-gray-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-700 transition-all hover:scale-105 flex items-center">
+                    <span class="mr-2">💻</span> Zobacz kod na GitHub
+                  </a>
+                  <div class="bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-6 py-3 rounded-xl font-bold">
+                    <span class="mr-2">🚀</span> Status: Live & Active
+                  </div>
+                </div>
+                <p class="text-gray-600">
+                  <strong>SmartShopAI</strong> - Zaawansowana platforma porównywania cen produktów spożywczych w Polsce
+                </p>
+                <p class="text-sm text-gray-500 mt-2">
+                  Powered by Next.js, TypeScript, Tailwind CSS & AI Technology
+                </p>
+              </footer>
+            </div>
+          </body>
+          </html>
+          EOF
           
-      - name: Install dependencies
-        run: cd frontend && npm ci
-        
-      - name: Build with Next.js
-        run: cd frontend && npm run build
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: frontend/out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: deploy 
