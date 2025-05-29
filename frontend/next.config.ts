@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true, // GitHub Pages için
   basePath: '/smartshopaipoland', // GitHub repository adı
   assetPrefix: '/smartshopaipoland', // Asset'ler için prefix
-  distDir: 'build', // Netlify için build klasörü
+  distDir: 'out', // GitHub Actions için out klasörü
 };
 
 export default nextConfig;
