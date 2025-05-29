@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Image optimization'ı kapat (deployment için)
   },
-  output: 'export', // Static export için
-  trailingSlash: true, // URL'lerde trailing slash
-  basePath: '', // Base path boş
+  // Static export'u kaldır, normal build yap
+  // output: 'export',
+  distDir: 'build', // Netlify için build klasörü
 };
 
 export default nextConfig;
