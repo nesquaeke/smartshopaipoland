@@ -10,11 +10,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Image optimization'ı kapat (deployment için)
   },
-  output: 'export', // Static export for GitHub Pages
-  trailingSlash: true, // GitHub Pages için
-  basePath: '/smartshopaipoland', // GitHub repository adı
-  assetPrefix: '/smartshopaipoland/', // Asset'ler için prefix
-  distDir: 'out', // GitHub Actions için out klasörü
+  // Vercel için normal deployment - static export gerekmez
+  trailingSlash: true, // SEO için
 };
 
 export default nextConfig;

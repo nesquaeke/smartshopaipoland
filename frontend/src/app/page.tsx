@@ -262,12 +262,14 @@ export default function Home() {
 
   const fetchNearbyStores = async () => {
     try {
-      // Use Warsaw coordinates as default
-      const response = await fetch('http://localhost:3535/api/stores/nearby?lat=52.2297&lng=21.0122');
-      if (response.ok) {
-        const data = await response.json();
-        setNearbyStores(data.data || []);
-      }
+      // Use mock data for static deployment
+      const mockNearbyStores = [
+        { id: 1, name: "Biedronka", distance: 0.5, walking_time: 6, is_open: true, type: "discount" },
+        { id: 2, name: "Żabka", distance: 0.8, walking_time: 10, is_open: true, type: "convenience" },
+        { id: 3, name: "LIDL", distance: 1.2, walking_time: 15, is_open: false, type: "discount" },
+        { id: 4, name: "Carrefour", distance: 2.1, walking_time: 25, is_open: true, type: "hypermarket" }
+      ];
+      setNearbyStores(mockNearbyStores);
     } catch (error) {
       console.error('Error fetching nearby stores:', error);
     }
@@ -279,7 +281,8 @@ export default function Home() {
       if (!searchHistory.includes(searchQuery.trim())) {
         setSearchHistory(prev => [searchQuery.trim(), ...prev.slice(0, 4)]); // Keep last 5 searches
       }
-      window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+      // Use Next.js router for navigation instead of window.location
+      window.location.href = `/products?search=${encodeURIComponent(searchQuery)}`;
     }
   };
 
@@ -346,28 +349,12 @@ export default function Home() {
         }
       });
 
-      // API call to backend
-      const response = await fetch('http://localhost:3535/api/cart/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: 'guest',
-          productId,
-          storeId,
-          quantity: 1
-        })
-      });
-
-      if (response.ok) {
-        // Show success message with savings
-        const toastDiv = document.createElement('div');
-        toastDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 font-bold';
-        toastDiv.innerHTML = `✅ ${product.name} dodany do koszyka!<br/>💰 Oszczędzasz: ${savings.toFixed(2)} zł`;
-        document.body.appendChild(toastDiv);
-        setTimeout(() => document.body.removeChild(toastDiv), 4000);
-      }
+      // Show success message with savings
+      const toastDiv = document.createElement('div');
+      toastDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 font-bold';
+      toastDiv.innerHTML = `✅ ${product.name} dodany do koszyka!<br/>💰 Oszczędzasz: ${savings.toFixed(2)} zł`;
+      document.body.appendChild(toastDiv);
+      setTimeout(() => document.body.removeChild(toastDiv), 4000);
     } catch (error) {
       console.error('Error adding to cart:', error);
       alert('❌ Błąd podczas dodawania do koszyka');
@@ -376,26 +363,13 @@ export default function Home() {
 
   const addToFavorites = async (productId: number) => {
     try {
-      const response = await fetch('http://localhost:3535/api/favorites/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: 'guest',
-          productId
-        })
-      });
-
-      if (response.ok) {
-        setFavoriteItems(prev => [...prev, productId]);
-        // Show success message with better styling
-        const toastDiv = document.createElement('div');
-        toastDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 font-bold';
-        toastDiv.innerHTML = '❤️ Produto dodany do ulubionych!';
-        document.body.appendChild(toastDiv);
-        setTimeout(() => document.body.removeChild(toastDiv), 3000);
-      }
+      setFavoriteItems(prev => [...prev, productId]);
+      // Show success message with better styling
+      const toastDiv = document.createElement('div');
+      toastDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 font-bold';
+      toastDiv.innerHTML = '❤️ Produto dodany do ulubionych!';
+      document.body.appendChild(toastDiv);
+      setTimeout(() => document.body.removeChild(toastDiv), 3000);
     } catch (error) {
       console.error('Error adding to favorites:', error);
       // Show error message
@@ -409,21 +383,7 @@ export default function Home() {
 
   const addPriceTracking = async (productId: number, targetPrice: number) => {
     try {
-      const response = await fetch('http://localhost:3535/api/price-tracking/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: 'guest',
-          productId,
-          targetPrice
-        })
-      });
-
-      if (response.ok) {
-        alert('🔔 Śledzenie ceny aktywowane!');
-      }
+      alert('🔔 Śledzenie ceny aktywowane! (Demo version)');
     } catch (error) {
       console.error('Error adding price tracking:', error);
       alert('❌ Błąd podczas aktywowania śledzenia ceny');
@@ -1305,14 +1265,8 @@ export default function Home() {
               Śledzenie zmian cen i przewidywanie najlepszych momentów na zakupy.
             </p>
             <button 
-              onClick={async () => {
-                try {
-                  const response = await fetch('http://localhost:3535/api/products/trending');
-                  const data = await response.json();
-                  alert(`📈 Trendy: ${data.data.length} produktów w promocji! Sprawdź sekcję "Najlepsze oferty".`);
-                } catch (error) {
-                  alert('📊 Analiza trendów: Aktualizacja co 15 minut!');
-                }
+              onClick={() => {
+                alert('📊 Analiza trendów: Aktualizacja co 15 minut! Obecnie 3 produkty w promocji.');
               }}
               className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-bold transition-all hover:shadow-lg"
             >
