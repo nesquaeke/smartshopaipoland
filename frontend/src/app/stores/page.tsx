@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
 interface Product {
   id: number;
@@ -40,34 +39,114 @@ interface GroupedStores {
   [storeType: string]: Store[];
 }
 
-export default function StoresPage() {
+// Mock data for GitHub Pages
+const mockStoresWithProducts: Store[] = [
+  {
+    id: 1,
+    name: "Biedronka",
+    type: "discount",
+    website: "https://biedronka.pl",
+    categories: ["Owoce", "Nabiał", "Mięso"],
+    location_count: 3000,
+    logo: "🐞",
+    products: [
+      {
+        id: 1,
+        name: "Banany",
+        description: "Świeże banany z Ekwadoru",
+        brand: "Chiquita",
+        category_name: "Owoce",
+        category_icon: "🍌",
+        price_at_store: { store_name: "Biedronka", price: 3.99, is_promotion: true, discount_percentage: 20 },
+        prices: [
+          { store_name: "Biedronka", price: 3.99, is_promotion: true, discount_percentage: 20 },
+          { store_name: "LIDL", price: 4.29 }
+        ]
+      },
+      {
+        id: 2,
+        name: "Mleko 3.2%",
+        description: "Świeże mleko",
+        brand: "Łaciate",
+        category_name: "Nabiał",
+        category_icon: "🥛",
+        price_at_store: { store_name: "Biedronka", price: 2.89 },
+        prices: [
+          { store_name: "Biedronka", price: 2.89 },
+          { store_name: "LIDL", price: 2.79 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: "LIDL",
+    type: "discount",
+    website: "https://lidl.pl",
+    categories: ["Owoce", "Nabiał", "Organiczne"],
+    location_count: 800,
+    logo: "🔵",
+    products: [
+      {
+        id: 1,
+        name: "Banany",
+        description: "Świeże banany z Ekwadoru",
+        brand: "Chiquita",
+        category_name: "Owoce",
+        category_icon: "🍌",
+        price_at_store: { store_name: "LIDL", price: 4.29 },
+        prices: [
+          { store_name: "Biedronka", price: 3.99 },
+          { store_name: "LIDL", price: 4.29 }
+        ]
+      }
+    ]
+  },
+  {
+    id: 3,
+    name: "Żabka",
+    type: "convenience",
+    website: "https://zabka.pl",
+    categories: ["Napoje", "Przekąski", "Gotowce"],
+    location_count: 8000,
+    logo: "🐸",
+    products: [
+      {
+        id: 3,
+        name: "Woda 0.5L",
+        description: "Woda mineralna",
+        brand: "Żywiec Zdrój",
+        category_name: "Napoje",
+        category_icon: "💧",
+        price_at_store: { store_name: "Żabka", price: 1.99 },
+        prices: [
+          { store_name: "Żabka", price: 1.99 },
+          { store_name: "Biedronka", price: 1.79 }
+        ]
+      }
+    ]
+  }
+];
+
+function StoresContent() {
   const [storesWithProducts, setStoresWithProducts] = useState<Store[]>([]);
   const [groupedStores, setGroupedStores] = useState<GroupedStores>({});
   const [isLoading, setIsLoading] = useState(true);
   const [selectedType, setSelectedType] = useState('');
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const typeParam = searchParams?.get('type');
-    if (typeParam) {
-      setSelectedType(typeParam);
-    }
     fetchStoresWithProducts();
-  }, [searchParams]);
+  }, []);
 
   const fetchStoresWithProducts = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('http://localhost:3535/api/stores/with-products');
-      if (response.ok) {
-        const storesData = await response.json();
-        const stores = storesData.data || [];
-        setStoresWithProducts(stores);
-        
-        // Group stores by type
-        const grouped = groupStoresByType(stores);
-        setGroupedStores(grouped);
-      }
+      // Use mock data instead of API call for GitHub Pages
+      setStoresWithProducts(mockStoresWithProducts);
+      
+      // Group stores by type
+      const grouped = groupStoresByType(mockStoresWithProducts);
+      setGroupedStores(grouped);
     } catch (error) {
       console.error('Error fetching stores with products:', error);
     } finally {
@@ -90,13 +169,7 @@ export default function StoresPage() {
   };
 
   const handleTypeFilter = (type: string) => {
-    const url = new URL(window.location.href);
-    if (type) {
-      url.searchParams.set('type', type);
-    } else {
-      url.searchParams.delete('type');
-    }
-    window.location.href = url.toString();
+    setSelectedType(type);
   };
 
   const formatPrice = (price: number) => {
@@ -363,4 +436,6 @@ export default function StoresPage() {
       </div>
     </div>
   );
-} 
+}
+
+export default StoresContent; 

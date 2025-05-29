@@ -43,6 +43,90 @@ interface Stats {
   total_categories: number;
 }
 
+// Mock data for GitHub Pages deployment
+const mockProducts = [
+  {
+    id: 1,
+    name: "Banany",
+    description: "Świeże banany importowane z Ekwadoru",
+    brand: "Chiquita",
+    category_id: 1,
+    category_name: "Owoce",
+    category_icon: "🍌",
+    prices: [
+      { store_name: "Biedronka", price: 3.99, is_promotion: true, discount_percentage: 20 },
+      { store_name: "LIDL", price: 4.29 },
+      { store_name: "Żabka", price: 5.99 }
+    ]
+  },
+  {
+    id: 2,
+    name: "Mleko 3.2%",
+    description: "Mleko świeże pełne 3.2% tłuszczu",
+    brand: "Łaciate",
+    category_id: 2,
+    category_name: "Nabiał",
+    category_icon: "🥛",
+    prices: [
+      { store_name: "Biedronka", price: 2.89 },
+      { store_name: "LIDL", price: 2.79, is_promotion: true, discount_percentage: 10 },
+      { store_name: "Carrefour", price: 3.29 }
+    ]
+  },
+  {
+    id: 3,
+    name: "Chleb pełnoziarnisty",
+    description: "Chleb pełnoziarnisty z nasionami",
+    brand: "Wasa",
+    category_id: 3,
+    category_name: "Pieczywo",
+    category_icon: "🍞",
+    prices: [
+      { store_name: "Biedronka", price: 4.59 },
+      { store_name: "LIDL", price: 4.19, is_promotion: true, discount_percentage: 15 },
+      { store_name: "Tesco", price: 5.29 }
+    ]
+  }
+];
+
+const mockStores = [
+  {
+    id: 1,
+    name: "Biedronka",
+    type: "Discount Store",
+    location_count: 3000,
+    logo: "🐞",
+    categories: ["Spożywcze", "Nabiał", "Mięso"],
+    website: "biedronka.pl"
+  },
+  {
+    id: 2,
+    name: "LIDL",
+    type: "Hypermarket",
+    location_count: 800,
+    logo: "🔵",
+    categories: ["Spożywcze", "Non-food", "Elektronika"],
+    website: "lidl.pl"
+  },
+  {
+    id: 3,
+    name: "Żabka",
+    type: "Convenience Store",
+    location_count: 8000,
+    logo: "🐸",
+    categories: ["Spożywcze", "Napoje", "Przekąski"],
+    website: "zabka.pl"
+  }
+];
+
+const mockCategories = [
+  { id: 1, name: "Fruits", name_pl: "Owoce", icon: "🍌", product_count: 25 },
+  { id: 2, name: "Dairy", name_pl: "Nabiał", icon: "🥛", product_count: 18 },
+  { id: 3, name: "Bakery", name_pl: "Pieczywo", icon: "🍞", product_count: 12 },
+  { id: 4, name: "Meat", name_pl: "Mięso", icon: "🥩", product_count: 15 },
+  { id: 5, name: "Vegetables", name_pl: "Warzywa", icon: "🥕", product_count: 30 }
+];
+
 export default function Home() {
   const [trendingProducts, setTrendingProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
@@ -51,9 +135,9 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [stats, setStats] = useState<Stats>({
-    total_products: 0,
-    total_stores: 0,
-    total_categories: 13
+    total_products: 64,
+    total_stores: 50,
+    total_categories: 19
   });
   const [nearbyStores, setNearbyStores] = useState<any[]>([]);
   const [cartItems, setCartItems] = useState<any[]>([]);
@@ -145,32 +229,11 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const [trendingRes, productsRes, storesRes, categoriesRes] = await Promise.all([
-        fetch('http://localhost:3535/api/products/trending'),
-        fetch('http://localhost:3535/api/products?limit=6'),
-        fetch('http://localhost:3535/api/stores'),
-        fetch('http://localhost:3535/api/products/categories')
-      ]);
-
-      if (trendingRes.ok) {
-        const trendingData = await trendingRes.json();
-        setTrendingProducts(trendingData.data || []);
-      }
-
-      if (productsRes.ok) {
-        const productsData = await productsRes.json();
-        setAllProducts(productsData.data || []);
-      }
-
-      if (storesRes.ok) {
-        const storesData = await storesRes.json();
-        setStores(storesData.data || []);
-      }
-
-      if (categoriesRes.ok) {
-        const categoriesData = await categoriesRes.json();
-        setCategories(categoriesData.data || []);
-      }
+      // Use mock data instead of API calls for GitHub Pages
+      setTrendingProducts(mockProducts);
+      setAllProducts(mockProducts);
+      setStores(mockStores);
+      setCategories(mockCategories);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -180,26 +243,19 @@ export default function Home() {
 
   const fetchStats = async () => {
     try {
-      const [healthResponse, categoriesResponse] = await Promise.all([
-        fetch('http://localhost:3535/health'),
-        fetch('http://localhost:3535/api/products/categories')
-      ]);
-      
-      const healthData = await healthResponse.json();
-      const categoriesData = await categoriesResponse.json();
-      
+      // Use static stats for GitHub Pages
       setStats({
-        total_products: healthData.total_products || 70,
-        total_stores: healthData.total_stores || 50,
-        total_categories: categoriesData.data?.length || 13
+        total_products: 64,
+        total_stores: 50,
+        total_categories: 19
       });
     } catch (error) {
       console.error('Error fetching stats:', error);
       // Fallback values
       setStats({
-        total_products: 70,
+        total_products: 64,
         total_stores: 50,
-        total_categories: 13
+        total_categories: 19
       });
     }
   };

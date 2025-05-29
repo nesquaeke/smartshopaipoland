@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
 interface Product {
   id: number;
@@ -41,7 +40,94 @@ interface Store {
   type: string;
 }
 
-export default function ProductsPage() {
+// Mock data for GitHub Pages
+const mockProducts: Product[] = [
+  {
+    id: 1,
+    name: "Banany",
+    description: "Świeże banany z Ekwadoru",
+    brand: "Chiquita",
+    category_id: 1,
+    category_name: "Owoce",
+    category_icon: "🍌",
+    prices: [
+      { store_name: "Biedronka", price: 3.99, is_promotion: true, discount_percentage: 20 },
+      { store_name: "LIDL", price: 4.29 },
+      { store_name: "Żabka", price: 5.99 }
+    ]
+  },
+  {
+    id: 2,
+    name: "Mleko 3.2%",
+    description: "Mleko świeże pełne 3.2% tłuszczu",
+    brand: "Łaciate",
+    category_id: 2,
+    category_name: "Nabiał",
+    category_icon: "🥛",
+    prices: [
+      { store_name: "Biedronka", price: 2.89 },
+      { store_name: "LIDL", price: 2.79, is_promotion: true, discount_percentage: 10 },
+      { store_name: "Carrefour", price: 3.29 }
+    ]
+  },
+  {
+    id: 3,
+    name: "Chleb pełnoziarnisty",
+    description: "Chleb pełnoziarnisty z nasionami",
+    brand: "Wasa",
+    category_id: 3,
+    category_name: "Pieczywo",
+    category_icon: "🍞",
+    prices: [
+      { store_name: "Biedronka", price: 4.59 },
+      { store_name: "LIDL", price: 4.19, is_promotion: true, discount_percentage: 15 },
+      { store_name: "Tesco", price: 5.29 }
+    ]
+  },
+  {
+    id: 4,
+    name: "Jabłka",
+    description: "Jabłka czerwone polskie",
+    brand: "Polskie Sady",
+    category_id: 1,
+    category_name: "Owoce",
+    category_icon: "🍎",
+    prices: [
+      { store_name: "Biedronka", price: 3.49 },
+      { store_name: "LIDL", price: 3.29 },
+      { store_name: "Żabka", price: 4.49 }
+    ]
+  },
+  {
+    id: 5,
+    name: "Woda mineralna 1.5L",
+    description: "Woda mineralna niegazowana",
+    brand: "Żywiec Zdrój",
+    category_id: 4,
+    category_name: "Napoje",
+    category_icon: "💧",
+    prices: [
+      { store_name: "Biedronka", price: 1.79 },
+      { store_name: "Żabka", price: 1.99 },
+      { store_name: "LIDL", price: 1.69 }
+    ]
+  }
+];
+
+const mockCategories: Category[] = [
+  { id: 1, name: "Fruits", name_pl: "Owoce", icon: "🍌", product_count: 25 },
+  { id: 2, name: "Dairy", name_pl: "Nabiał", icon: "🥛", product_count: 18 },
+  { id: 3, name: "Bakery", name_pl: "Pieczywo", icon: "🍞", product_count: 12 },
+  { id: 4, name: "Beverages", name_pl: "Napoje", icon: "💧", product_count: 20 }
+];
+
+const mockStores: Store[] = [
+  { id: 1, name: "Biedronka", type: "discount" },
+  { id: 2, name: "LIDL", type: "discount" },
+  { id: 3, name: "Żabka", type: "convenience" }
+];
+
+function ProductsContent() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [groupedProducts, setGroupedProducts] = useState<GroupedProducts>({});
@@ -54,7 +140,6 @@ export default function ProductsPage() {
   const [compareList, setCompareList] = useState<any[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState<'pl' | 'en'>('pl');
-  const searchParams = useSearchParams();
 
   // Multilingual texts
   const texts = {
@@ -103,51 +188,21 @@ export default function ProductsPage() {
   const t = texts[language];
 
   useEffect(() => {
-    const categoryParam = searchParams?.get('category');
-    const searchParam = searchParams?.get('search');
-    if (categoryParam) {
-      setSelectedCategory(categoryParam);
-    }
-    if (searchParam) {
-      setSearchQuery(searchParam);
-    }
     fetchData();
     fetchStores();
-  }, [searchParams]);
+  }, []);
 
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const categoryParam = searchParams?.get('category');
-      const searchParam = searchParams?.get('search');
       
-      let productsUrl = 'http://localhost:3535/api/products?limit=100';
-      if (categoryParam) {
-        productsUrl += `&category=${categoryParam}`;
-      }
-      if (searchParam) {
-        productsUrl += `&search=${searchParam}`;
-      }
-
-      const [productsRes, categoriesRes] = await Promise.all([
-        fetch(productsUrl),
-        fetch('http://localhost:3535/api/products/categories')
-      ]);
-
-      if (productsRes.ok) {
-        const productsData = await productsRes.json();
-        const fetchedProducts = productsData.data || [];
-        setProducts(fetchedProducts);
-        
-        // Group products by category
-        const grouped = groupProductsByCategory(fetchedProducts);
-        setGroupedProducts(grouped);
-      }
-
-      if (categoriesRes.ok) {
-        const categoriesData = await categoriesRes.json();
-        setCategories(categoriesData.data || []);
-      }
+      // Use mock data instead of API calls for GitHub Pages
+      setProducts(mockProducts);
+      setCategories(mockCategories);
+      
+      // Group products by category
+      const grouped = groupProductsByCategory(mockProducts);
+      setGroupedProducts(grouped);
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
@@ -157,11 +212,8 @@ export default function ProductsPage() {
 
   const fetchStores = async () => {
     try {
-      const response = await fetch('http://localhost:3535/api/stores');
-      if (response.ok) {
-        const data = await response.json();
-        setStores(data.data || []);
-      }
+      // Use mock data instead of API call for GitHub Pages
+      setStores(mockStores);
     } catch (error) {
       console.error('Error fetching stores:', error);
     }
@@ -689,4 +741,6 @@ export default function ProductsPage() {
       )}
     </div>
   );
-} 
+}
+
+export default ProductsContent; 
