@@ -10,8 +10,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Image optimization'ı kapat (deployment için)
   },
-  // Static export'u kaldır, normal build yap
-  // output: 'export',
+  output: 'export', // GitHub Pages için static export
+  trailingSlash: true, // GitHub Pages için
+  basePath: '/smartshopaipoland', // GitHub repository adı
+  assetPrefix: '/smartshopaipoland', // Asset'ler için prefix
   distDir: 'build', // Netlify için build klasörü
 };
 
