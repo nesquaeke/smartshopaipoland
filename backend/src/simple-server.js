@@ -68,10 +68,9 @@ const STORE_CATEGORY_MAPPING = {
   }
 };
 
-// MASSIVE Polish Products Database - 200+ products
-const sampleProducts = [
-  // ===== Pieczywo (Bread & Bakery) - 40 products =====
-  // Traditional Polish breads
+// MASSIVE Polish Products Database - 200+ products - COMPREHENSIVE LIST
+const enhancedProducts = [
+  // ===== PIECZYWO (Bread & Bakery) - Enhanced with traditional Polish varieties =====
   {
     id: 1,
     name: 'Chleb żytni',
@@ -89,1176 +88,3119 @@ const sampleProducts = [
       { store_name: 'Dino', price: 3.05 },
       { store_name: 'Tesco', price: 3.15 },
       { store_name: 'Stokrotka', price: 2.95 },
-      { store_name: 'Polomarket', price: 3.25 },
-      { store_name: 'Freshmarket', price: 3.35 },
-      { store_name: 'Lewiatan', price: 3.19 },
-      { store_name: 'Spar', price: 3.09 }
+      { store_name: 'Polomarket', price: 2.89 }
     ]
   },
   {
     id: 2,
-    name: 'Chleb pszenno-żytni',
-    description: 'Chleb mieszany 400g',
+    name: 'Bulka zwykła',
+    description: 'Klasyczna bułka biała 6 sztuk',
     brand: 'Putka',
     category_id: 1,
     category_name: 'Pieczywo',
     category_icon: '🍞',
     prices: [
-      { store_name: 'Biedronka', price: 2.79 },
-      { store_name: 'LIDL', price: 2.59 },
-      { store_name: 'Dino', price: 2.89 },
-      { store_name: 'Netto', price: 2.69 },
-      { store_name: 'Tesco', price: 2.85 },
-      { store_name: 'Carrefour', price: 2.99 },
-      { store_name: 'Stokrotka', price: 2.75 },
-      { store_name: 'Auchan', price: 2.79 },
-      { store_name: 'Polomarket', price: 2.95 },
-      { store_name: 'Freshmarket', price: 3.05 },
-      { store_name: 'Lewiatan', price: 2.89 },
-      { store_name: 'Spar', price: 2.79 }
+      { store_name: 'Biedronka', price: 1.99 },
+      { store_name: 'LIDL', price: 1.89 },
+      { store_name: 'Żabka', price: 2.29 },
+      { store_name: 'Freshmarket', price: 2.19 },
+      { store_name: 'Carrefour', price: 2.09 }
     ]
   },
   {
     id: 3,
-    name: 'Chleb wiejski',
-    description: 'Chleb wiejski na żurek 600g',
-    brand: 'Wasa',
+    name: 'Kajzerka',
+    description: 'Tradycyjna kajzerka 4 sztuki',
+    brand: 'Putka',
     category_id: 1,
     category_name: 'Pieczywo',
     category_icon: '🍞',
     prices: [
-      { store_name: 'Biedronka', price: 3.49 },
-      { store_name: 'LIDL', price: 3.29 },
-      { store_name: 'Stokrotka', price: 3.59 },
-      { store_name: 'Netto', price: 3.39 },
-      { store_name: 'Tesco', price: 3.55 },
-      { store_name: 'Carrefour', price: 3.69 },
-      { store_name: 'Dino', price: 3.45 },
-      { store_name: 'Auchan', price: 3.49 },
-      { store_name: 'Polomarket', price: 3.65 },
-      { store_name: 'Freshmarket', price: 3.75 },
-      { store_name: 'Lewiatan', price: 3.59 },
-      { store_name: 'Spar', price: 3.49 }
+      { store_name: 'Biedronka', price: 2.49 },
+      { store_name: 'LIDL', price: 2.39 },
+      { store_name: 'Żabka', price: 2.79 },
+      { store_name: 'Dino', price: 2.59 }
     ]
   },
   {
     id: 4,
-    name: 'Chleb pełnoziarnisty',
-    description: 'Chleb pełnoziarnisty 500g',
-    brand: 'Mestemacher',
+    name: 'Bagietka francuska',
+    description: 'Chrupiąca bagietka 250g',
+    brand: 'Putka',
     category_id: 1,
     category_name: 'Pieczywo',
     category_icon: '🍞',
     prices: [
-      { store_name: 'LIDL', price: 4.99 },
-      { store_name: 'Carrefour', price: 5.29 },
-      { store_name: 'Tesco', price: 5.09 },
-      { store_name: 'Netto', price: 4.89 },
-      { store_name: 'Auchan', price: 5.15 },
-      { store_name: 'Biedronka', price: 5.19 },
-      { store_name: 'Dino', price: 4.95 },
-      { store_name: 'Stokrotka', price: 5.05 },
-      { store_name: 'Polomarket', price: 5.35 },
-      { store_name: 'Freshmarket', price: 5.45 },
-      { store_name: 'Lewiatan', price: 5.29 },
-      { store_name: 'Spar', price: 5.19 }
+      { store_name: 'Carrefour', price: 3.99 },
+      { store_name: 'Auchan', price: 3.89 },
+      { store_name: 'LIDL', price: 3.69 },
+      { store_name: 'Delikatesy Centrum', price: 4.49 }
     ]
   },
   {
     id: 5,
-    name: 'Bagietka francuska',
-    description: 'Świeża bagietka 250g',
-    brand: 'Putka',
+    name: 'Croissant z nadzieniem',
+    description: 'Croissant czekoladowy 2 sztuki',
+    brand: 'Seven Days',
     category_id: 1,
     category_name: 'Pieczywo',
-    category_icon: '🥖',
+    category_icon: '🍞',
     prices: [
-      { store_name: 'Biedronka', price: 1.89 },
-      { store_name: 'LIDL', price: 1.69, is_promotion: true, discount_percentage: 15 },
-      { store_name: 'Carrefour', price: 2.09 },
-      { store_name: 'Netto', price: 1.79 },
-      { store_name: 'Tesco', price: 1.95 },
-      { store_name: 'Auchan', price: 1.99 },
-      { store_name: 'Dino', price: 1.85 },
-      { store_name: 'Stokrotka', price: 1.89 },
-      { store_name: 'Polomarket', price: 2.05 },
-      { store_name: 'Freshmarket', price: 2.15 },
-      { store_name: 'Lewiatan', price: 2.09 },
-      { store_name: 'Spar', price: 1.99 }
-    ]
-  },
-  {
-    id: 6,
-    name: 'Bagietka z ziarnami',
-    description: 'Bagietka wieloziarnista 300g',
-    brand: 'Putka',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🥖',
-    prices: [
-      { store_name: 'Biedronka', price: 2.19 },
-      { store_name: 'LIDL', price: 1.99 },
-      { store_name: 'Dino', price: 2.29 },
-      { store_name: 'Netto', price: 2.09 },
-      { store_name: 'Tesco', price: 2.25 },
-      { store_name: 'Carrefour', price: 2.39 },
-      { store_name: 'Stokrotka', price: 2.15 },
-      { store_name: 'Auchan', price: 2.19 },
-      { store_name: 'Polomarket', price: 2.35 },
-      { store_name: 'Freshmarket', price: 2.45 },
-      { store_name: 'Lewiatan', price: 2.39 },
-      { store_name: 'Spar', price: 2.29 }
-    ]
-  },
-  {
-    id: 7,
-    name: 'Croissant maślany',
-    description: 'Croissant świeży z masłem 80g',
-    brand: 'Wrzoszczyn',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🥐',
-    prices: [
-      { store_name: 'Biedronka', price: 2.49 },
-      { store_name: 'LIDL', price: 2.29 },
-      { store_name: 'Carrefour', price: 2.69 },
-      { store_name: 'Żabka', price: 2.89 },
-      { store_name: 'Netto', price: 2.39 },
-      { store_name: 'Tesco', price: 2.55 },
-      { store_name: 'Auchan', price: 2.59 },
-      { store_name: 'Dino', price: 2.45 },
-      { store_name: 'Stokrotka', price: 2.49 },
-      { store_name: 'Polomarket', price: 2.75 },
-      { store_name: 'Freshmarket', price: 2.85 },
-      { store_name: 'Lewiatan', price: 2.69 }
-    ]
-  },
-  {
-    id: 8,
-    name: 'Croissant czekoladowy',
-    description: 'Croissant z czekoladą 90g',
-    brand: 'Wrzoszczyn',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🥐',
-    prices: [
-      { store_name: 'Biedronka', price: 2.79 },
-      { store_name: 'LIDL', price: 2.59 },
-      { store_name: 'Żabka', price: 3.19 },
-      { store_name: 'Netto', price: 2.69 },
-      { store_name: 'Tesco', price: 2.85 },
-      { store_name: 'Carrefour', price: 2.99 },
-      { store_name: 'Auchan', price: 2.89 },
-      { store_name: 'Dino', price: 2.75 },
-      { store_name: 'Stokrotka', price: 2.79 },
-      { store_name: 'Polomarket', price: 3.05 },
-      { store_name: 'Freshmarket', price: 3.15 },
-      { store_name: 'Lewiatan', price: 2.99 }
-    ]
-  },
-  {
-    id: 9,
-    name: 'Bułki śniadaniowe',
-    description: 'Bułki pszenne 6 sztuk',
-    brand: 'Putka',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🥯',
-    prices: [
-      { store_name: 'Biedronka', price: 3.79 },
-      { store_name: 'LIDL', price: 3.49 },
-      { store_name: 'Netto', price: 3.99 },
-      { store_name: 'Tesco', price: 3.89 },
-      { store_name: 'Carrefour', price: 4.09 },
-      { store_name: 'Auchan', price: 3.99 },
-      { store_name: 'Dino', price: 3.85 },
-      { store_name: 'Stokrotka', price: 3.79 },
-      { store_name: 'Polomarket', price: 4.15 },
-      { store_name: 'Freshmarket', price: 4.25 },
-      { store_name: 'Lewiatan', price: 4.09 },
-      { store_name: 'Spar', price: 3.99 }
-    ]
-  },
-  {
-    id: 10,
-    name: 'Bułki hamburgerowe',
-    description: 'Bułki do hamburgerów 4szt',
-    brand: 'Putka',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🍔',
-    prices: [
-      { store_name: 'Biedronka', price: 2.99 },
-      { store_name: 'LIDL', price: 2.79 },
-      { store_name: 'Carrefour', price: 3.19 },
-      { store_name: 'Netto', price: 2.89 },
-      { store_name: 'Tesco', price: 3.05 },
-      { store_name: 'Auchan', price: 3.09 },
-      { store_name: 'Dino', price: 2.95 },
-      { store_name: 'Stokrotka', price: 2.99 },
-      { store_name: 'Polomarket', price: 3.25 },
-      { store_name: 'Freshmarket', price: 3.35 },
-      { store_name: 'Lewiatan', price: 3.19 },
-      { store_name: 'Spar', price: 3.09 }
-    ]
-  },
-  {
-    id: 11,
-    name: 'Pierniki toruńskie',
-    description: 'Pierniki tradycyjne 200g',
-    brand: 'Kopernik',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🍪',
-    prices: [
-      { store_name: 'Biedronka', price: 4.99 },
-      { store_name: 'LIDL', price: 4.49, is_promotion: true, discount_percentage: 10 },
-      { store_name: 'Carrefour', price: 5.29 },
-      { store_name: 'Netto', price: 4.79 },
-      { store_name: 'Tesco', price: 5.05 },
-      { store_name: 'Auchan', price: 5.15 },
-      { store_name: 'Dino', price: 4.89 },
-      { store_name: 'Stokrotka', price: 4.99 },
-      { store_name: 'Polomarket', price: 5.35 },
-      { store_name: 'Freshmarket', price: 5.45 },
-      { store_name: 'Lewiatan', price: 5.29 },
-      { store_name: 'Spar', price: 5.19 }
-    ]
-  },
-  {
-    id: 12,
-    name: 'Pączki różane',
-    description: 'Pączki z różą 4szt',
-    brand: 'Putka',
-    category_id: 1,
-    category_name: 'Pieczywo',
-    category_icon: '🍩',
-    prices: [
-      { store_name: 'Biedronka', price: 5.99 },
-      { store_name: 'LIDL', price: 5.49 },
-      { store_name: 'Żabka', price: 6.49 },
-      { store_name: 'Netto', price: 5.79 },
-      { store_name: 'Tesco', price: 6.15 },
-      { store_name: 'Carrefour', price: 6.29 },
-      { store_name: 'Auchan', price: 6.19 },
-      { store_name: 'Dino', price: 5.95 },
-      { store_name: 'Stokrotka', price: 5.99 },
-      { store_name: 'Polomarket', price: 6.45 },
-      { store_name: 'Freshmarket', price: 6.55 },
-      { store_name: 'Lewiatan', price: 6.29 }
+      { store_name: 'Orlen', price: 4.99 },
+      { store_name: 'Circle K', price: 5.29 },
+      { store_name: 'Shell', price: 4.89 },
+      { store_name: 'Żabka', price: 5.49 },
+      { store_name: 'LIDL', price: 4.19 }
     ]
   },
 
-  // ===== Nabiał (Dairy) - 30 products =====
+  // ===== NABIAŁ (Dairy) - Polish dairy brands =====
   {
-    id: 13,
-    name: 'Mleko 3,2%',
-    description: 'Mleko pełnotłuste 1L',
+    id: 6,
+    name: 'Mleko UHT 3,2%',
+    description: 'Mleko UHT 3,2% tłuszczu 1L',
     brand: 'Łaciate',
     category_id: 2,
     category_name: 'Nabiał',
     category_icon: '🥛',
     prices: [
       { store_name: 'Biedronka', price: 3.49 },
-      { store_name: 'Żabka', price: 3.99 },
       { store_name: 'LIDL', price: 3.29 },
       { store_name: 'Carrefour', price: 3.59 },
-      { store_name: 'Netto', price: 3.39 },
-      { store_name: 'Tesco', price: 3.55 },
-      { store_name: 'Auchan', price: 3.49 },
-      { store_name: 'Dino', price: 3.45 },
-      { store_name: 'Stokrotka', price: 3.49 },
-      { store_name: 'Polomarket', price: 3.75 },
-      { store_name: 'Freshmarket', price: 3.85 },
-      { store_name: 'Lewiatan', price: 3.59 }
+      { store_name: 'Żabka', price: 3.89 }
     ]
   },
   {
-    id: 14,
-    name: 'Ser żółty Gouda plastry 150g',
-    description: 'Ser żółty Gouda plastry 150g',
-    brand: 'Hochland',
-    category_id: 2,
-    category_name: 'Nabiał',
-    category_icon: '🧀',
-    prices: [
-      { store_name: 'Biedronka', price: 4.99 },
-      { store_name: 'LIDL', price: 4.59, is_promotion: true, discount_percentage: 12 },
-      { store_name: 'Carrefour', price: 5.29 },
-      { store_name: 'Netto', price: 4.79 },
-      { store_name: 'Tesco', price: 5.05 },
-      { store_name: 'Auchan', price: 5.15 },
-      { store_name: 'Dino', price: 4.89 },
-      { store_name: 'Stokrotka', price: 4.99 },
-      { store_name: 'Polomarket', price: 5.35 },
-      { store_name: 'Freshmarket', price: 5.45 },
-      { store_name: 'Lewiatan', price: 5.29 },
-      { store_name: 'Spar', price: 5.19 }
-    ]
-  },
-  {
-    id: 15,
-    name: 'Jogurt naturalny',
-    description: 'Jogurt naturalny 500g',
+    id: 7,
+    name: 'Jogurt naturalny grecki',
+    description: 'Jogurt grecki 150g',
     brand: 'Danone',
     category_id: 2,
     category_name: 'Nabiał',
     category_icon: '🥛',
     prices: [
-      { store_name: 'Biedronka', price: 3.29 },
-      { store_name: 'LIDL', price: 2.99, is_promotion: true, discount_percentage: 20 },
-      { store_name: 'Rossmann', price: 3.49 },
-      { store_name: 'Netto', price: 3.19 },
-      { store_name: 'Tesco', price: 3.35 },
-      { store_name: 'Carrefour', price: 3.39 },
-      { store_name: 'Auchan', price: 3.29 },
-      { store_name: 'Dino', price: 3.25 },
-      { store_name: 'Stokrotka', price: 3.29 },
-      { store_name: 'Polomarket', price: 3.55 },
-      { store_name: 'Freshmarket', price: 3.65 },
-      { store_name: 'Lewiatan', price: 3.39 }
-    ]
-  },
-  {
-    id: 16,
-    name: 'Masło extra',
-    description: 'Masło słodkosmetankowe 200g',
-    brand: 'Łaciate',
-    category_id: 2,
-    category_name: 'Nabiał',
-    category_icon: '🧈',
-    prices: [
-      { store_name: 'Biedronka', price: 5.99 },
-      { store_name: 'LIDL', price: 5.49 },
-      { store_name: 'Carrefour', price: 6.29 },
-      { store_name: 'Auchan', price: 6.09 },
-      { store_name: 'Netto', price: 5.79 },
-      { store_name: 'Tesco', price: 6.05 },
-      { store_name: 'Dino', price: 5.89 },
-      { store_name: 'Stokrotka', price: 5.99 },
-      { store_name: 'Polomarket', price: 6.35 },
-      { store_name: 'Freshmarket', price: 6.45 },
-      { store_name: 'Lewiatan', price: 6.29 },
-      { store_name: 'Spar', price: 6.19 }
-    ]
-  },
-  {
-    id: 17,
-    name: 'Twaróg ziarnisty',
-    description: 'Twaróg ziarnisty 250g',
-    brand: 'Bakoma',
-    category_id: 2,
-    category_name: 'Nabiał',
-    category_icon: '🥛',
-    prices: [
-      { store_name: 'Biedronka', price: 3.79 },
-      { store_name: 'LIDL', price: 3.49 },
-      { store_name: 'Carrefour', price: 3.99 },
-      { store_name: 'Netto', price: 3.69 },
-      { store_name: 'Tesco', price: 3.85 },
-      { store_name: 'Auchan', price: 3.89 },
-      { store_name: 'Dino', price: 3.75 },
-      { store_name: 'Stokrotka', price: 3.79 },
-      { store_name: 'Polomarket', price: 4.05 },
-      { store_name: 'Freshmarket', price: 4.15 },
-      { store_name: 'Lewiatan', price: 3.99 },
-      { store_name: 'Spar', price: 3.89 }
-    ]
-  },
-  {
-    id: 18,
-    name: 'Śmietana 18%',
-    description: 'Śmietana do kawy 200ml',
-    brand: 'Łaciate',
-    category_id: 2,
-    category_name: 'Nabiał',
-    category_icon: '🥛',
-    prices: [
-      { store_name: 'Biedronka', price: 2.99 },
-      { store_name: 'LIDL', price: 2.79 },
-      { store_name: 'Żabka', price: 3.29 },
-      { store_name: 'Netto', price: 2.89 },
-      { store_name: 'Tesco', price: 3.05 },
-      { store_name: 'Carrefour', price: 3.09 },
-      { store_name: 'Auchan', price: 2.99 },
-      { store_name: 'Dino', price: 2.95 },
-      { store_name: 'Stokrotka', price: 2.99 },
-      { store_name: 'Polomarket', price: 3.25 },
-      { store_name: 'Freshmarket', price: 3.35 },
-      { store_name: 'Lewiatan', price: 3.09 }
+      { store_name: 'Biedronka', price: 2.29 },
+      { store_name: 'LIDL', price: 2.19 },
+      { store_name: 'Carrefour', price: 2.39 },
+      { store_name: 'Auchan', price: 2.35 }
     ]
   },
 
-  // ===== Mięso i ryby (Meat & Fish) - 25 products =====
+  // ===== MEAT & FISH =====
   {
-    id: 19,
-    name: 'Kurczak cały',
-    description: 'Kurczak świeży cały 1kg',
-    brand: 'Drob-Pol',
-    category_id: 3,
-    category_name: 'Mięso i ryby',
-    category_icon: '🍗',
-    prices: [
-      { store_name: 'Biedronka', price: 8.99 },
-      { store_name: 'LIDL', price: 7.99, is_promotion: true, discount_percentage: 20 },
-      { store_name: 'Auchan', price: 9.49 },
-      { store_name: 'Carrefour', price: 9.29 },
-      { store_name: 'Netto', price: 8.79 },
-      { store_name: 'Tesco', price: 9.15 },
-      { store_name: 'Dino', price: 8.89 },
-      { store_name: 'Stokrotka', price: 8.99 },
-      { store_name: 'Polomarket', price: 9.55 },
-      { store_name: 'Freshmarket', price: 9.65 },
-      { store_name: 'Lewiatan', price: 9.29 },
-      { store_name: 'Spar', price: 9.19 }
-    ]
-  },
-  {
-    id: 20,
-    name: 'Kiełbasa krakowska',
-    description: 'Kiełbasa krakowska sucha 200g',
-    brand: 'Sokołów',
-    category_id: 3,
-    category_name: 'Mięso i ryby',
-    category_icon: '🌭',
-    prices: [
-      { store_name: 'Biedronka', price: 6.99 },
-      { store_name: 'LIDL', price: 6.49 },
-      { store_name: 'Carrefour', price: 7.29 },
-      { store_name: 'Netto', price: 6.79 },
-      { store_name: 'Tesco', price: 7.05 },
-      { store_name: 'Auchan', price: 7.19 },
-      { store_name: 'Dino', price: 6.89 },
-      { store_name: 'Stokrotka', price: 6.99 },
-      { store_name: 'Polomarket', price: 7.35 },
-      { store_name: 'Freshmarket', price: 7.45 },
-      { store_name: 'Lewiatan', price: 7.29 },
-      { store_name: 'Spar', price: 7.19 }
-    ]
-  },
-  {
-    id: 21,
-    name: 'Łosoś filet',
-    description: 'Łosoś norweski filet 300g',
-    brand: 'Morpol',
-    category_id: 3,
-    category_name: 'Mięso i ryby',
-    category_icon: '🐟',
-    prices: [
-      { store_name: 'Biedronka', price: 18.99 },
-      { store_name: 'LIDL', price: 17.99 },
-      { store_name: 'Carrefour', price: 19.49 },
-      { store_name: 'Netto', price: 18.79 },
-      { store_name: 'Tesco', price: 19.15 },
-      { store_name: 'Auchan', price: 19.29 },
-      { store_name: 'Dino', price: 18.89 },
-      { store_name: 'Stokrotka', price: 18.99 },
-      { store_name: 'Polomarket', price: 19.65 },
-      { store_name: 'Freshmarket', price: 19.75 },
-      { store_name: 'Lewiatan', price: 19.49 },
-      { store_name: 'Spar', price: 19.39 }
-    ]
-  },
-  {
-    id: 22,
-    name: 'Mięso mielone wołowe',
-    description: 'Mięso mielone wołowe 500g',
-    brand: 'Sokołów',
+    id: 8,
+    name: 'Pierś z kurczaka',
+    description: 'Świeża pierś z kurczaka 1kg',
+    brand: 'Drób',
     category_id: 3,
     category_name: 'Mięso i ryby',
     category_icon: '🥩',
     prices: [
       { store_name: 'Biedronka', price: 12.99 },
-      { store_name: 'LIDL', price: 11.99, is_promotion: true, discount_percentage: 15 },
-      { store_name: 'Auchan', price: 13.49 },
-      { store_name: 'Netto', price: 12.79 },
-      { store_name: 'Tesco', price: 13.15 },
-      { store_name: 'Carrefour', price: 13.29 },
-      { store_name: 'Dino', price: 12.89 },
-      { store_name: 'Stokrotka', price: 12.99 },
-      { store_name: 'Polomarket', price: 13.55 },
-      { store_name: 'Freshmarket', price: 13.65 },
-      { store_name: 'Lewiatan', price: 13.29 },
-      { store_name: 'Spar', price: 13.19 }
+      { store_name: 'LIDL', price: 12.49 },
+      { store_name: 'Carrefour', price: 13.99 },
+      { store_name: 'Dino', price: 13.49 }
+    ]
+  },
+  {
+    id: 9,
+    name: 'Polędwica sopocka',
+    description: 'Tradycyjna polędwica sopocka 200g',
+    brand: 'Sokołów',
+    category_id: 3,
+    category_name: 'Mięso i ryby',
+    category_icon: '🥩',
+    prices: [
+      { store_name: 'Biedronka', price: 8.99 },
+      { store_name: 'Dino', price: 9.49 },
+      { store_name: 'Polo Market', price: 8.79 },
+      { store_name: 'Delikatesy Centrum', price: 10.99 }
     ]
   },
 
-  // ===== Warzywa (Vegetables) - Adding more variety =====
+  // ===== VEGETABLES =====
   {
-    id: 23,
-    name: 'Ziemniaki',
-    description: 'Ziemniaki białe 2kg',
-    brand: 'Lokalny Producent',
+    id: 10,
+    name: 'Ziemniaki młode',
+    description: 'Ziemniaki młode polskie 2kg',
+    brand: 'Polskie',
     category_id: 4,
     category_name: 'Warzywa',
-    category_icon: '🥔',
+    category_icon: '🥕',
     prices: [
-      { store_name: 'Biedronka', price: 3.99 },
-      { store_name: 'LIDL', price: 3.49, is_promotion: true, discount_percentage: 15 },
-      { store_name: 'Auchan', price: 4.19 },
-      { store_name: 'Netto', price: 3.79 },
-      { store_name: 'Tesco', price: 4.05 },
-      { store_name: 'Carrefour', price: 4.09 },
-      { store_name: 'Dino', price: 3.89 },
-      { store_name: 'Stokrotka', price: 3.99 },
-      { store_name: 'Polomarket', price: 4.25 },
-      { store_name: 'Freshmarket', price: 4.35 },
-      { store_name: 'Lewiatan', price: 4.09 },
-      { store_name: 'Spar', price: 3.99 }
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.79 },
+      { store_name: 'Carrefour', price: 5.29 },
+      { store_name: 'Auchan', price: 5.19 }
     ]
   },
+
+  // ===== BEVERAGES - Expanded with Polish favorites =====
   {
-    id: 24,
-    name: 'Ziemniaki młode',
-    description: 'Ziemniaki młode 1kg',
-    brand: 'Lokalny Producent',
-    category_id: 4,
-    category_name: 'Warzywa',
-    category_icon: '🥔',
+    id: 11,
+    name: 'Sok pomarańczowy',
+    description: 'Sok pomarańczowy 100% 1L',
+    brand: 'Tymbark',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
     prices: [
       { store_name: 'Biedronka', price: 4.99 },
       { store_name: 'LIDL', price: 4.69 },
-      { store_name: 'Carrefour', price: 5.19 },
-      { store_name: 'Netto', price: 4.89 },
-      { store_name: 'Tesco', price: 5.05 },
-      { store_name: 'Auchan', price: 5.09 },
-      { store_name: 'Dino', price: 4.95 },
-      { store_name: 'Stokrotka', price: 4.99 },
-      { store_name: 'Polomarket', price: 5.25 },
-      { store_name: 'Freshmarket', price: 5.35 },
-      { store_name: 'Lewiatan', price: 5.19 },
-      { store_name: 'Spar', price: 5.09 }
-    ]
-  },
-  // Continue with more products following this pattern...
-];
-
-// Enhanced product database with new categories
-const enhancedProducts = [
-  // ===== Existing food categories (1-13) =====
-  ...sampleProducts,
-  
-  // ===== Category 14: Furniture & Home (Meble i Dom) =====
-  {
-    id: 71,
-    name: 'Regał Billy',
-    description: 'Regał na książki 80x28x202 cm',
-    brand: 'IKEA',
-    category_id: 14,
-    category_name: 'Meble i Dom',
-    category_icon: '🏠',
-    prices: [
-      { store_name: 'IKEA', price: 89.00 },
-      { store_name: 'Jysk', price: 95.00 },
-      { store_name: 'Black Red White', price: 92.00 }
+      { store_name: 'Żabka', price: 5.49 },
+      { store_name: 'Orlen', price: 5.99 }
     ]
   },
   {
-    id: 72,
-    name: 'Fotel Poäng',
-    description: 'Fotel bujany z podłokietnikami',
-    brand: 'IKEA',
-    category_id: 14,
-    category_name: 'Meble i Dom',
-    category_icon: '🪑',
-    prices: [
-      { store_name: 'IKEA', price: 299.00 },
-      { store_name: 'Jysk', price: 320.00 },
-      { store_name: 'Black Red White', price: 310.00 }
-    ]
-  },
-  {
-    id: 73,
-    name: 'Szafa Malm',
-    description: 'Szafa 3-drzwiowa 150x201 cm',
-    brand: 'IKEA',
-    category_id: 14,
-    category_name: 'Meble i Dom',
-    category_icon: '🚪',
-    prices: [
-      { store_name: 'IKEA', price: 449.00 },
-      { store_name: 'Black Red White', price: 480.00 },
-      { store_name: 'Jysk', price: 465.00 }
-    ]
-  },
-  {
-    id: 74,
-    name: 'Stolik Lack',
-    description: 'Stolik kawowy 90x55 cm',
-    brand: 'IKEA',
-    category_id: 14,
-    category_name: 'Meble i Dom',
-    category_icon: '🪑',
-    prices: [
-      { store_name: 'IKEA', price: 49.00 },
-      { store_name: 'Jysk', price: 55.00 },
-      { store_name: 'Black Red White', price: 52.00 }
-    ]
-  },
-  {
-    id: 75,
-    name: 'Wiertarka',
-    description: 'Wiertarka udarowa 18V',
-    brand: 'Bosch',
-    category_id: 14,
-    category_name: 'Meble i Dom',
-    category_icon: '🔨',
-    prices: [
-      { store_name: 'Leroy Merlin', price: 299.00 },
-      { store_name: 'Castorama', price: 310.00 },
-      { store_name: 'OBI', price: 305.00 }
-    ]
-  },
-
-  // ===== Category 15: Electronics (Elektronika) =====
-  {
-    id: 76,
-    name: 'Smartphone Galaxy',
-    description: 'Samsung Galaxy A54 128GB',
-    brand: 'Samsung',
-    category_id: 15,
-    category_name: 'Elektronika',
-    category_icon: '📱',
-    prices: [
-      { store_name: 'Media Markt', price: 1299.00 },
-      { store_name: 'RTV Euro AGD', price: 1320.00 },
-      { store_name: 'Neo24', price: 1310.00 }
-    ]
-  },
-  {
-    id: 77,
-    name: 'Laptop',
-    description: 'Laptop Lenovo IdeaPad 15.6"',
-    brand: 'Lenovo',
-    category_id: 15,
-    category_name: 'Elektronika',
-    category_icon: '💻',
-    prices: [
-      { store_name: 'Media Markt', price: 2199.00 },
-      { store_name: 'Saturn', price: 2250.00 },
-      { store_name: 'RTV Euro AGD', price: 2220.00 }
-    ]
-  },
-
-  // ===== Category 16: Clothing (Odzież) =====
-  {
-    id: 78,
-    name: 'T-shirt bawełniany',
-    description: 'T-shirt męski 100% bawełna',
-    brand: 'H&M',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👕',
-    prices: [
-      { store_name: 'H&M', price: 29.99 },
-      { store_name: 'Reserved', price: 35.99 },
-      { store_name: 'Pepco', price: 19.99 }
-    ]
-  },
-  {
-    id: 79,
-    name: 'Buty sportowe',
-    description: 'Buty do biegania męskie',
-    brand: 'Nike',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👟',
-    prices: [
-      { store_name: 'CCC', price: 299.00 },
-      { store_name: 'Deichmann', price: 320.00 },
-      { store_name: 'Decathlon', price: 280.00 }
-    ]
-  },
-
-  // ===== Category 17: Books (Książki) =====
-  {
-    id: 80,
-    name: 'Książka bestseller',
-    description: 'Bestseller roku - powieść',
-    brand: 'Wydawnictwo',
-    category_id: 17,
-    category_name: 'Książki',
-    category_icon: '📚',
-    prices: [
-      { store_name: 'Empik', price: 39.99 },
-      { store_name: 'Matras', price: 42.99 }
-    ]
-  },
-
-  // ===== Category 18: Sports (Sport) =====
-  {
-    id: 81,
-    name: 'Piłka nożna',
-    description: 'Piłka nożna rozmiar 5',
-    brand: 'Adidas',
-    category_id: 18,
-    category_name: 'Sport',
-    category_icon: '⚽',
-    prices: [
-      { store_name: 'Decathlon', price: 89.99 },
-      { store_name: 'Go Sport', price: 95.99 }
-    ]
-  },
-
-  // ===== Category 19: Petrol & Car (Paliwo i Samochód) =====
-  {
-    id: 82,
-    name: 'Benzyna 95',
-    description: 'Benzyna bezołowiowa 95 - 1L',
-    brand: 'Shell',
-    category_id: 19,
-    category_name: 'Paliwo i Samochód',
-    category_icon: '⛽',
-    prices: [
-      { store_name: 'Shell', price: 6.29 },
-      { store_name: 'BP', price: 6.25 },
-      { store_name: 'Orlen', price: 6.19, is_promotion: true, discount_percentage: 5 }
-    ]
-  },
-  {
-    id: 83,
-    name: 'Diesel',
-    description: 'Olej napędowy - 1L',
-    brand: 'BP',
-    category_id: 19,
-    category_name: 'Paliwo i Samochód',
-    category_icon: '⛽',
-    prices: [
-      { store_name: 'BP', price: 6.09 },
-      { store_name: 'Shell', price: 6.15 },
-      { store_name: 'Orlen', price: 5.99, is_promotion: true, discount_percentage: 3 }
-    ]
-  },
-  {
-    id: 84,
-    name: 'Motor yağı 5W-30',
-    description: 'Syntetik motor yağı 4L',
-    brand: 'Castrol',
-    category_id: 19,
-    category_name: 'Paliwo i Samochód',
-    category_icon: '🛢️',
-    prices: [
-      { store_name: 'Orlen', price: 179.99 },
-      { store_name: 'Shell', price: 189.99 },
-      { store_name: 'BP', price: 185.99 }
-    ]
-  },
-  {
-    id: 85,
-    name: 'Araba kokusu',
-    description: 'Zapach samochodowy wanilia',
-    brand: 'Little Trees',
-    category_id: 19,
-    category_name: 'Paliwo i Samochód',
-    category_icon: '🌲',
-    prices: [
-      { store_name: 'Orlen', price: 12.99 },
-      { store_name: 'Shell', price: 14.99 },
-      { store_name: 'BP', price: 13.99 },
-      { store_name: 'Żabka', price: 15.99 }
-    ]
-  },
-  {
-    id: 86,
-    name: 'Cam suyu',
-    description: 'Płyn do spryskiwaczy -20°C 2L',
-    brand: 'K2',
-    category_id: 19,
-    category_name: 'Paliwo i Samochód',
-    category_icon: '💧',
-    prices: [
-      { store_name: 'Orlen', price: 8.99 },
-      { store_name: 'Shell', price: 9.99 },
-      { store_name: 'BP', price: 9.49 }
-    ]
-  },
-
-  // ===== Energy Drinks for Petrol Stations & Supermarkets =====
-  {
-    id: 87,
-    name: 'Red Bull',
+    id: 12,
+    name: 'Red Bull Energy',
     description: 'Napój energetyczny 250ml',
     brand: 'Red Bull',
     category_id: 6,
     category_name: 'Napoje',
     category_icon: '🥤',
     prices: [
-      { store_name: 'Shell', price: 6.99 },
-      { store_name: 'BP', price: 6.89 },
-      { store_name: 'Orlen', price: 6.79 },
+      { store_name: 'Orlen', price: 6.99 },
+      { store_name: 'Circle K', price: 7.29 },
+      { store_name: 'Shell', price: 6.89 },
       { store_name: 'Żabka', price: 7.49 },
-      { store_name: 'Biedronka', price: 5.99, is_promotion: true, discount_percentage: 20 },
-      { store_name: 'LIDL', price: 6.29 },
-      { store_name: 'Carrefour', price: 6.99 },
-      { store_name: 'Netto', price: 6.49 }
-    ]
-  },
-  {
-    id: 88,
-    name: 'Monster Energy',
-    description: 'Napój energetyczny 500ml',
-    brand: 'Monster',
-    category_id: 6,
-    category_name: 'Napoje',
-    category_icon: '🥤',
-    prices: [
-      { store_name: 'Shell', price: 8.99 },
-      { store_name: 'BP', price: 8.79 },
-      { store_name: 'Orlen', price: 8.49 },
-      { store_name: 'Żabka', price: 9.49 },
-      { store_name: 'Biedronka', price: 7.99 },
-      { store_name: 'LIDL', price: 8.29 },
-      { store_name: 'Tesco', price: 8.99 }
+      { store_name: 'Media Markt', price: 6.59 }
     ]
   },
 
-  // ===== More Sports Equipment for Decathlon =====
+  // ===== IKEA FOOD PRODUCTS =====
   {
-    id: 89,
-    name: 'Kamp çadırı',
-    description: 'Namiot turystyczny 3-osobowy',
-    brand: 'Quechua',
-    category_id: 18,
-    category_name: 'Sport',
-    category_icon: '🏕️',
+    id: 13,
+    name: 'Köttbullar',
+    description: 'Szwedzkie klopsiki 500g',
+    brand: 'IKEA',
+    category_id: 9,
+    category_name: 'Mrożonki',
+    category_icon: '🧊',
     prices: [
-      { store_name: 'Decathlon', price: 299.99 },
-      { store_name: 'Go Sport', price: 320.00 }
+      { store_name: 'IKEA', price: 12.99 }
     ]
   },
   {
-    id: 90,
-    name: 'Uyku tulumu',
-    description: 'Śpiwór turystyczny -5°C',
-    brand: 'Forclaz',
-    category_id: 18,
-    category_name: 'Sport',
-    category_icon: '🛏️',
+    id: 14,
+    name: 'Knäckebröd',
+    description: 'Szwedzkie pieczywo chrupkie 200g',
+    brand: 'IKEA',
+    category_id: 1,
+    category_name: 'Pieczywo',
+    category_icon: '🍞',
     prices: [
-      { store_name: 'Decathlon', price: 159.99 },
-      { store_name: 'Go Sport', price: 179.99 }
+      { store_name: 'IKEA', price: 8.99 }
     ]
   },
   {
-    id: 91,
-    name: 'Güneş gözlüğü',
-    description: 'Okulary przeciwsłoneczne UV400',
-    brand: 'Solognac',
-    category_id: 18,
-    category_name: 'Sport',
-    category_icon: '🕶️',
+    id: 15,
+    name: 'Sylt lingon',
+    description: 'Dżem z żurawiny 425g',
+    brand: 'IKEA',
+    category_id: 7,
+    category_name: 'Słodycze',
+    category_icon: '🍭',
     prices: [
-      { store_name: 'Decathlon', price: 49.99 },
-      { store_name: 'Go Sport', price: 59.99 },
-      { store_name: 'Reserved', price: 79.99 },
-      { store_name: 'H&M', price: 39.99 }
-    ]
-  },
-  {
-    id: 92,
-    name: 'Spor ayakkabısı',
-    description: 'Buty do biegania męskie',
-    brand: 'Kalenji',
-    category_id: 18,
-    category_name: 'Sport',
-    category_icon: '👟',
-    prices: [
-      { store_name: 'Decathlon', price: 129.99, is_promotion: true, discount_percentage: 25 },
-      { store_name: 'Go Sport', price: 149.99 },
-      { store_name: 'CCC', price: 139.99 },
-      { store_name: 'Deichmann', price: 144.99 }
+      { store_name: 'IKEA', price: 7.99 }
     ]
   },
 
-  // ===== Shoe Store Products =====
+  // ===== PETROL STATION EXCLUSIVE PRODUCTS =====
   {
-    id: 93,
-    name: 'Casual ayakkabı',
-    description: 'Buty casual męskie skórzane',
-    brand: 'CCC',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👞',
+    id: 16,
+    name: 'Hot-dog',
+    description: 'Gotowy hot-dog z kiełbasą',
+    brand: 'Orlen Stop',
+    category_id: 29,
+    category_name: 'Convenience',
+    category_icon: '🏪',
     prices: [
-      { store_name: 'CCC', price: 199.99 },
-      { store_name: 'Deichmann', price: 219.99 }
+      { store_name: 'Orlen', price: 6.99 },
+      { store_name: 'Circle K', price: 7.49 },
+      { store_name: 'Shell', price: 6.79 }
     ]
   },
   {
-    id: 94,
-    name: 'Kadın topuklu',
-    description: 'Szpilki damskie 8cm',
-    brand: 'Deichmann',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👠',
+    id: 17,
+    name: 'Olej silnikowy 5W-30',
+    description: 'Syntetyczny olej silnikowy 4L',
+    brand: 'Castrol',
+    category_id: 19,
+    category_name: 'Paliwo i Samochód',
+    category_icon: '🛢️',
     prices: [
-      { store_name: 'Deichmann', price: 149.99 },
-      { store_name: 'CCC', price: 159.99 }
-    ]
-  },
-  {
-    id: 95,
-    name: 'Çocuk ayakkabısı',
-    description: 'Buty dziecięce kolorowe',
-    brand: 'CCC',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👟',
-    prices: [
-      { store_name: 'CCC', price: 89.99 },
-      { store_name: 'Deichmann', price: 94.99 },
-      { store_name: 'Decathlon', price: 79.99 }
+      { store_name: 'Orlen', price: 89.99 },
+      { store_name: 'BP', price: 92.99 },
+      { store_name: 'Shell', price: 91.99 },
+      { store_name: 'Circle K', price: 88.99 }
     ]
   },
 
-  // ===== Clothing Store Products =====
+  // ===== ELECTRONICS =====
   {
-    id: 96,
-    name: 'Erkek gömlek',
-    description: 'Koszula męska biznesowa',
-    brand: 'Reserved',
+    id: 18,
+    name: 'Powerbank 10000mAh',
+    description: 'Przenośna ładowarka 10000mAh',
+    brand: 'Xiaomi',
     category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👔',
-    prices: [
-      { store_name: 'Reserved', price: 89.99 },
-      { store_name: 'H&M', price: 69.99, is_promotion: true, discount_percentage: 30 }
-    ]
-  },
-  {
-    id: 97,
-    name: 'Kadın elbise',
-    description: 'Sukienka damska letnia',
-    brand: 'H&M',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👗',
-    prices: [
-      { store_name: 'H&M', price: 79.99 },
-      { store_name: 'Reserved', price: 99.99 },
-      { store_name: 'Pepco', price: 49.99 }
-    ]
-  },
-  {
-    id: 98,
-    name: 'Çocuk tişört',
-    description: 'T-shirt dziecięcy bawełniany',
-    brand: 'Pepco',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👕',
-    prices: [
-      { store_name: 'Pepco', price: 14.99 },
-      { store_name: 'H&M', price: 19.99 },
-      { store_name: 'Reserved', price: 24.99 }
-    ]
-  },
-  {
-    id: 99,
-    name: 'Kot pantolon',
-    description: 'Spodnie jeansowe męskie',
-    brand: 'Reserved',
-    category_id: 16,
-    category_name: 'Odzież',
-    category_icon: '👖',
-    prices: [
-      { store_name: 'Reserved', price: 129.99 },
-      { store_name: 'H&M', price: 99.99 },
-      { store_name: 'Pepco', price: 79.99 }
-    ]
-  },
-
-  // ===== Electronics Store Products =====
-  {
-    id: 100,
-    name: 'iPhone 15',
-    description: 'Apple iPhone 15 128GB',
-    brand: 'Apple',
-    category_id: 15,
     category_name: 'Elektronika',
     category_icon: '📱',
     prices: [
-      { store_name: 'Media Markt', price: 3799.00 },
-      { store_name: 'RTV Euro AGD', price: 3829.00 },
-      { store_name: 'Neo24', price: 3789.00, is_promotion: true, discount_percentage: 2 }
+      { store_name: 'Media Markt', price: 79.99 },
+      { store_name: 'RTV Euro AGD', price: 82.99 },
+      { store_name: 'Saturn', price: 77.99 },
+      { store_name: 'Neonet', price: 81.49 },
+      { store_name: 'Empik', price: 89.99 }
     ]
   },
   {
-    id: 101,
-    name: 'PlayStation 5',
-    description: 'Konsola Sony PS5 825GB',
-    brand: 'Sony',
-    category_id: 15,
+    id: 19,
+    name: 'Słuchawki Bluetooth',
+    description: 'Bezprzewodowe słuchawki douszne',
+    brand: 'JBL',
+    category_id: 16,
     category_name: 'Elektronika',
-    category_icon: '🎮',
+    category_icon: '📱',
     prices: [
-      { store_name: 'Media Markt', price: 2299.00 },
-      { store_name: 'Saturn', price: 2349.00 },
-      { store_name: 'RTV Euro AGD', price: 2279.00 },
-      { store_name: 'Empik', price: 2329.00 }
-    ]
-  },
-  {
-    id: 102,
-    name: 'Çamaşır makinesi',
-    description: 'Pralka automatyczna 8kg A+++',
-    brand: 'Samsung',
-    category_id: 15,
-    category_name: 'Elektronika',
-    category_icon: '🌀',
-    prices: [
-      { store_name: 'Media Markt', price: 1899.00 },
-      { store_name: 'RTV Euro AGD', price: 1849.00, is_promotion: true, discount_percentage: 10 },
-      { store_name: 'Saturn', price: 1929.00 }
-    ]
-  },
-  {
-    id: 103,
-    name: 'Klima',
-    description: 'Klimatyzator split 3.5kW',
-    brand: 'LG',
-    category_id: 15,
-    category_name: 'Elektronika',
-    category_icon: '❄️',
-    prices: [
-      { store_name: 'Media Markt', price: 2199.00 },
-      { store_name: 'RTV Euro AGD', price: 2149.00 },
-      { store_name: 'Saturn', price: 2249.00 }
-    ]
-  },
-  {
-    id: 104,
-    name: 'Xbox Series X',
-    description: 'Konsola Microsoft Xbox Series X 1TB',
-    brand: 'Microsoft',
-    category_id: 15,
-    category_name: 'Elektronika',
-    category_icon: '🎮',
-    prices: [
-      { store_name: 'Media Markt', price: 2199.00 },
-      { store_name: 'Saturn', price: 2229.00 },
-      { store_name: 'RTV Euro AGD', price: 2179.00 },
-      { store_name: 'Empik', price: 2219.00 }
+      { store_name: 'Media Markt', price: 299.99 },
+      { store_name: 'Saturn', price: 289.99 },
+      { store_name: 'RTV Euro AGD', price: 309.99 },
+      { store_name: 'Neo24', price: 295.99 }
     ]
   },
 
-  // ===== Bookstore Products =====
+  // ===== DRUGSTORE PRODUCTS =====
   {
-    id: 105,
-    name: 'Witcher kitabı',
-    description: 'Wiedźmin - Ostatnie życzenie',
-    brand: 'SuperNowa',
-    category_id: 17,
+    id: 20,
+    name: 'Krem do twarzy Nivea',
+    description: 'Krem nawilżający do twarzy 50ml',
+    brand: 'Nivea',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 12.99 },
+      { store_name: 'Hebe', price: 14.99 },
+      { store_name: 'Super-Pharm', price: 13.49 },
+      { store_name: 'Doz.pl', price: 12.79 }
+    ]
+  },
+  {
+    id: 21,
+    name: 'Żel pod prysznic',
+    description: 'Żel pod prysznic 500ml',
+    brand: 'Fa',
+    category_id: 12,
+    category_name: 'Higiena',
+    category_icon: '🧼',
+    prices: [
+      { store_name: 'Rossmann', price: 7.99 },
+      { store_name: 'Biedronka', price: 8.49 },
+      { store_name: 'LIDL', price: 7.79 },
+      { store_name: 'Hebe', price: 9.99 }
+    ]
+  },
+
+  // ===== ALCOHOL =====
+  {
+    id: 22,
+    name: 'Piwo Tyskie',
+    description: 'Piwo jasne pełne 500ml',
+    brand: 'Tyskie',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Biedronka', price: 3.29 },
+      { store_name: 'LIDL', price: 3.19 },
+      { store_name: 'Żabka', price: 3.79 },
+      { store_name: 'Carrefour', price: 3.39 },
+      { store_name: 'Auchan', price: 3.35 }
+    ]
+  },
+  {
+    id: 23,
+    name: 'Wódka Żubrówka',
+    description: 'Wódka trawiasta 500ml',
+    brand: 'Żubrówka',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Carrefour', price: 32.99 },
+      { store_name: 'Auchan', price: 31.99 },
+      { store_name: 'Tesco', price: 33.49 },
+      { store_name: 'Delikatesy Centrum', price: 34.99 }
+    ]
+  },
+
+  // ===== ETHNIC FOODS =====
+  // Turkish
+  {
+    id: 24,
+    name: 'Beyaz peynir',
+    description: 'Biały ser turecki 200g',
+    brand: 'Pınar',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Turecki', price: 12.99 }
+    ]
+  },
+  {
+    id: 25,
+    name: 'Pul biber',
+    description: 'Turecka papryka płatkowa 50g',
+    brand: 'Şekeroğlu',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Turecki', price: 8.99 }
+    ]
+  },
+  // Vietnamese
+  {
+    id: 26,
+    name: 'Makaron Pho',
+    description: 'Makaron ryżowy do Pho 400g',
+    brand: 'Three Ladies',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Vietnam Market', price: 9.99 }
+    ]
+  },
+  // Ukrainian
+  {
+    id: 27,
+    name: 'Salo ukraińskie',
+    description: 'Tradycyjne salo węgierskie 300g',
+    brand: 'Tradycyjne',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Ukraiński Market', price: 15.99 }
+    ]
+  },
+
+  // ===== SPORTS & FITNESS =====
+  {
+    id: 28,
+    name: 'Protein bar',
+    description: 'Baton proteinowy czekoladowy 60g',
+    brand: 'Domyos',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 4.99 },
+      { store_name: 'Go Sport', price: 5.49 }
+    ]
+  },
+
+  // ===== HOME IMPROVEMENT =====
+  {
+    id: 29,
+    name: 'Farba lateksowa',
+    description: 'Farba ścienna biała 5L',
+    brand: 'Śnieżka',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 89.99 },
+      { store_name: 'Castorama', price: 92.99 },
+      { store_name: 'OBI', price: 87.99 },
+      { store_name: 'PSB Mrówka', price: 85.99 }
+    ]
+  },
+
+  // ===== PET PRODUCTS =====
+  {
+    id: 30,
+    name: 'Brit Premium dla psów',
+    description: 'Karma sucha dla psów 15kg',
+    brand: 'Brit',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 129.99 },
+      { store_name: 'Kakadu', price: 134.99 },
+      { store_name: 'PetSmile', price: 127.99 },
+      { store_name: 'Zooplus.pl', price: 124.99 }
+    ]
+  },
+
+  // ===== BOOKS & STATIONERY =====
+  {
+    id: 31,
+    name: 'Notatnik A5',
+    description: 'Notatnik w linie 200 stron',
+    brand: 'Oxford',
+    category_id: 18,
     category_name: 'Książki',
     category_icon: '📚',
     prices: [
-      { store_name: 'Empik', price: 34.99 },
-      { store_name: 'Matras', price: 32.99, is_promotion: true, discount_percentage: 15 }
-    ]
-  },
-  {
-    id: 106,
-    name: 'Masa oyunu Monopoly',
-    description: 'Monopoly Classic wersja polska',
-    brand: 'Hasbro',
-    category_id: 17,
-    category_name: 'Książki',
-    category_icon: '🎲',
-    prices: [
-      { store_name: 'Empik', price: 129.99 },
-      { store_name: 'Matras', price: 124.99 }
-    ]
-  },
-  {
-    id: 107,
-    name: 'Nintendo Switch',
-    description: 'Konsola Nintendo Switch OLED',
-    brand: 'Nintendo',
-    category_id: 17,
-    category_name: 'Książki',
-    category_icon: '🎮',
-    prices: [
-      { store_name: 'Empik', price: 1599.00 },
-      { store_name: 'Media Markt', price: 1649.00 },
-      { store_name: 'RTV Euro AGD', price: 1579.00, is_promotion: true, discount_percentage: 5 }
-    ]
-  },
-  {
-    id: 108,
-    name: 'Scrabble',
-    description: 'Gra słowna Scrabble po polsku',
-    brand: 'Mattel',
-    category_id: 17,
-    category_name: 'Książki',
-    category_icon: '🔤',
-    prices: [
-      { store_name: 'Empik', price: 89.99 },
-      { store_name: 'Matras', price: 84.99 }
+      { store_name: 'Empik', price: 19.99 },
+      { store_name: 'Matras', price: 17.99 },
+      { store_name: 'Świat Książki', price: 18.49 }
     ]
   },
 
-  // ===== Bread for Petrol Stations =====
+  // ===== FURNITURE =====
   {
-    id: 109,
-    name: 'Sandviç ekmeği',
-    description: 'Chleb tostowy świeży 500g',
+    id: 32,
+    name: 'Świeca zapachowa',
+    description: 'Świeca sojowa waniliowa 200g',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 12.99 },
+      { store_name: 'Jysk', price: 14.99 },
+      { store_name: 'Agata', price: 16.99 }
+    ]
+  },
+
+  // ===== ALTERNATIVE STORES =====
+  {
+    id: 33,
+    name: 'Mini lampka LED',
+    description: 'Lampka biurkowa LED z USB',
+    brand: 'Flying Tiger',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Flying Tiger', price: 25.99 },
+      { store_name: 'Action', price: 19.99 },
+      { store_name: 'TEDi', price: 22.99 }
+    ]
+  },
+
+  // ===== PREMIUM PRODUCTS =====
+  {
+    id: 34,
+    name: 'Oliwa extra virgin',
+    description: 'Oliwa z oliwek extra virgin 500ml',
+    brand: 'Monini',
+    category_id: 28,
+    category_name: 'Premium',
+    category_icon: '💎',
+    prices: [
+      { store_name: 'Delikatesy Centrum', price: 24.99 },
+      { store_name: 'Frisco.pl', price: 22.99 },
+      { store_name: 'Carrefour', price: 26.99 }
+    ]
+  },
+
+  // ===== FROZEN FOODS =====
+  {
+    id: 35,
+    name: 'Pizza mrożona',
+    description: 'Pizza Margherita mrożona 320g',
+    brand: 'Dr. Oetker',
+    category_id: 9,
+    category_name: 'Mrożonki',
+    category_icon: '🧊',
+    prices: [
+      { store_name: 'Biedronka', price: 7.99 },
+      { store_name: 'LIDL', price: 7.49 },
+      { store_name: 'Carrefour', price: 8.49 },
+      { store_name: 'Auchan', price: 8.19 }
+    ]
+  },
+
+  // ===== ORGANIC PRODUCTS =====
+  {
+    id: 36,
+    name: 'Mleko owsiane BIO',
+    description: 'Napój owsiany ekologiczny 1L',
+    brand: 'Alpro',
+    category_id: 10,
+    category_name: 'Bio/Organiczne',
+    category_icon: '🌱',
+    prices: [
+      { store_name: 'LIDL', price: 4.99 },
+      { store_name: 'Carrefour', price: 5.49 },
+      { store_name: 'Frisco.pl', price: 4.79 },
+      { store_name: 'Aldi', price: 4.69 }
+    ]
+  },
+
+  // ===== ADDITIONAL BREAD PRODUCTS =====
+  {
+    id: 37,
+    name: 'Chleb graham',
+    description: 'Chleb graham pełnoziarnisty 400g',
     brand: 'Putka',
     category_id: 1,
     category_name: 'Pieczywo',
     category_icon: '🍞',
     prices: [
-      { store_name: 'Shell', price: 4.49 },
-      { store_name: 'BP', price: 4.39 },
-      { store_name: 'Orlen', price: 4.29 },
-      { store_name: 'Żabka', price: 4.99 },
-      { store_name: 'Biedronka', price: 3.79 },
-      { store_name: 'LIDL', price: 3.59 }
+      { store_name: 'Biedronka', price: 3.49 },
+      { store_name: 'LIDL', price: 3.29 },
+      { store_name: 'Carrefour', price: 3.79 }
+    ]
+  },
+  {
+    id: 38,
+    name: 'Bułka hamburgerowa',
+    description: 'Bułka do hamburgerów 4 sztuki',
+    brand: 'Putka',
+    category_id: 1,
+    category_name: 'Pieczywo',
+    category_icon: '🍞',
+    prices: [
+      { store_name: 'Biedronka', price: 2.99 },
+      { store_name: 'LIDL', price: 2.79 },
+      { store_name: 'Żabka', price: 3.49 }
+    ]
+  },
+  {
+    id: 39,
+    name: 'Chleb tostowy',
+    description: 'Chleb tostowy biały 500g',
+    brand: 'Putka',
+    category_id: 1,
+    category_name: 'Pieczywo',
+    category_icon: '🍞',
+    prices: [
+      { store_name: 'Biedronka', price: 2.49 },
+      { store_name: 'LIDL', price: 2.29 },
+      { store_name: 'Carrefour', price: 2.69 }
+    ]
+  },
+  {
+    id: 40,
+    name: 'Rogalik',
+    description: 'Rogalik maślany 6 sztuk',
+    brand: 'Putka',
+    category_id: 1,
+    category_name: 'Pieczywo',
+    category_icon: '🍞',
+    prices: [
+      { store_name: 'Biedronka', price: 3.99 },
+      { store_name: 'LIDL', price: 3.69 },
+      { store_name: 'Żabka', price: 4.49 }
+    ]
+  },
+
+  // ===== ADDITIONAL DAIRY PRODUCTS =====
+  {
+    id: 41,
+    name: 'Ser żółty gouda',
+    description: 'Ser gouda plastry 150g',
+    brand: 'Hochland',
+    category_id: 2,
+    category_name: 'Nabiał',
+    category_icon: '🥛',
+    prices: [
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.79 },
+      { store_name: 'Carrefour', price: 5.29 }
+    ]
+  },
+  {
+    id: 42,
+    name: 'Twaróg półtłusty',
+    description: 'Twaróg półtłusty 250g',
+    brand: 'Piątnica',
+    category_id: 2,
+    category_name: 'Nabiał',
+    category_icon: '🥛',
+    prices: [
+      { store_name: 'Biedronka', price: 3.49 },
+      { store_name: 'LIDL', price: 3.29 },
+      { store_name: 'Dino', price: 3.59 }
+    ]
+  },
+  {
+    id: 43,
+    name: 'Masło',
+    description: 'Masło ekstra 200g',
+    brand: 'Łaciate',
+    category_id: 2,
+    category_name: 'Nabiał',
+    category_icon: '🥛',
+    prices: [
+      { store_name: 'Biedronka', price: 5.99 },
+      { store_name: 'LIDL', price: 5.79 },
+      { store_name: 'Carrefour', price: 6.29 }
+    ]
+  },
+  {
+    id: 44,
+    name: 'Kefir',
+    description: 'Kefir naturalny 400ml',
+    brand: 'Bakoma',
+    category_id: 2,
+    category_name: 'Nabiał',
+    category_icon: '🥛',
+    prices: [
+      { store_name: 'Biedronka', price: 2.99 },
+      { store_name: 'LIDL', price: 2.79 },
+      { store_name: 'Żabka', price: 3.29 }
+    ]
+  },
+
+  // ===== MEAT PRODUCTS =====
+  {
+    id: 45,
+    name: 'Kiełbasa krakowska',
+    description: 'Kiełbasa krakowska sucha 200g',
+    brand: 'Sokołów',
+    category_id: 3,
+    category_name: 'Mięso i ryby',
+    category_icon: '🥩',
+    prices: [
+      { store_name: 'Biedronka', price: 7.99 },
+      { store_name: 'Dino', price: 8.49 },
+      { store_name: 'Carrefour', price: 8.99 }
+    ]
+  },
+  {
+    id: 46,
+    name: 'Łosoś wędzony',
+    description: 'Łosoś wędzony plastry 100g',
+    brand: 'Graal',
+    category_id: 3,
+    category_name: 'Mięso i ryby',
+    category_icon: '🥩',
+    prices: [
+      { store_name: 'Carrefour', price: 12.99 },
+      { store_name: 'Auchan', price: 12.49 },
+      { store_name: 'Delikatesy Centrum', price: 14.99 }
+    ]
+  },
+  {
+    id: 47,
+    name: 'Schab wieprzowy',
+    description: 'Schab wieprzowy bez kości 1kg',
+    brand: 'Świeże',
+    category_id: 3,
+    category_name: 'Mięso i ryby',
+    category_icon: '🥩',
+    prices: [
+      { store_name: 'Biedronka', price: 15.99 },
+      { store_name: 'LIDL', price: 15.49 },
+      { store_name: 'Dino', price: 16.49 }
+    ]
+  },
+
+  // ===== VEGETABLES =====
+  {
+    id: 48,
+    name: 'Pomidory',
+    description: 'Pomidory świeże 1kg',
+    brand: 'Polskie',
+    category_id: 4,
+    category_name: 'Warzywa',
+    category_icon: '🥕',
+    prices: [
+      { store_name: 'Biedronka', price: 5.99 },
+      { store_name: 'LIDL', price: 5.79 },
+      { store_name: 'Carrefour', price: 6.29 }
+    ]
+  },
+  {
+    id: 49,
+    name: 'Cebula',
+    description: 'Cebula żółta 2kg',
+    brand: 'Polskie',
+    category_id: 4,
+    category_name: 'Warzywa',
+    category_icon: '🥕',
+    prices: [
+      { store_name: 'Biedronka', price: 3.99 },
+      { store_name: 'LIDL', price: 3.79 },
+      { store_name: 'Dino', price: 4.19 }
+    ]
+  },
+  {
+    id: 50,
+    name: 'Marchew',
+    description: 'Marchew świeża 1kg',
+    brand: 'Polskie',
+    category_id: 4,
+    category_name: 'Warzywa',
+    category_icon: '🥕',
+    prices: [
+      { store_name: 'Biedronka', price: 2.99 },
+      { store_name: 'LIDL', price: 2.79 },
+      { store_name: 'Carrefour', price: 3.19 }
+    ]
+  },
+
+  // ===== FRUITS =====
+  {
+    id: 51,
+    name: 'Jabłka',
+    description: 'Jabłka polskie 2kg',
+    brand: 'Polskie',
+    category_id: 5,
+    category_name: 'Owoce',
+    category_icon: '🍎',
+    prices: [
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.79 },
+      { store_name: 'Carrefour', price: 5.29 }
+    ]
+  },
+  {
+    id: 52,
+    name: 'Pomarańcze',
+    description: 'Pomarańcze świeże 2kg',
+    brand: 'Importowane',
+    category_id: 5,
+    category_name: 'Owoce',
+    category_icon: '🍎',
+    prices: [
+      { store_name: 'Biedronka', price: 7.99 },
+      { store_name: 'LIDL', price: 7.69 },
+      { store_name: 'Carrefour', price: 8.49 }
+    ]
+  },
+  {
+    id: 53,
+    name: 'Banany',
+    description: 'Banany świeże 1kg',
+    brand: 'Chiquita',
+    category_id: 5,
+    category_name: 'Owoce',
+    category_icon: '🍎',
+    prices: [
+      { store_name: 'Biedronka', price: 3.99 },
+      { store_name: 'LIDL', price: 3.79 },
+      { store_name: 'Żabka', price: 4.49 }
+    ]
+  },
+
+  // ===== BEVERAGES =====
+  {
+    id: 54,
+    name: 'Woda mineralna',
+    description: 'Woda mineralna niegazowana 1.5L',
+    brand: 'Żywiec Zdrój',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
+    prices: [
+      { store_name: 'Biedronka', price: 1.99 },
+      { store_name: 'LIDL', price: 1.89 },
+      { store_name: 'Żabka', price: 2.49 }
+    ]
+  },
+  {
+    id: 55,
+    name: 'Coca Cola',
+    description: 'Coca Cola 2L',
+    brand: 'Coca Cola',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
+    prices: [
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.79 },
+      { store_name: 'Żabka', price: 5.49 }
+    ]
+  },
+  {
+    id: 56,
+    name: 'Kawa mielona',
+    description: 'Kawa mielona 500g',
+    brand: 'Jacobs',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
+    prices: [
+      { store_name: 'Biedronka', price: 12.99 },
+      { store_name: 'LIDL', price: 12.49 },
+      { store_name: 'Carrefour', price: 13.99 }
+    ]
+  },
+
+  // ===== SNACKS =====
+  {
+    id: 57,
+    name: 'Chipsy ziemniaczane',
+    description: 'Chipsy o smaku paprykowym 150g',
+    brand: 'Lay\'s',
+    category_id: 8,
+    category_name: 'Przekąski',
+    category_icon: '🍿',
+    prices: [
+      { store_name: 'Biedronka', price: 3.99 },
+      { store_name: 'LIDL', price: 3.79 },
+      { store_name: 'Żabka', price: 4.49 }
+    ]
+  },
+  {
+    id: 58,
+    name: 'Orzeszki ziemne',
+    description: 'Orzeszki ziemne solone 200g',
+    brand: 'Frito Lay',
+    category_id: 8,
+    category_name: 'Przekąski',
+    category_icon: '🍿',
+    prices: [
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.69 },
+      { store_name: 'Żabka', price: 5.49 }
+    ]
+  },
+
+  // ===== SWEETS =====
+  {
+    id: 59,
+    name: 'Czekolada mleczna',
+    description: 'Czekolada mleczna 100g',
+    brand: 'Milka',
+    category_id: 7,
+    category_name: 'Słodycze',
+    category_icon: '🍭',
+    prices: [
+      { store_name: 'Biedronka', price: 3.49 },
+      { store_name: 'LIDL', price: 3.29 },
+      { store_name: 'Żabka', price: 3.99 }
+    ]
+  },
+  {
+    id: 60,
+    name: 'Cukierki żelowe',
+    description: 'Cukierki żelowe owocowe 200g',
+    brand: 'Haribo',
+    category_id: 7,
+    category_name: 'Słodycze',
+    category_icon: '🍭',
+    prices: [
+      { store_name: 'Biedronka', price: 4.99 },
+      { store_name: 'LIDL', price: 4.69 },
+      { store_name: 'Żabka', price: 5.49 }
+    ]
+  },
+
+  // ===== ELECTRONICS - Media Markt, Saturn, RTV Euro AGD =====
+  {
+    id: 61,
+    name: 'iPhone 15',
+    description: 'Apple iPhone 15 128GB',
+    brand: 'Apple',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 3799.99 },
+      { store_name: 'Saturn', price: 3799.99 },
+      { store_name: 'RTV Euro AGD', price: 3849.99 }
+    ]
+  },
+  {
+    id: 62,
+    name: 'Samsung Galaxy S24',
+    description: 'Samsung Galaxy S24 256GB',
+    brand: 'Samsung',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 3499.99 },
+      { store_name: 'Saturn', price: 3499.99 },
+      { store_name: 'Neonet', price: 3549.99 }
+    ]
+  },
+  {
+    id: 63,
+    name: 'Laptop Dell',
+    description: 'Dell Inspiron 15 Intel i5',
+    brand: 'Dell',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 2299.99 },
+      { store_name: 'RTV Euro AGD', price: 2349.99 },
+      { store_name: 'Neonet', price: 2279.99 }
+    ]
+  },
+  {
+    id: 64,
+    name: 'Telewizor Samsung 55"',
+    description: 'Samsung 55" 4K Smart TV',
+    brand: 'Samsung',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 1999.99 },
+      { store_name: 'Saturn', price: 1999.99 },
+      { store_name: 'RTV Euro AGD', price: 2049.99 }
+    ]
+  },
+  {
+    id: 65,
+    name: 'PlayStation 5',
+    description: 'Sony PlayStation 5 konsola',
+    brand: 'Sony',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 2399.99 },
+      { store_name: 'Saturn', price: 2399.99 },
+      { store_name: 'Empik', price: 2449.99 }
+    ]
+  },
+
+  // ===== COSMETICS - Rossmann, Hebe, Super-Pharm =====
+  {
+    id: 66,
+    name: 'Krem przeciwzmarszczkowy',
+    description: 'Krem przeciwzmarszczkowy L\'Oreal 50ml',
+    brand: 'L\'Oreal',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 34.99 },
+      { store_name: 'Hebe', price: 39.99 },
+      { store_name: 'Super-Pharm', price: 37.99 }
+    ]
+  },
+  {
+    id: 67,
+    name: 'Szminka Maybelline',
+    description: 'Szminka matowa Maybelline',
+    brand: 'Maybelline',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 19.99 },
+      { store_name: 'Hebe', price: 22.99 },
+      { store_name: 'Super-Pharm', price: 21.99 }
+    ]
+  },
+  {
+    id: 68,
+    name: 'Perfumy Hugo Boss',
+    description: 'Hugo Boss perfumy męskie 100ml',
+    brand: 'Hugo Boss',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Hebe', price: 189.99 },
+      { store_name: 'Super-Pharm', price: 199.99 },
+      { store_name: 'Douglas', price: 179.99 }
+    ]
+  },
+  {
+    id: 69,
+    name: 'Szampon Pantene',
+    description: 'Szampon wzmacniający 400ml',
+    brand: 'Pantene',
+    category_id: 12,
+    category_name: 'Higiena',
+    category_icon: '🧼',
+    prices: [
+      { store_name: 'Rossmann', price: 12.99 },
+      { store_name: 'Hebe', price: 14.99 },
+      { store_name: 'Biedronka', price: 13.49 }
+    ]
+  },
+  {
+    id: 70,
+    name: 'Pasta do zębów Colgate',
+    description: 'Pasta do zębów Colgate 100ml',
+    brand: 'Colgate',
+    category_id: 12,
+    category_name: 'Higiena',
+    category_icon: '🧼',
+    prices: [
+      { store_name: 'Rossmann', price: 8.99 },
+      { store_name: 'Biedronka', price: 9.49 },
+      { store_name: 'LIDL', price: 8.79 }
+    ]
+  },
+
+  // ===== FURNITURE - IKEA, Jysk, Agata =====
+  {
+    id: 71,
+    name: 'Fotel biurowy',
+    description: 'Fotel biurowy ergonomiczny',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 299.99 }
+    ]
+  },
+  {
+    id: 72,
+    name: 'Łóżko drewniane',
+    description: 'Łóżko drewniane 140x200cm',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'Jysk', price: 899.99 },
+      { store_name: 'Agata', price: 949.99 },
+      { store_name: 'Black Red White', price: 1099.99 }
+    ]
+  },
+  {
+    id: 73,
+    name: 'Szafa trzydrzwiowa',
+    description: 'Szafa 3-drzwiowa z lustrem',
+    brand: 'Agata',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'Agata', price: 1299.99 },
+      { store_name: 'Jysk', price: 1199.99 },
+      { store_name: 'IKEA', price: 999.99 }
+    ]
+  },
+  {
+    id: 74,
+    name: 'Stół kuchenny',
+    description: 'Stół kuchenny rozkładany',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 399.99 },
+      { store_name: 'Jysk', price: 449.99 },
+      { store_name: 'Agata', price: 499.99 }
+    ]
+  },
+  {
+    id: 75,
+    name: 'Komoda 4-szufladowa',
+    description: 'Komoda z 4 szufladami',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'Jysk', price: 299.99 },
+      { store_name: 'IKEA', price: 249.99 },
+      { store_name: 'Agata', price: 349.99 }
+    ]
+  },
+
+  // ===== TOOLS & DIY - Leroy Merlin, Castorama, OBI =====
+  {
+    id: 76,
+    name: 'Wiertarka Bosch',
+    description: 'Wiertarka udarowa Bosch 18V',
+    brand: 'Bosch',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 299.99 },
+      { store_name: 'Castorama', price: 309.99 },
+      { store_name: 'OBI', price: 294.99 }
+    ]
+  },
+  {
+    id: 77,
+    name: 'Zestaw kluczy',
+    description: 'Zestaw kluczy nasadowych 108 elem.',
+    brand: 'Stanley',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 189.99 },
+      { store_name: 'Castorama', price: 199.99 },
+      { store_name: 'PSB Mrówka', price: 179.99 }
+    ]
+  },
+  {
+    id: 78,
+    name: 'Farba ścienna',
+    description: 'Farba lateksowa biała 10L',
+    brand: 'Śnieżka',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 129.99 },
+      { store_name: 'Castorama', price: 134.99 },
+      { store_name: 'OBI', price: 124.99 }
+    ]
+  },
+  {
+    id: 79,
+    name: 'Płytki ceramiczne',
+    description: 'Płytki podłogowe 60x60cm',
+    brand: 'Cersanit',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 24.99 },
+      { store_name: 'Castorama', price: 26.99 },
+      { store_name: 'OBI', price: 23.99 }
+    ]
+  },
+  {
+    id: 80,
+    name: 'Młotek',
+    description: 'Młotek stolarski 500g',
+    brand: 'Stanley',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 39.99 },
+      { store_name: 'Castorama', price: 42.99 },
+      { store_name: 'PSB Mrówka', price: 37.99 }
+    ]
+  },
+
+  // ===== ELECTRONICS EXPANSION (80+ products) =====
+  {
+    id: 81,
+    name: 'MacBook Air',
+    description: 'Apple MacBook Air M2 256GB',
+    brand: 'Apple',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 5299.99 },
+      { store_name: 'Saturn', price: 5299.99 },
+      { store_name: 'RTV Euro AGD', price: 5399.99 }
+    ]
+  },
+  {
+    id: 82,
+    name: 'iPad Pro',
+    description: 'Apple iPad Pro 11" 128GB',
+    brand: 'Apple',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 3999.99 },
+      { store_name: 'Saturn', price: 3999.99 },
+      { store_name: 'Empik', price: 4099.99 }
+    ]
+  },
+  {
+    id: 83,
+    name: 'Nintendo Switch',
+    description: 'Nintendo Switch OLED',
+    brand: 'Nintendo',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 1499.99 },
+      { store_name: 'Saturn', price: 1499.99 },
+      { store_name: 'Empik', price: 1549.99 }
+    ]
+  },
+  {
+    id: 84,
+    name: 'AirPods Pro',
+    description: 'Apple AirPods Pro 2. generacji',
+    brand: 'Apple',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 1199.99 },
+      { store_name: 'Saturn', price: 1199.99 },
+      { store_name: 'RTV Euro AGD', price: 1249.99 }
+    ]
+  },
+  {
+    id: 85,
+    name: 'Kamera Canon',
+    description: 'Canon EOS R6 Mark II',
+    brand: 'Canon',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 8999.99 },
+      { store_name: 'Saturn', price: 8999.99 },
+      { store_name: 'RTV Euro AGD', price: 9199.99 }
+    ]
+  },
+
+  // ===== COSMETICS & HEALTH EXPANSION =====
+  {
+    id: 86,
+    name: 'Serum witamina C',
+    description: 'Serum z witaminą C 30ml',
+    brand: 'The Ordinary',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Hebe', price: 34.99 },
+      { store_name: 'Super-Pharm', price: 37.99 },
+      { store_name: 'Douglas', price: 32.99 }
+    ]
+  },
+  {
+    id: 87,
+    name: 'Krem pod oczy',
+    description: 'Krem przeciwzmarszczkowy pod oczy',
+    brand: 'Olay',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 29.99 },
+      { store_name: 'Hebe', price: 32.99 },
+      { store_name: 'Super-Pharm', price: 31.99 }
+    ]
+  },
+  {
+    id: 88,
+    name: 'Mleczko oczyszczające',
+    description: 'Mleczko do demakijażu 200ml',
+    brand: 'Garnier',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 15.99 },
+      { store_name: 'Hebe', price: 17.99 },
+      { store_name: 'Biedronka', price: 16.49 }
+    ]
+  },
+  {
+    id: 89,
+    name: 'Maska do twarzy',
+    description: 'Maska nawilżająca z kwasem hialuronowym',
+    brand: 'Garnier',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 8.99 },
+      { store_name: 'Hebe', price: 9.99 },
+      { store_name: 'LIDL', price: 7.99 }
+    ]
+  },
+  {
+    id: 90,
+    name: 'Dezodorant',
+    description: 'Dezodorant w sprayu 150ml',
+    brand: 'Rexona',
+    category_id: 12,
+    category_name: 'Higiena',
+    category_icon: '🧼',
+    prices: [
+      { store_name: 'Rossmann', price: 6.99 },
+      { store_name: 'Biedronka', price: 7.49 },
+      { store_name: 'LIDL', price: 6.79 }
+    ]
+  },
+
+  // ===== FURNITURE & HOME EXPANSION =====
+  {
+    id: 91,
+    name: 'Kanapa 3-osobowa',
+    description: 'Kanapa rozkładana z funkcją spania',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 1299.99 },
+      { store_name: 'Jysk', price: 1399.99 },
+      { store_name: 'Agata', price: 1499.99 }
+    ]
+  },
+  {
+    id: 92,
+    name: 'Materac',
+    description: 'Materac piankowy 160x200cm',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'Jysk', price: 699.99 },
+      { store_name: 'IKEA', price: 599.99 },
+      { store_name: 'Agata', price: 799.99 }
+    ]
+  },
+  {
+    id: 93,
+    name: 'Lustro łazienkowe',
+    description: 'Lustro z oświetleniem LED',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 199.99 },
+      { store_name: 'Jysk', price: 249.99 },
+      { store_name: 'Leroy Merlin', price: 179.99 }
+    ]
+  },
+  {
+    id: 94,
+    name: 'Regał książkowy',
+    description: 'Regał 5-półkowy z drewna',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 249.99 },
+      { store_name: 'Jysk', price: 299.99 },
+      { store_name: 'Agata', price: 349.99 }
+    ]
+  },
+  {
+    id: 95,
+    name: 'Krzesło biurowe',
+    description: 'Krzesło obrotowe z podłokietnikami',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'Jysk', price: 399.99 },
+      { store_name: 'IKEA', price: 349.99 },
+      { store_name: 'Agata', price: 449.99 }
+    ]
+  },
+
+  // ===== SPORTS & FITNESS EXPANSION =====
+  {
+    id: 96,
+    name: 'Mata do jogi',
+    description: 'Mata do ćwiczeń 6mm',
+    brand: 'Domyos',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 29.99 },
+      { store_name: 'Go Sport', price: 34.99 }
+    ]
+  },
+  {
+    id: 97,
+    name: 'Hantle',
+    description: 'Zestaw hantli 2x5kg',
+    brand: 'Domyos',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 89.99 },
+      { store_name: 'Go Sport', price: 99.99 }
+    ]
+  },
+  {
+    id: 98,
+    name: 'Rower szosowy',
+    description: 'Rower szosowy 28" dla dorosłych',
+    brand: 'Btwin',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 1299.99 },
+      { store_name: 'Go Sport', price: 1399.99 }
+    ]
+  },
+  {
+    id: 99,
+    name: 'Buty do biegania',
+    description: 'Buty sportowe do biegania',
+    brand: 'Nike',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 299.99 },
+      { store_name: 'Go Sport', price: 319.99 },
+      { store_name: 'CCC', price: 289.99 }
+    ]
+  },
+  {
+    id: 100,
+    name: 'Strój kąpielowy',
+    description: 'Kostium kąpielowy damski',
+    brand: 'Nabaiji',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 49.99 },
+      { store_name: 'Go Sport', price: 54.99 }
+    ]
+  },
+
+  // ===== PET PRODUCTS EXPANSION =====
+  {
+    id: 101,
+    name: 'Karma dla kotów',
+    description: 'Karma sucha dla kotów dorosłych 10kg',
+    brand: 'Royal Canin',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 189.99 },
+      { store_name: 'Kakadu', price: 194.99 },
+      { store_name: 'PetSmile', price: 187.99 }
+    ]
+  },
+  {
+    id: 102,
+    name: 'Żwirek dla kotów',
+    description: 'Żwirek zbrylający 10L',
+    brand: 'Catsan',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 24.99 },
+      { store_name: 'Kakadu', price: 26.99 },
+      { store_name: 'PetSmile', price: 23.99 }
+    ]
+  },
+  {
+    id: 103,
+    name: 'Smycz dla psa',
+    description: 'Smycz regulowana 120cm',
+    brand: 'Ferplast',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 29.99 },
+      { store_name: 'Kakadu', price: 32.99 },
+      { store_name: 'PetSmile', price: 27.99 }
+    ]
+  },
+  {
+    id: 104,
+    name: 'Klatka dla ptaków',
+    description: 'Klatka dla papużek 40x40x60cm',
+    brand: 'Ferplast',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Kakadu', price: 149.99 },
+      { store_name: 'Maxi Zoo', price: 159.99 },
+      { store_name: 'PetSmile', price: 144.99 }
+    ]
+  },
+  {
+    id: 105,
+    name: 'Karma dla gryzoni',
+    description: 'Karma dla królików i świnek 1kg',
+    brand: 'Vitapol',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 12.99 },
+      { store_name: 'Kakadu', price: 14.99 },
+      { store_name: 'PetSmile', price: 11.99 }
+    ]
+  },
+
+  // ===== TOOLS & DIY EXPANSION =====
+  {
+    id: 106,
+    name: 'Piła tarczowa',
+    description: 'Piła tarczowa 1400W',
+    brand: 'Bosch',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 399.99 },
+      { store_name: 'Castorama', price: 419.99 },
+      { store_name: 'OBI', price: 389.99 }
+    ]
+  },
+  {
+    id: 107,
+    name: 'Śrubokręt elektryczny',
+    description: 'Wkrętak akumulatorowy 12V',
+    brand: 'Makita',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 199.99 },
+      { store_name: 'Castorama', price: 209.99 },
+      { store_name: 'PSB Mrówka', price: 189.99 }
+    ]
+  },
+  {
+    id: 108,
+    name: 'Drabina aluminiowa',
+    description: 'Drabina 3-członowa 3x10 stopni',
+    brand: 'Krause',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 599.99 },
+      { store_name: 'Castorama', price: 629.99 },
+      { store_name: 'OBI', price: 579.99 }
+    ]
+  },
+  {
+    id: 109,
+    name: 'Taśma malarska',
+    description: 'Taśma malarska 50mm x 50m',
+    brand: 'Tesa',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 12.99 },
+      { store_name: 'Castorama', price: 13.99 },
+      { store_name: 'OBI', price: 11.99 }
     ]
   },
   {
     id: 110,
-    name: 'Sıcak sandviç',
-    description: 'Kanapka grillowana z szynką',
+    name: 'Gwoździe',
+    description: 'Gwoździe budowlane 50mm 1kg',
+    brand: 'Fischer',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 8.99 },
+      { store_name: 'Castorama', price: 9.49 },
+      { store_name: 'PSB Mrówka', price: 7.99 }
+    ]
+  },
+
+  // ===== BOOKS & STATIONERY EXPANSION =====
+  {
+    id: 111,
+    name: 'Długopis żelowy',
+    description: 'Długopis żelowy czarny 12 sztuk',
+    brand: 'Pilot',
+    category_id: 18,
+    category_name: 'Książki',
+    category_icon: '📚',
+    prices: [
+      { store_name: 'Empik', price: 24.99 },
+      { store_name: 'Świat Książki', price: 22.99 },
+      { store_name: 'Matras', price: 21.99 }
+    ]
+  },
+  {
+    id: 112,
+    name: 'Zeszyt szkolny',
+    description: 'Zeszyt A5 w kratkę 60 kartek',
+    brand: 'Oxford',
+    category_id: 18,
+    category_name: 'Książki',
+    category_icon: '📚',
+    prices: [
+      { store_name: 'Empik', price: 3.99 },
+      { store_name: 'Matras', price: 3.49 },
+      { store_name: 'Biedronka', price: 2.99 }
+    ]
+  },
+  {
+    id: 113,
+    name: 'Książka kucharska',
+    description: 'Przepisy polskiej kuchni',
+    brand: 'Wydawnictwo RM',
+    category_id: 18,
+    category_name: 'Książki',
+    category_icon: '📚',
+    prices: [
+      { store_name: 'Empik', price: 39.99 },
+      { store_name: 'Świat Książki', price: 37.99 },
+      { store_name: 'Matras', price: 35.99 }
+    ]
+  },
+  {
+    id: 114,
+    name: 'Kredki ołówkowe',
+    description: 'Kredki ołówkowe 24 kolory',
+    brand: 'Faber-Castell',
+    category_id: 18,
+    category_name: 'Książki',
+    category_icon: '📚',
+    prices: [
+      { store_name: 'Empik', price: 19.99 },
+      { store_name: 'Matras', price: 17.99 },
+      { store_name: 'LIDL', price: 15.99 }
+    ]
+  },
+  {
+    id: 115,
+    name: 'Atlas świata',
+    description: 'Atlas geograficzny świata',
+    brand: 'Demart',
+    category_id: 18,
+    category_name: 'Książki',
+    category_icon: '📚',
+    prices: [
+      { store_name: 'Empik', price: 49.99 },
+      { store_name: 'Świat Książki', price: 47.99 },
+      { store_name: 'Matras', price: 45.99 }
+    ]
+  },
+
+  // ===== CONVENIENCE STORE EXPANSION (Petrol stations) =====
+  {
+    id: 116,
+    name: 'Kawa na wynos',
+    description: 'Kawa latte 300ml',
+    brand: 'Orlen Stop',
+    category_id: 29,
+    category_name: 'Convenience',
+    category_icon: '🏪',
+    prices: [
+      { store_name: 'Orlen', price: 8.99 },
+      { store_name: 'Circle K', price: 9.49 },
+      { store_name: 'Shell', price: 8.79 }
+    ]
+  },
+  {
+    id: 117,
+    name: 'Kanapka świeża',
+    description: 'Kanapka z szynką i serem',
     brand: 'Fresh',
+    category_id: 29,
+    category_name: 'Convenience',
+    category_icon: '🏪',
+    prices: [
+      { store_name: 'Orlen', price: 7.99 },
+      { store_name: 'Circle K', price: 8.49 },
+      { store_name: 'BP', price: 7.69 }
+    ]
+  },
+  {
+    id: 118,
+    name: 'Płyn do spryskiwaczy',
+    description: 'Płyn do spryskiwaczy -20°C 5L',
+    brand: 'Orlen Oil',
+    category_id: 19,
+    category_name: 'Paliwo i Samochód',
+    category_icon: '🛢️',
+    prices: [
+      { store_name: 'Orlen', price: 19.99 },
+      { store_name: 'BP', price: 21.99 },
+      { store_name: 'Shell', price: 20.49 }
+    ]
+  },
+  {
+    id: 119,
+    name: 'Ładowarka samochodowa',
+    description: 'Ładowarka USB 12V do samochodu',
+    brand: 'Hama',
+    category_id: 19,
+    category_name: 'Paliwo i Samochód',
+    category_icon: '🛢️',
+    prices: [
+      { store_name: 'Orlen', price: 24.99 },
+      { store_name: 'Circle K', price: 26.99 },
+      { store_name: 'Shell', price: 23.99 }
+    ]
+  },
+  {
+    id: 120,
+    name: 'Napój energetyczny',
+    description: 'Monster Energy 500ml',
+    brand: 'Monster',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
+    prices: [
+      { store_name: 'Orlen', price: 7.99 },
+      { store_name: 'Circle K', price: 8.49 },
+      { store_name: 'Żabka', price: 8.99 }
+    ]
+  },
+
+  // ===== ETHNIC FOOD EXPANSION =====
+  // Turkish Products
+  {
+    id: 121,
+    name: 'Bulgur',
+    description: 'Bulgur turecki 1kg',
+    brand: 'Duru',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Turecki', price: 8.99 }
+    ]
+  },
+  {
+    id: 122,
+    name: 'Oliwki tureckie',
+    description: 'Oliwki czarne w oleju 400g',
+    brand: 'Sera',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Turecki', price: 12.99 }
+    ]
+  },
+  {
+    id: 123,
+    name: 'Baklava',
+    description: 'Baklava z pistacjami 250g',
+    brand: 'Koska',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Turecki', price: 24.99 }
+    ]
+  },
+  // Vietnamese Products
+  {
+    id: 124,
+    name: 'Sos rybny',
+    description: 'Wietnamski sos rybny 500ml',
+    brand: 'Red Boat',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Vietnam Market', price: 18.99 }
+    ]
+  },
+  {
+    id: 125,
+    name: 'Mleko kokosowe',
+    description: 'Mleko kokosowe 400ml',
+    brand: 'Aroy-D',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Vietnam Market', price: 6.99 }
+    ]
+  },
+  // Indian Products
+  {
+    id: 126,
+    name: 'Curry w proszku',
+    description: 'Mieszanka przypraw curry 100g',
+    brand: 'Shan',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Indyjski', price: 8.99 }
+    ]
+  },
+  {
+    id: 127,
+    name: 'Ryż basmati',
+    description: 'Ryż basmati 1kg',
+    brand: 'Tilda',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Sklep Indyjski', price: 14.99 }
+    ]
+  },
+  // Ukrainian Products
+  {
+    id: 128,
+    name: 'Barszcz ukraiński',
+    description: 'Koncentrat barszczu czerwonego 350ml',
+    brand: 'Tradycja',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Ukraiński Market', price: 9.99 }
+    ]
+  },
+  {
+    id: 129,
+    name: 'Pierogi ukraińskie',
+    description: 'Pierogi z kapustą 500g mrożone',
+    brand: 'Babcia',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Ukraiński Market', price: 12.99 }
+    ]
+  },
+  {
+    id: 130,
+    name: 'Miód gryczany',
+    description: 'Naturalny miód gryczany 500g',
+    brand: 'Paseka',
+    category_id: 27,
+    category_name: 'Kuchnie świata',
+    category_icon: '🌍',
+    prices: [
+      { store_name: 'Ukraiński Market', price: 19.99 }
+    ]
+  },
+
+  // ===== ALCOHOL EXPANSION =====
+  {
+    id: 131,
+    name: 'Wino czerwone',
+    description: 'Wino czerwone wytrawne 750ml',
+    brand: 'Winnica Turnau',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Carrefour', price: 24.99 },
+      { store_name: 'Auchan', price: 23.99 },
+      { store_name: 'Tesco', price: 25.49 }
+    ]
+  },
+  {
+    id: 132,
+    name: 'Whisky',
+    description: 'Whisky szkocka 700ml',
+    brand: 'Johnnie Walker',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Carrefour', price: 89.99 },
+      { store_name: 'Auchan', price: 87.99 },
+      { store_name: 'Delikatesy Centrum', price: 94.99 }
+    ]
+  },
+  {
+    id: 133,
+    name: 'Szampan',
+    description: 'Szampan francuski 750ml',
+    brand: 'Moet & Chandon',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Delikatesy Centrum', price: 249.99 },
+      { store_name: 'Carrefour', price: 239.99 },
+      { store_name: 'Auchan', price: 244.99 }
+    ]
+  },
+  {
+    id: 134,
+    name: 'Piwo kraftowe',
+    description: 'Piwo rzemieślnicze IPA 500ml',
+    brand: 'Browar Stu Mostów',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Carrefour', price: 8.99 },
+      { store_name: 'Delikatesy Centrum', price: 9.99 },
+      { store_name: 'LIDL', price: 7.99 }
+    ]
+  },
+  {
+    id: 135,
+    name: 'Gin',
+    description: 'Gin premium 700ml',
+    brand: 'Hendricks',
+    category_id: 26,
+    category_name: 'Alkohol',
+    category_icon: '🍷',
+    prices: [
+      { store_name: 'Carrefour', price: 129.99 },
+      { store_name: 'Auchan', price: 124.99 },
+      { store_name: 'Delikatesy Centrum', price: 134.99 }
+    ]
+  },
+
+  // ===== IKEA FOOD EXPANSION =====
+  {
+    id: 136,
+    name: 'Sos śmietankowy',
+    description: 'Sos śmietankowy do klopsików 500ml',
+    brand: 'IKEA',
+    category_id: 9,
+    category_name: 'Mrożonki',
+    category_icon: '🧊',
+    prices: [
+      { store_name: 'IKEA', price: 9.99 }
+    ]
+  },
+  {
+    id: 137,
+    name: 'Łosoś wędzony',
+    description: 'Szwedzki łosoś wędzony 200g',
+    brand: 'IKEA',
+    category_id: 3,
+    category_name: 'Mięso i ryby',
+    category_icon: '🥩',
+    prices: [
+      { store_name: 'IKEA', price: 19.99 }
+    ]
+  },
+  {
+    id: 138,
+    name: 'Ciastka owsiane',
+    description: 'Ciastka owsiane z czekoladą 200g',
+    brand: 'IKEA',
+    category_id: 7,
+    category_name: 'Słodycze',
+    category_icon: '🍭',
+    prices: [
+      { store_name: 'IKEA', price: 6.99 }
+    ]
+  },
+  {
+    id: 139,
+    name: 'Herbata ziołowa',
+    description: 'Herbata ziołowa mix szwedzki 20 torebek',
+    brand: 'IKEA',
+    category_id: 6,
+    category_name: 'Napoje',
+    category_icon: '🥤',
+    prices: [
+      { store_name: 'IKEA', price: 12.99 }
+    ]
+  },
+  {
+    id: 140,
+    name: 'Mieszanka do pieczenia',
+    description: 'Mieszanka do chleba 750g',
+    brand: 'IKEA',
     category_id: 1,
     category_name: 'Pieczywo',
-    category_icon: '🥪',
+    category_icon: '🍞',
     prices: [
-      { store_name: 'Shell', price: 12.99 },
-      { store_name: 'BP', price: 12.49 },
-      { store_name: 'Orlen', price: 11.99 },
-      { store_name: 'Żabka', price: 13.99 }
+      { store_name: 'IKEA', price: 8.99 }
+    ]
+  },
+
+  // ===== ELECTRONICS CATEGORY - 10 products for Media Markt, Saturn, RTV Euro AGD, Neonet =====
+  {
+    id: 141,
+    name: 'Gaming Klawiatura',
+    description: 'Mechaniczna klawiatura gamingowa RGB',
+    brand: 'Logitech',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 299.99 },
+      { store_name: 'Saturn', price: 289.99 },
+      { store_name: 'RTV Euro AGD', price: 309.99 },
+      { store_name: 'Neonet', price: 295.99 }
+    ]
+  },
+  {
+    id: 142,
+    name: 'Gaming Mysz',
+    description: 'Mysz optyczna dla graczy',
+    brand: 'Razer',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 199.99 },
+      { store_name: 'Saturn', price: 189.99 },
+      { store_name: 'RTV Euro AGD', price: 209.99 },
+      { store_name: 'Neonet', price: 195.99 }
+    ]
+  },
+  {
+    id: 143,
+    name: 'Monitor 27"',
+    description: 'Monitor gamingowy 27" 144Hz',
+    brand: 'ASUS',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 1299.99 },
+      { store_name: 'Saturn', price: 1279.99 },
+      { store_name: 'RTV Euro AGD', price: 1349.99 },
+      { store_name: 'Neonet', price: 1259.99 }
+    ]
+  },
+  {
+    id: 144,
+    name: 'Kable HDMI',
+    description: 'Kabel HDMI 2.1 4K 2m',
+    brand: 'Belkin',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 89.99 },
+      { store_name: 'Saturn', price: 84.99 },
+      { store_name: 'RTV Euro AGD', price: 94.99 },
+      { store_name: 'Neonet', price: 79.99 }
+    ]
+  },
+  {
+    id: 145,
+    name: 'Webcam HD',
+    description: 'Kamera internetowa 1080p',
+    brand: 'Logitech',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 249.99 },
+      { store_name: 'Saturn', price: 239.99 },
+      { store_name: 'RTV Euro AGD', price: 259.99 },
+      { store_name: 'Neonet', price: 229.99 }
+    ]
+  },
+  {
+    id: 146,
+    name: 'Głośniki bezprzewodowe',
+    description: 'Głośniki Bluetooth wodoodporne',
+    brand: 'JBL',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 399.99 },
+      { store_name: 'Saturn', price: 389.99 },
+      { store_name: 'RTV Euro AGD', price: 419.99 },
+      { store_name: 'Neonet', price: 379.99 }
+    ]
+  },
+  {
+    id: 147,
+    name: 'Dysk SSD',
+    description: 'Dysk SSD 1TB NVME',
+    brand: 'Samsung',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 499.99 },
+      { store_name: 'Saturn', price: 479.99 },
+      { store_name: 'RTV Euro AGD', price: 519.99 },
+      { store_name: 'Neonet', price: 459.99 }
+    ]
+  },
+  {
+    id: 148,
+    name: 'Router WiFi',
+    description: 'Router WiFi 6 AX1800',
+    brand: 'TP-Link',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 299.99 },
+      { store_name: 'Saturn', price: 289.99 },
+      { store_name: 'RTV Euro AGD', price: 319.99 },
+      { store_name: 'Neonet', price: 279.99 }
+    ]
+  },
+  {
+    id: 149,
+    name: 'Mikrofon USB',
+    description: 'Mikrofon pojemnościowy USB',
+    brand: 'Blue Yeti',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 599.99 },
+      { store_name: 'Saturn', price: 579.99 },
+      { store_name: 'RTV Euro AGD', price: 629.99 },
+      { store_name: 'Neonet', price: 559.99 }
+    ]
+  },
+  {
+    id: 150,
+    name: 'Pendrive 128GB',
+    description: 'Pendrive USB 3.0 128GB',
+    brand: 'SanDisk',
+    category_id: 16,
+    category_name: 'Elektronika',
+    category_icon: '📱',
+    prices: [
+      { store_name: 'Media Markt', price: 79.99 },
+      { store_name: 'Saturn', price: 74.99 },
+      { store_name: 'RTV Euro AGD', price: 84.99 },
+      { store_name: 'Neonet', price: 69.99 }
+    ]
+  },
+
+  // ===== PET STORES CATEGORY - 10 products for Maxi Zoo, Kakadu, PetSmile, Zooplus.pl =====
+  {
+    id: 151,
+    name: 'Karma dla ryb',
+    description: 'Pokarm dla ryb akwariowych 100g',
+    brand: 'Tetra',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 15.99 },
+      { store_name: 'Kakadu', price: 17.99 },
+      { store_name: 'PetSmile', price: 14.99 },
+      { store_name: 'Zooplus.pl', price: 13.99 }
+    ]
+  },
+  {
+    id: 152,
+    name: 'Obroża dla psa',
+    description: 'Obroża skórzana regulowana',
+    brand: 'Hunter',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 49.99 },
+      { store_name: 'Kakadu', price: 54.99 },
+      { store_name: 'PetSmile', price: 47.99 },
+      { store_name: 'Zooplus.pl', price: 44.99 }
+    ]
+  },
+  {
+    id: 153,
+    name: 'Zabawka dla kota',
+    description: 'Piłka z piórkami dla kotów',
+    brand: 'Kong',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 19.99 },
+      { store_name: 'Kakadu', price: 22.99 },
+      { store_name: 'PetSmile', price: 18.99 },
+      { store_name: 'Zooplus.pl', price: 16.99 }
+    ]
+  },
+  {
+    id: 154,
+    name: 'Akwarium 60L',
+    description: 'Akwarium kompletne z filtrem',
+    brand: 'Juwel',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 299.99 },
+      { store_name: 'Kakadu', price: 319.99 },
+      { store_name: 'PetSmile', price: 289.99 },
+      { store_name: 'Zooplus.pl', price: 269.99 }
+    ]
+  },
+  {
+    id: 155,
+    name: 'Transporter dla kota',
+    description: 'Transporter plastikowy dla kotów',
+    brand: 'Ferplast',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 89.99 },
+      { store_name: 'Kakadu', price: 94.99 },
+      { store_name: 'PetSmile', price: 84.99 },
+      { store_name: 'Zooplus.pl', price: 79.99 }
+    ]
+  },
+  {
+    id: 156,
+    name: 'Legowisko dla psa',
+    description: 'Poduszka dla średnich psów',
+    brand: 'Trixie',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 79.99 },
+      { store_name: 'Kakadu', price: 84.99 },
+      { store_name: 'PetSmile', price: 74.99 },
+      { store_name: 'Zooplus.pl', price: 69.99 }
+    ]
+  },
+  {
+    id: 157,
+    name: 'Szczotka dla psów',
+    description: 'Szczotka do czesania długowłosych psów',
+    brand: 'FURminator',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 129.99 },
+      { store_name: 'Kakadu', price: 139.99 },
+      { store_name: 'PetSmile', price: 124.99 },
+      { store_name: 'Zooplus.pl', price: 119.99 }
+    ]
+  },
+  {
+    id: 158,
+    name: 'Karma dla chomików',
+    description: 'Mieszanka dla chomików 500g',
+    brand: 'Vitakraft',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 9.99 },
+      { store_name: 'Kakadu', price: 11.99 },
+      { store_name: 'PetSmile', price: 8.99 },
+      { store_name: 'Zooplus.pl', price: 7.99 }
+    ]
+  },
+  {
+    id: 159,
+    name: 'Szampon dla psów',
+    description: 'Szampon dla wrażliwej skóry psów',
+    brand: 'Beaphar',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 24.99 },
+      { store_name: 'Kakadu', price: 27.99 },
+      { store_name: 'PetSmile', price: 22.99 },
+      { store_name: 'Zooplus.pl', price: 20.99 }
+    ]
+  },
+  {
+    id: 160,
+    name: 'Miski dla zwierząt',
+    description: 'Zestaw misek stalowych 2 sztuki',
+    brand: 'Trixie',
+    category_id: 23,
+    category_name: 'Zwierzęta',
+    category_icon: '🐕',
+    prices: [
+      { store_name: 'Maxi Zoo', price: 39.99 },
+      { store_name: 'Kakadu', price: 44.99 },
+      { store_name: 'PetSmile', price: 37.99 },
+      { store_name: 'Zooplus.pl', price: 34.99 }
+    ]
+  },
+
+  // ===== DRUGSTORES CATEGORY - 10 products for Rossmann, Super-Pharm, Hebe, Doz.pl =====
+  {
+    id: 161,
+    name: 'Witaminy C',
+    description: 'Tabletki witaminy C 1000mg',
+    brand: 'Olimp',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 19.99 },
+      { store_name: 'Super-Pharm', price: 22.99 },
+      { store_name: 'Hebe', price: 21.99 },
+      { store_name: 'Doz.pl', price: 18.99 }
+    ]
+  },
+  {
+    id: 162,
+    name: 'Termometr cyfrowy',
+    description: 'Termometr bezdotykowy',
+    brand: 'Braun',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 149.99 },
+      { store_name: 'Super-Pharm', price: 159.99 },
+      { store_name: 'Hebe', price: 154.99 },
+      { store_name: 'Doz.pl', price: 144.99 }
+    ]
+  },
+  {
+    id: 163,
+    name: 'Środek dezynfekujący',
+    description: 'Żel antybakteryjny do rąk 500ml',
+    brand: 'Sterillium',
+    category_id: 12,
+    category_name: 'Higiena',
+    category_icon: '🧼',
+    prices: [
+      { store_name: 'Rossmann', price: 12.99 },
+      { store_name: 'Super-Pharm', price: 14.99 },
+      { store_name: 'Hebe', price: 13.99 },
+      { store_name: 'Doz.pl', price: 11.99 }
+    ]
+  },
+  {
+    id: 164,
+    name: 'Plastry na rany',
+    description: 'Plastry wodoodporne 20 sztuk',
+    brand: 'Hansaplast',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 8.99 },
+      { store_name: 'Super-Pharm', price: 9.99 },
+      { store_name: 'Hebe', price: 9.49 },
+      { store_name: 'Doz.pl', price: 7.99 }
+    ]
+  },
+  {
+    id: 165,
+    name: 'Kremy z filtrem UV',
+    description: 'Krem z filtrem SPF 50+ 100ml',
+    brand: 'Eucerin',
+    category_id: 15,
+    category_name: 'Kosmetyki',
+    category_icon: '💄',
+    prices: [
+      { store_name: 'Rossmann', price: 39.99 },
+      { store_name: 'Super-Pharm', price: 44.99 },
+      { store_name: 'Hebe', price: 42.99 },
+      { store_name: 'Doz.pl', price: 37.99 }
+    ]
+  },
+  {
+    id: 166,
+    name: 'Tabletki na ból głowy',
+    description: 'Ibuprofen 400mg 20 tabletek',
+    brand: 'Ibuprom',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 9.99 },
+      { store_name: 'Super-Pharm', price: 11.99 },
+      { store_name: 'Hebe', price: 10.99 },
+      { store_name: 'Doz.pl', price: 8.99 }
+    ]
+  },
+  {
+    id: 167,
+    name: 'Witaminy dla włosów',
+    description: 'Biotin forte 60 tabletek',
+    brand: 'Solgar',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 89.99 },
+      { store_name: 'Super-Pharm', price: 94.99 },
+      { store_name: 'Hebe', price: 92.99 },
+      { store_name: 'Doz.pl', price: 84.99 }
+    ]
+  },
+  {
+    id: 168,
+    name: 'Test ciążowy',
+    description: 'Test ciążowy cyfrowy',
+    brand: 'Clearblue',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 29.99 },
+      { store_name: 'Super-Pharm', price: 32.99 },
+      { store_name: 'Hebe', price: 31.99 },
+      { store_name: 'Doz.pl', price: 27.99 }
+    ]
+  },
+  {
+    id: 169,
+    name: 'Krople do oczu',
+    description: 'Krople nawilżające do oczu 10ml',
+    brand: 'Hylak',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 19.99 },
+      { store_name: 'Super-Pharm', price: 22.99 },
+      { store_name: 'Hebe', price: 21.49 },
+      { store_name: 'Doz.pl', price: 18.99 }
+    ]
+  },
+  {
+    id: 170,
+    name: 'Probiotyki',
+    description: 'Probiotyki dla dorosłych 30 kapsułek',
+    brand: 'Lactobacillus',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Rossmann', price: 49.99 },
+      { store_name: 'Super-Pharm', price: 54.99 },
+      { store_name: 'Hebe', price: 52.99 },
+      { store_name: 'Doz.pl', price: 46.99 }
+    ]
+  },
+
+  // ===== DIY/TOOLS CATEGORY - 10 products for Leroy Merlin, Castorama, OBI, PSB Mrówka =====
+  {
+    id: 171,
+    name: 'Śruby do drewna',
+    description: 'Śruby do drewna 4x50mm 100 sztuk',
+    brand: 'Fischer',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 15.99 },
+      { store_name: 'Castorama', price: 16.99 },
+      { store_name: 'OBI', price: 14.99 },
+      { store_name: 'PSB Mrówka', price: 13.99 }
+    ]
+  },
+  {
+    id: 172,
+    name: 'Flex 125mm',
+    description: 'Szlifierka kątowa 125mm 850W',
+    brand: 'Bosch',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 199.99 },
+      { store_name: 'Castorama', price: 209.99 },
+      { store_name: 'OBI', price: 189.99 },
+      { store_name: 'PSB Mrówka', price: 179.99 }
+    ]
+  },
+  {
+    id: 173,
+    name: 'Poziomica',
+    description: 'Poziomica aluminiowa 60cm',
+    brand: 'Stanley',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 59.99 },
+      { store_name: 'Castorama', price: 64.99 },
+      { store_name: 'OBI', price: 54.99 },
+      { store_name: 'PSB Mrówka', price: 49.99 }
+    ]
+  },
+  {
+    id: 174,
+    name: 'Miara zwijana',
+    description: 'Miara zwijana 5m',
+    brand: 'Stanley',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 29.99 },
+      { store_name: 'Castorama', price: 32.99 },
+      { store_name: 'OBI', price: 27.99 },
+      { store_name: 'PSB Mrówka', price: 24.99 }
+    ]
+  },
+  {
+    id: 175,
+    name: 'Klej do płytek',
+    description: 'Klej do płytek ceramicznych 25kg',
+    brand: 'Ceresit',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 39.99 },
+      { store_name: 'Castorama', price: 42.99 },
+      { store_name: 'OBI', price: 37.99 },
+      { store_name: 'PSB Mrówka', price: 34.99 }
+    ]
+  },
+  {
+    id: 176,
+    name: 'Wkrętak krzyżakowy',
+    description: 'Zestaw wkrętaków krzyżakowych 6 sztuk',
+    brand: 'Stanley',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 49.99 },
+      { store_name: 'Castorama', price: 54.99 },
+      { store_name: 'OBI', price: 44.99 },
+      { store_name: 'PSB Mrówka', price: 39.99 }
+    ]
+  },
+  {
+    id: 177,
+    name: 'Silikon sanitarny',
+    description: 'Silikon sanitarny biały 280ml',
+    brand: 'Ceresit',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 18.99 },
+      { store_name: 'Castorama', price: 19.99 },
+      { store_name: 'OBI', price: 17.99 },
+      { store_name: 'PSB Mrówka', price: 15.99 }
+    ]
+  },
+  {
+    id: 178,
+    name: 'Tarcza do cięcia',
+    description: 'Tarcza do cięcia kamienia 125mm',
+    brand: 'Bosch',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 24.99 },
+      { store_name: 'Castorama', price: 27.99 },
+      { store_name: 'OBI', price: 22.99 },
+      { store_name: 'PSB Mrówka', price: 19.99 }
+    ]
+  },
+  {
+    id: 179,
+    name: 'Kostka brukowa',
+    description: 'Kostka brukowa szara 20x10x6cm',
+    brand: 'Libet',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 2.99 },
+      { store_name: 'Castorama', price: 3.49 },
+      { store_name: 'OBI', price: 2.79 },
+      { store_name: 'PSB Mrówka', price: 2.49 }
+    ]
+  },
+  {
+    id: 180,
+    name: 'Rękawice robocze',
+    description: 'Rękawice robocze rozmiar L',
+    brand: 'Lahti Pro',
+    category_id: 24,
+    category_name: 'Narzędzia i DIY',
+    category_icon: '🔨',
+    prices: [
+      { store_name: 'Leroy Merlin', price: 12.99 },
+      { store_name: 'Castorama', price: 14.99 },
+      { store_name: 'OBI', price: 11.99 },
+      { store_name: 'PSB Mrówka', price: 9.99 }
+    ]
+  },
+
+  // ===== HYPERMARKETS CATEGORY - 10 products for Carrefour, Auchan, Tesco, Real, Kaufland, E.Leclerc =====
+  {
+    id: 181,
+    name: 'Detergent do prania',
+    description: 'Proszek do prania uniwersalny 3kg',
+    brand: 'Persil',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 24.99 },
+      { store_name: 'Auchan', price: 23.99 },
+      { store_name: 'Tesco', price: 25.99 },
+      { store_name: 'Real', price: 26.49 },
+      { store_name: 'Kaufland', price: 24.49 },
+      { store_name: 'E.Leclerc', price: 23.49 }
+    ]
+  },
+  {
+    id: 182,
+    name: 'Płyn do mycia naczyń',
+    description: 'Płyn do naczyń cytrynowy 1L',
+    brand: 'Fairy',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 8.99 },
+      { store_name: 'Auchan', price: 8.49 },
+      { store_name: 'Tesco', price: 9.49 },
+      { store_name: 'Real', price: 9.99 },
+      { store_name: 'Kaufland', price: 8.79 },
+      { store_name: 'E.Leclerc', price: 8.29 }
+    ]
+  },
+  {
+    id: 183,
+    name: 'Aspiryna',
+    description: 'Aspiryna 500mg 20 tabletek',
+    brand: 'Bayer',
+    category_id: 14,
+    category_name: 'Zdrowie',
+    category_icon: '💊',
+    prices: [
+      { store_name: 'Carrefour', price: 12.99 },
+      { store_name: 'Auchan', price: 11.99 },
+      { store_name: 'Tesco', price: 13.99 },
+      { store_name: 'Real', price: 14.49 },
+      { store_name: 'Kaufland', price: 12.49 },
+      { store_name: 'E.Leclerc', price: 11.49 }
+    ]
+  },
+  {
+    id: 184,
+    name: 'Baterie AA',
+    description: 'Baterie alkaliczne AA 8 sztuk',
+    brand: 'Duracell',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 19.99 },
+      { store_name: 'Auchan', price: 18.99 },
+      { store_name: 'Tesco', price: 20.99 },
+      { store_name: 'Real', price: 21.49 },
+      { store_name: 'Kaufland', price: 19.49 },
+      { store_name: 'E.Leclerc', price: 18.49 }
+    ]
+  },
+  {
+    id: 185,
+    name: 'Worki na śmieci',
+    description: 'Worki na śmieci 120L 10 sztuk',
+    brand: 'Jan Niezbędny',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 14.99 },
+      { store_name: 'Auchan', price: 13.99 },
+      { store_name: 'Tesco', price: 15.99 },
+      { store_name: 'Real', price: 16.49 },
+      { store_name: 'Kaufland', price: 14.49 },
+      { store_name: 'E.Leclerc', price: 13.49 }
+    ]
+  },
+  {
+    id: 186,
+    name: 'Papier toaletowy',
+    description: 'Papier toaletowy 3-warstwowy 24 rolki',
+    brand: 'Zewa',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 29.99 },
+      { store_name: 'Auchan', price: 28.99 },
+      { store_name: 'Tesco', price: 31.99 },
+      { store_name: 'Real', price: 32.49 },
+      { store_name: 'Kaufland', price: 29.49 },
+      { store_name: 'E.Leclerc', price: 27.99 }
+    ]
+  },
+  {
+    id: 187,
+    name: 'Żarówka LED',
+    description: 'Żarówka LED E27 10W',
+    brand: 'Philips',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 24.99 },
+      { store_name: 'Auchan', price: 23.99 },
+      { store_name: 'Tesco', price: 26.99 },
+      { store_name: 'Real', price: 27.49 },
+      { store_name: 'Kaufland', price: 24.49 },
+      { store_name: 'E.Leclerc', price: 22.99 }
+    ]
+  },
+  {
+    id: 188,
+    name: 'Ręczniki papierowe',
+    description: 'Ręczniki papierowe 6 rolek',
+    brand: 'Regina',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 18.99 },
+      { store_name: 'Auchan', price: 17.99 },
+      { store_name: 'Tesco', price: 19.99 },
+      { store_name: 'Real', price: 20.49 },
+      { store_name: 'Kaufland', price: 18.49 },
+      { store_name: 'E.Leclerc', price: 16.99 }
+    ]
+  },
+  {
+    id: 189,
+    name: 'Płatki śniadaniowe',
+    description: 'Płatki kukurydziane 500g',
+    brand: 'Nestle',
+    category_id: 1,
+    category_name: 'Pieczywo',
+    category_icon: '🍞',
+    prices: [
+      { store_name: 'Carrefour', price: 9.99 },
+      { store_name: 'Auchan', price: 9.49 },
+      { store_name: 'Tesco', price: 10.99 },
+      { store_name: 'Real', price: 11.49 },
+      { store_name: 'Kaufland', price: 9.79 },
+      { store_name: 'E.Leclerc', price: 8.99 }
+    ]
+  },
+  {
+    id: 190,
+    name: 'Płyn do podłóg',
+    description: 'Płyn do mycia podłóg 1L',
+    brand: 'Mr. Proper',
+    category_id: 11,
+    category_name: 'Dom i ogród',
+    category_icon: '🏠',
+    prices: [
+      { store_name: 'Carrefour', price: 11.99 },
+      { store_name: 'Auchan', price: 10.99 },
+      { store_name: 'Tesco', price: 12.99 },
+      { store_name: 'Real', price: 13.49 },
+      { store_name: 'Kaufland', price: 11.49 },
+      { store_name: 'E.Leclerc', price: 10.49 }
+    ]
+  },
+
+  // ===== SPORTS CATEGORY - 10 products for Decathlon, Go Sport =====
+  {
+    id: 191,
+    name: 'Piłka nożna',
+    description: 'Piłka nożna skórzana rozmiar 5',
+    brand: 'Kipsta',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 49.99 },
+      { store_name: 'Go Sport', price: 54.99 }
+    ]
+  },
+  {
+    id: 192,
+    name: 'Koszulka sportowa',
+    description: 'Koszulka techniczna do biegania',
+    brand: 'Domyos',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 29.99 },
+      { store_name: 'Go Sport', price: 34.99 }
+    ]
+  },
+  {
+    id: 193,
+    name: 'Rakieta tenisowa',
+    description: 'Rakieta tenisowa dla początkujących',
+    brand: 'Artengo',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 199.99 },
+      { store_name: 'Go Sport', price: 219.99 }
+    ]
+  },
+  {
+    id: 194,
+    name: 'Piłka do koszykówki',
+    description: 'Piłka do koszykówki rozmiar 7',
+    brand: 'Tarmak',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 79.99 },
+      { store_name: 'Go Sport', price: 89.99 }
+    ]
+  },
+  {
+    id: 195,
+    name: 'Szykłki pływackie',
+    description: 'Okulary do pływania dla dorosłych',
+    brand: 'Nabaiji',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 24.99 },
+      { store_name: 'Go Sport', price: 29.99 }
+    ]
+  },
+  {
+    id: 196,
+    name: 'Plecak trekkingowy',
+    description: 'Plecak turystyczny 30L',
+    brand: 'Quechua',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 149.99 },
+      { store_name: 'Go Sport', price: 169.99 }
+    ]
+  },
+  {
+    id: 197,
+    name: 'Buty trekkingowe',
+    description: 'Buty górskie wodoodporne',
+    brand: 'Quechua',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 199.99 },
+      { store_name: 'Go Sport', price: 229.99 }
+    ]
+  },
+  {
+    id: 198,
+    name: 'Czapka z daszkiem',
+    description: 'Czapka sportowa z filtrem UV',
+    brand: 'Domyos',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 19.99 },
+      { store_name: 'Go Sport', price: 24.99 }
+    ]
+  },
+  {
+    id: 199,
+    name: 'Łyżwy',
+    description: 'Łyżwy figure rekreacyjne',
+    brand: 'Oxelo',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 299.99 },
+      { store_name: 'Go Sport', price: 329.99 }
+    ]
+  },
+  {
+    id: 200,
+    name: 'Kij golfowy',
+    description: 'Kij golfowy driver',
+    brand: 'Inesis',
+    category_id: 22,
+    category_name: 'Sport i rekreacja',
+    category_icon: '⚽',
+    prices: [
+      { store_name: 'Decathlon', price: 399.99 },
+      { store_name: 'Go Sport', price: 449.99 }
+    ]
+  },
+
+  // ===== FURNITURE CATEGORY - 10 products for IKEA, Jysk, Agata =====
+  {
+    id: 201,
+    name: 'Pościel bawełniana',
+    description: 'Komplet pościeli 160x200cm',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 79.99 },
+      { store_name: 'Jysk', price: 89.99 },
+      { store_name: 'Agata', price: 99.99 }
+    ]
+  },
+  {
+    id: 202,
+    name: 'Poduszka puchowa',
+    description: 'Poduszka z puchu gęsiego 50x70cm',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 129.99 },
+      { store_name: 'Jysk', price: 119.99 },
+      { store_name: 'Agata', price: 149.99 }
+    ]
+  },
+  {
+    id: 203,
+    name: 'Lampa stołowa',
+    description: 'Lampa biurkowa LED z ładowarką',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 199.99 },
+      { store_name: 'Jysk', price: 229.99 },
+      { store_name: 'Agata', price: 249.99 }
+    ]
+  },
+  {
+    id: 204,
+    name: 'Dywan',
+    description: 'Dywan wełniany 160x230cm',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 399.99 },
+      { store_name: 'Jysk', price: 349.99 },
+      { store_name: 'Agata', price: 449.99 }
+    ]
+  },
+  {
+    id: 205,
+    name: 'Stolik kawowy',
+    description: 'Stolik kawowy szklany',
+    brand: 'Agata',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 199.99 },
+      { store_name: 'Jysk', price: 249.99 },
+      { store_name: 'Agata', price: 189.99 }
+    ]
+  },
+  {
+    id: 206,
+    name: 'Zasłony',
+    description: 'Zasłony blackout 140x250cm',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 89.99 },
+      { store_name: 'Jysk', price: 99.99 },
+      { store_name: 'Agata', price: 119.99 }
+    ]
+  },
+  {
+    id: 207,
+    name: 'Kosz na pranie',
+    description: 'Kosz na bieliznę z rattanu',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 79.99 },
+      { store_name: 'Jysk', price: 69.99 },
+      { store_name: 'Agata', price: 89.99 }
+    ]
+  },
+  {
+    id: 208,
+    name: 'Organizer do szafy',
+    description: 'System organizacji ubrań',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 49.99 },
+      { store_name: 'Jysk', price: 59.99 },
+      { store_name: 'Agata', price: 69.99 }
+    ]
+  },
+  {
+    id: 209,
+    name: 'Donic donicka',
+    description: 'Doniczka ceramiczna 30cm',
+    brand: 'IKEA',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 29.99 },
+      { store_name: 'Jysk', price: 34.99 },
+      { store_name: 'Agata', price: 39.99 }
+    ]
+  },
+  {
+    id: 210,
+    name: 'Wieszak na ubrania',
+    description: 'Wieszak stojący metalowy',
+    brand: 'Jysk',
+    category_id: 21,
+    category_name: 'Meble i wyposażenie',
+    category_icon: '🪑',
+    prices: [
+      { store_name: 'IKEA', price: 99.99 },
+      { store_name: 'Jysk', price: 89.99 },
+      { store_name: 'Agata', price: 109.99 }
     ]
   }
 ];
 
-// Updated categories list
+// Updated categories list with realistic product counts - COMPREHENSIVE LIST
 const enhancedCategories = [
-  { id: 1, name: 'bread', name_pl: 'Pieczywo', icon: '🍞', product_count: 14 },
-  { id: 2, name: 'dairy', name_pl: 'Nabiał', icon: '🥛', product_count: 6 },
-  { id: 3, name: 'meat', name_pl: 'Mięso i ryby', icon: '🥩', product_count: 4 },
-  { id: 4, name: 'vegetables', name_pl: 'Warzywa', icon: '🥕', product_count: 2 },
-  { id: 5, name: 'fruits', name_pl: 'Owoce', icon: '🍎', product_count: 0 },
-  { id: 6, name: 'drinks', name_pl: 'Napoje', icon: '🥤', product_count: 2 },
-  { id: 7, name: 'sweets', name_pl: 'Słodycze', icon: '🍭', product_count: 8 },
-  { id: 8, name: 'snacks', name_pl: 'Przekąski', icon: '🍿', product_count: 0 },
-  { id: 9, name: 'frozen', name_pl: 'Mrożonki', icon: '🧊', product_count: 0 },
-  { id: 10, name: 'spices', name_pl: 'Przyprawy', icon: '🧂', product_count: 0 },
-  { id: 11, name: 'household', name_pl: 'Chemia gospodarcza', icon: '🧽', product_count: 0 },
-  { id: 12, name: 'hygiene', name_pl: 'Higiena osobista', icon: '🧴', product_count: 0 },
-  { id: 13, name: 'baby', name_pl: 'Artykuły dla dzieci', icon: '🍼', product_count: 0 },
-  { id: 14, name: 'furniture', name_pl: 'Meble i Dom', icon: '🏠', product_count: 5 },
-  { id: 15, name: 'electronics', name_pl: 'Elektronika', icon: '📱', product_count: 7 },
-  { id: 16, name: 'clothing', name_pl: 'Odzież', icon: '👕', product_count: 8 },
-  { id: 17, name: 'books', name_pl: 'Książki', icon: '📚', product_count: 5 },
-  { id: 18, name: 'sports', name_pl: 'Sport', icon: '⚽', product_count: 5 },
-  { id: 19, name: 'petrol', name_pl: 'Paliwo i Samochód', icon: '⛽', product_count: 5 }
+  // Food categories (existing + expanded)
+  { id: 1, name: 'bread', name_pl: 'Pieczywo', icon: '🍞', product_count: 45 },
+  { id: 2, name: 'dairy', name_pl: 'Nabiał', icon: '🥛', product_count: 32 },
+  { id: 3, name: 'meat', name_pl: 'Mięso i ryby', icon: '🥩', product_count: 28 },
+  { id: 4, name: 'vegetables', name_pl: 'Warzywa', icon: '🥕', product_count: 25 },
+  { id: 5, name: 'fruits', name_pl: 'Owoce', icon: '🍎', product_count: 22 },
+  { id: 6, name: 'drinks', name_pl: 'Napoje', icon: '🥤', product_count: 35 },
+  { id: 7, name: 'sweets', name_pl: 'Słodycze', icon: '🍭', product_count: 28 },
+  { id: 8, name: 'snacks', name_pl: 'Przekąski', icon: '🍿', product_count: 24 },
+  { id: 9, name: 'frozen', name_pl: 'Mrożonki', icon: '🧊', product_count: 18 },
+  { id: 10, name: 'organic', name_pl: 'Bio/Organiczne', icon: '🌱', product_count: 15 },
+  
+  // Non-food categories (existing + new)
+  { id: 11, name: 'household', name_pl: 'Dom i ogród', icon: '🏠', product_count: 42 },
+  { id: 12, name: 'hygiene', name_pl: 'Higiena', icon: '🧼', product_count: 38 },
+  { id: 13, name: 'baby', name_pl: 'Dziecko', icon: '👶', product_count: 22 },
+  { id: 14, name: 'health', name_pl: 'Zdrowie', icon: '💊', product_count: 28 },
+  { id: 15, name: 'cosmetics', name_pl: 'Kosmetyki', icon: '💄', product_count: 32 },
+  { id: 16, name: 'electronics', name_pl: 'Elektronika', icon: '📱', product_count: 35 },
+  { id: 17, name: 'clothing', name_pl: 'Odzież', icon: '👕', product_count: 25 },
+  { id: 18, name: 'books', name_pl: 'Książki', icon: '📚', product_count: 20 },
+  { id: 19, name: 'automotive', name_pl: 'Paliwo i Samochód', icon: '🛢️', product_count: 15 },
+  { id: 20, name: 'toys', name_pl: 'Zabawki', icon: '🧸', product_count: 18 },
+  
+  // NEW: Specialized categories
+  { id: 21, name: 'furniture', name_pl: 'Meble i wyposażenie', icon: '🪑', product_count: 25 },
+  { id: 22, name: 'sports', name_pl: 'Sport i rekreacja', icon: '⚽', product_count: 22 },
+  { id: 23, name: 'pets', name_pl: 'Zwierzęta', icon: '🐕', product_count: 18 },
+  { id: 24, name: 'tools', name_pl: 'Narzędzia i DIY', icon: '🔨', product_count: 20 },
+  { id: 25, name: 'garden', name_pl: 'Ogród', icon: '🌻', product_count: 16 },
+  { id: 26, name: 'alcohol', name_pl: 'Alkohol', icon: '🍷', product_count: 24 },
+  { id: 27, name: 'ethnic_food', name_pl: 'Kuchnie świata', icon: '🌍', product_count: 30 },
+  { id: 28, name: 'premium', name_pl: 'Premium', icon: '💎', product_count: 15 },
+  { id: 29, name: 'convenience', name_pl: 'Convenience', icon: '🏪', product_count: 20 }
 ];
 
-// Expanded stores list with Polish chains - MOVED BEFORE FUNCTION CALL
+// Expanded stores list with Polish chains - COMPREHENSIVE LIST
 const stores = [
-  // Major discount chains
+  // Major discount chains (existing)
   { id: 1, name: 'Biedronka', type: 'discount', website: 'https://www.biedronka.pl', categories: ['fruits', 'bread', 'dairy', 'meat', 'vegetables', 'drinks', 'sweets'], location_count: 3000, logo: '🔴' },
   { id: 2, name: 'LIDL', type: 'discount', website: 'https://www.lidl.pl', categories: ['organic', 'bread', 'meat', 'dairy', 'fruits', 'vegetables'], location_count: 800, logo: '🔵' },
   { id: 3, name: 'Netto', type: 'discount', website: 'https://www.netto.pl', categories: ['fruits', 'vegetables', 'dairy'], location_count: 400, logo: '🟡' },
@@ -1266,7 +3208,7 @@ const stores = [
   { id: 5, name: 'Stokrotka', type: 'discount', website: 'https://www.stokrotka.pl', categories: ['daily', 'fresh', 'dairy'], location_count: 700, logo: '🌼' },
   { id: 6, name: 'Polomarket', type: 'discount', website: 'https://www.polomarket.pl', categories: ['local', 'meat', 'dairy'], location_count: 280, logo: '🔷' },
   
-  // Hypermarkets
+  // Hypermarkets (existing + new)
   { id: 7, name: 'Carrefour', type: 'hypermarket', website: 'https://www.carrefour.pl', categories: ['food', 'electronics', 'clothing', 'household'], location_count: 90, logo: '🛒' },
   { id: 8, name: 'Auchan', type: 'hypermarket', website: 'https://www.auchan.pl', categories: ['electronics', 'clothing', 'home', 'food', 'frozen'], location_count: 90, logo: '🏪' },
   { id: 9, name: 'Tesco', type: 'hypermarket', website: 'https://www.tesco.pl', categories: ['food', 'household', 'electronics'], location_count: 450, logo: '🔴' },
@@ -1274,63 +3216,99 @@ const stores = [
   { id: 11, name: 'Kaufland', type: 'hypermarket', website: 'https://www.kaufland.pl', categories: ['food', 'household', 'electronics'], location_count: 240, logo: '🔴' },
   { id: 12, name: 'E.Leclerc', type: 'hypermarket', website: 'https://www.e-leclerc.pl', categories: ['food', 'electronics', 'automotive'], location_count: 25, logo: '🟠' },
   
-  // Convenience stores
+  // NEW: Additional discount chains
+  { id: 51, name: 'Aldi', type: 'discount', website: 'https://www.aldi.pl', categories: ['organic', 'german', 'dairy'], location_count: 150, logo: '🟦' },
+  { id: 52, name: 'Intermarché', type: 'discount', website: 'https://www.intermarche.pl', categories: ['french', 'premium'], location_count: 200, logo: '🇫🇷' },
+  
+  // Convenience stores (existing)
   { id: 13, name: 'Żabka', type: 'convenience', website: 'https://www.zabka.pl', categories: ['snacks', 'drinks', 'sweets', 'dairy'], location_count: 8000, logo: '🐸' },
   { id: 14, name: 'Freshmarket', type: 'convenience', website: 'https://www.freshmarket.pl', categories: ['fresh', 'daily', 'convenience'], location_count: 190, logo: '🥬' },
   { id: 15, name: 'Lewiatan', type: 'convenience', website: 'https://www.lewiatan.pl', categories: ['local', 'daily', 'convenience'], location_count: 3000, logo: '⚓' },
   { id: 16, name: 'Spar', type: 'convenience', website: 'https://www.spar.pl', categories: ['international', 'convenience'], location_count: 120, logo: '🌟' },
-  { id: 17, name: 'Delikatesy Centrum', type: 'convenience', website: 'https://www.dc.pl', categories: ['premium', 'delicatessen'], location_count: 350, logo: '💎' },
-  { id: 18, name: 'Intermarche', type: 'convenience', website: 'https://www.intermarche.pl', categories: ['french', 'gourmet'], location_count: 250, logo: '🇫🇷' },
+  { id: 17, name: 'Delikatesy Centrum', type: 'premium', website: 'https://www.dc.pl', categories: ['premium', 'delicatessen'], location_count: 350, logo: '💎' },
   
-  // Drugstores
+  // NEW: Online & Premium stores
+  { id: 53, name: 'Frisco.pl', type: 'online', website: 'https://www.frisco.pl', categories: ['premium', 'organic', 'delivery'], location_count: 1, logo: '📦' },
+  { id: 54, name: 'Barbora', type: 'online', website: 'https://www.barbora.pl', categories: ['online', 'fresh', 'delivery'], location_count: 1, logo: '🚚' },
+  { id: 55, name: 'Żabka Nano', type: 'convenience', website: 'https://www.zabka.pl', categories: ['automated', 'tech', 'convenience'], location_count: 25, logo: '🤖' },
+  
+  // Drugstores (existing)
   { id: 19, name: 'Rossmann', type: 'drugstore', website: 'https://www.rossmann.pl', categories: ['hygiene', 'baby', 'household', 'sweets'], location_count: 1800, logo: '💊' },
   { id: 20, name: 'Super-Pharm', type: 'drugstore', website: 'https://www.super-pharm.pl', categories: ['pharmacy', 'cosmetics'], location_count: 290, logo: '💉' },
   { id: 21, name: 'Hebe', type: 'drugstore', website: 'https://www.hebe.pl', categories: ['cosmetics', 'perfumes'], location_count: 280, logo: '💄' },
   { id: 22, name: 'Doz.pl', type: 'drugstore', website: 'https://www.doz.pl', categories: ['pharmacy', 'health'], location_count: 170, logo: '🏥' },
   
-  // Furniture & Home
-  { id: 23, name: 'IKEA', type: 'furniture', website: 'https://www.ikea.com/pl', categories: ['household', 'home', 'kitchen'], location_count: 15, logo: '🏠' },
+  // Furniture & Home (existing + new)
+  { id: 23, name: 'IKEA', type: 'furniture', website: 'https://www.ikea.com/pl', categories: ['household', 'home', 'kitchen', 'food'], location_count: 15, logo: '🏠' },
   { id: 24, name: 'Leroy Merlin', type: 'home_improvement', website: 'https://www.leroymerlin.pl', categories: ['household', 'home', 'garden'], location_count: 80, logo: '🔨' },
   { id: 25, name: 'Castorama', type: 'home_improvement', website: 'https://www.castorama.pl', categories: ['diy', 'garden', 'tools'], location_count: 75, logo: '🛠️' },
   { id: 26, name: 'OBI', type: 'home_improvement', website: 'https://www.obi.pl', categories: ['garden', 'tools', 'building'], location_count: 65, logo: '🧰' },
   { id: 27, name: 'Jysk', type: 'furniture', website: 'https://www.jysk.pl', categories: ['furniture', 'home', 'bedding'], location_count: 180, logo: '🛏️' },
   { id: 28, name: 'Black Red White', type: 'furniture', website: 'https://www.brw.pl', categories: ['furniture', 'bedroom', 'living'], location_count: 120, logo: '⚫' },
   
-  // Specialized stores
+  // NEW: Additional furniture stores
+  { id: 56, name: 'Agata', type: 'furniture', website: 'https://www.agata.pl', categories: ['furniture', 'home', 'decor'], location_count: 80, logo: '🪴' },
+  { id: 57, name: 'PSB Mrówka', type: 'home_improvement', website: 'https://www.psb-mrówka.pl', categories: ['building', 'tools', 'garden'], location_count: 200, logo: '🐜' },
+  
+  // Specialized stores (existing)
   { id: 29, name: 'Pepco', type: 'retail', website: 'https://www.pepco.pl', categories: ['clothing', 'household', 'toys'], location_count: 600, logo: '🎯' },
   { id: 30, name: 'Action', type: 'retail', website: 'https://www.action.com/pl', categories: ['household', 'toys', 'seasonal'], location_count: 200, logo: '💥' },
   { id: 31, name: 'TEDi', type: 'retail', website: 'https://www.tedi.com', categories: ['household', 'decoration', 'toys'], location_count: 180, logo: '🧸' },
   { id: 32, name: 'Dealz', type: 'retail', website: 'https://www.dealz.ie', categories: ['household', 'toys', 'stationery'], location_count: 50, logo: '💰' },
   
-  // Electronics
+  // NEW: Alternative stores
+  { id: 58, name: 'Flying Tiger', type: 'retail', website: 'https://www.flyingtiger.com', categories: ['design', 'toys', 'gifts'], location_count: 30, logo: '🐅' },
+  
+  // Electronics (existing)
   { id: 33, name: 'Media Markt', type: 'electronics', website: 'https://www.mediamarkt.pl', categories: ['electronics', 'appliances'], location_count: 35, logo: '📱' },
   { id: 34, name: 'Saturn', type: 'electronics', website: 'https://www.saturn.pl', categories: ['electronics', 'gaming'], location_count: 8, logo: '🪐' },
   { id: 35, name: 'RTV Euro AGD', type: 'electronics', website: 'https://www.euro.com.pl', categories: ['electronics', 'appliances'], location_count: 350, logo: '📺' },
   { id: 36, name: 'Neo24', type: 'electronics', website: 'https://www.neo24.pl', categories: ['electronics', 'mobile'], location_count: 180, logo: '📲' },
   
-  // Clothing
+  // NEW: Additional electronics
+  { id: 59, name: 'Neonet', type: 'electronics', website: 'https://www.neonet.pl', categories: ['electronics', 'computers'], location_count: 120, logo: '💻' },
+  
+  // Clothing (existing)
   { id: 37, name: 'H&M', type: 'clothing', website: 'https://www.hm.com/pl', categories: ['fashion', 'clothing'], location_count: 120, logo: '👕' },
   { id: 38, name: 'Reserved', type: 'clothing', website: 'https://www.reserved.com/pl', categories: ['fashion', 'polish'], location_count: 250, logo: '🇵🇱' },
   { id: 39, name: 'CCC', type: 'shoes', website: 'https://www.ccc.eu', categories: ['shoes', 'accessories'], location_count: 400, logo: '👟' },
   { id: 40, name: 'Deichmann', type: 'shoes', website: 'https://www.deichmann.com/pl', categories: ['shoes', 'bags'], location_count: 200, logo: '👠' },
   
-  // Bookstores & Culture
+  // Bookstores & Culture (existing)
   { id: 41, name: 'Empik', type: 'bookstore', website: 'https://www.empik.com', categories: ['books', 'music', 'electronics'], location_count: 250, logo: '📚' },
   { id: 42, name: 'Matras', type: 'bookstore', website: 'https://www.matras.pl', categories: ['books', 'stationery'], location_count: 80, logo: '📖' },
   
-  // Sports
+  // NEW: Additional bookstores
+  { id: 60, name: 'Świat Książki', type: 'bookstore', website: 'https://www.swiat-ksiazki.pl', categories: ['books', 'literature'], location_count: 60, logo: '📗' },
+  
+  // Sports (existing)
   { id: 43, name: 'Decathlon', type: 'sports', website: 'https://www.decathlon.pl', categories: ['sports', 'outdoor'], location_count: 50, logo: '⚽' },
   { id: 44, name: 'Go Sport', type: 'sports', website: 'https://www.gosport.pl', categories: ['sports', 'fitness'], location_count: 45, logo: '🏃' },
   
-  // Pharmacies
+  // Pharmacies (existing)
   { id: 45, name: 'Apteka Gemini', type: 'pharmacy', website: 'https://www.gemini.pl', categories: ['pharmacy', 'health'], location_count: 1200, logo: '💊' },
   { id: 46, name: 'Ziko Apteka', type: 'pharmacy', website: 'https://www.ziko.pl', categories: ['pharmacy', 'health'], location_count: 800, logo: '⚕️' },
   { id: 47, name: 'Apteka DOZ', type: 'pharmacy', website: 'https://www.doz.pl', categories: ['pharmacy', 'supplements'], location_count: 400, logo: '🏥' },
   
-  // Petrol stations with shops
+  // Petrol stations with shops (existing)
   { id: 48, name: 'Orlen', type: 'petrol', website: 'https://www.orlen.pl', categories: ['fuel', 'convenience', 'coffee'], location_count: 2800, logo: '⛽' },
   { id: 49, name: 'BP', type: 'petrol', website: 'https://www.bp.com/pl', categories: ['fuel', 'convenience'], location_count: 500, logo: '🟢' },
-  { id: 50, name: 'Shell', type: 'petrol', website: 'https://www.shell.pl', categories: ['fuel', 'convenience'], location_count: 400, logo: '🐚' }
+  { id: 50, name: 'Shell', type: 'petrol', website: 'https://www.shell.pl', categories: ['fuel', 'convenience'], location_count: 400, logo: '🐚' },
+  
+  // NEW: Additional petrol stations
+  { id: 61, name: 'Circle K', type: 'petrol', website: 'https://www.circlek.pl', categories: ['fuel', 'convenience', 'fast-food'], location_count: 350, logo: '⭕' },
+  
+  // NEW: Pet stores
+  { id: 62, name: 'Maxi Zoo', type: 'pet_store', website: 'https://www.maxizoo.pl', categories: ['pets', 'animal'], location_count: 120, logo: '🐕' },
+  { id: 63, name: 'Kakadu', type: 'pet_store', website: 'https://www.kakadu.pl', categories: ['pets', 'birds'], location_count: 80, logo: '🦜' },
+  { id: 64, name: 'Zooplus.pl', type: 'pet_store', website: 'https://www.zooplus.pl', categories: ['pets', 'online'], location_count: 1, logo: '🐾' },
+  { id: 65, name: 'PetSmile', type: 'pet_store', website: 'https://www.petsmile.pl', categories: ['pets', 'grooming'], location_count: 45, logo: '😺' },
+  
+  // NEW: Ethnic stores
+  { id: 66, name: 'Sklep Turecki', type: 'ethnic', website: 'https://www.turcja.pl', categories: ['turkish', 'ethnic'], location_count: 200, logo: '🇹🇷' },
+  { id: 67, name: 'Vietnam Market', type: 'ethnic', website: 'https://www.vietnam.pl', categories: ['vietnamese', 'asian'], location_count: 150, logo: '🇻🇳' },
+  { id: 68, name: 'Sklep Indyjski', type: 'ethnic', website: 'https://www.indie.pl', categories: ['indian', 'spices'], location_count: 80, logo: '🇮🇳' },
+  { id: 69, name: 'Ukraiński Market', type: 'ethnic', website: 'https://www.ukraina.pl', categories: ['ukrainian', 'eastern'], location_count: 300, logo: '🇺🇦' }
 ];
 
 // Function to generate smart product distribution across stores
@@ -1518,6 +3496,48 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+// Categories API - MUST BE BEFORE /api/products/:id
+app.get('/api/products/categories', (req, res) => {
+  // Calculate actual product counts for each category
+  const categoriesWithCounts = enhancedCategories.map(category => ({
+    ...category,
+    product_count: smartProducts.filter(product => product.category_id === category.id).length
+  }));
+
+  res.json({
+    success: true,
+    message: 'Kategorie pobrane pomyślnie',
+    data: categoriesWithCounts,
+    meta: {
+      total: categoriesWithCounts.length,
+      total_products: smartProducts.length
+    }
+  });
+});
+
+// Trending/Popular products - MUST BE BEFORE /api/products/:id
+app.get('/api/products/trending', (req, res) => {
+  const trendingProducts = smartProducts
+    .filter(product => Math.random() > 0.3) // Simulate trending products
+    .sort((a, b) => {
+      const aMinPrice = Math.min(...a.prices.map(p => p.price));
+      const bMinPrice = Math.min(...b.prices.map(p => p.price));
+      return aMinPrice - bMinPrice;
+    })
+    .slice(0, 12);
+  
+  res.json({
+    success: true,
+    data: trendingProducts,
+    message: 'Popularne i promocyjne produkty',
+    meta: {
+      total: trendingProducts.length,
+      avg_discount: '25%',
+      updated_at: new Date().toISOString()
+    }
+  });
+});
+
 app.get('/api/products/:id', (req, res) => {
   const productId = parseInt(req.params.id);
   const product = smartProducts.find(p => p.id === productId);
@@ -1614,25 +3634,6 @@ app.get('/api/stores/:id', (req, res) => {
   });
 });
 
-// Categories API
-app.get('/api/products/categories', (req, res) => {
-  // Calculate actual product counts for each category
-  const categoriesWithCounts = enhancedCategories.map(category => ({
-    ...category,
-    product_count: smartProducts.filter(product => product.category_id === category.id).length
-  }));
-
-  res.json({
-    success: true,
-    message: 'Kategorie pobrane pomyślnie',
-    data: categoriesWithCounts,
-    meta: {
-      total: categoriesWithCounts.length,
-      total_products: smartProducts.length
-    }
-  });
-});
-
 // New: Search endpoint
 app.get('/api/search', (req, res) => {
   const query = req.query.q;
@@ -1656,29 +3657,6 @@ app.get('/api/search', (req, res) => {
     meta: {
       query,
       total: searchResults.length
-    }
-  });
-});
-
-// New: Trending/Popular products
-app.get('/api/products/trending', (req, res) => {
-  const trendingProducts = smartProducts
-    .filter(product => Math.random() > 0.3) // Simulate trending products
-    .sort((a, b) => {
-      const aMinPrice = Math.min(...a.prices.map(p => p.price));
-      const bMinPrice = Math.min(...b.prices.map(p => p.price));
-      return aMinPrice - bMinPrice;
-    })
-    .slice(0, 12);
-  
-  res.json({
-    success: true,
-    data: trendingProducts,
-    message: 'Popularne i promocyjne produkty',
-    meta: {
-      total: trendingProducts.length,
-      avg_discount: '25%',
-      updated_at: new Date().toISOString()
     }
   });
 });

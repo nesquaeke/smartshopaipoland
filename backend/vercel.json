@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/simple-server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/simple-server.js"
+    }
+  ],
+  "functions": {
+    "src/simple-server.js": {
+      "maxDuration": 30
+    }
+  }
+} 

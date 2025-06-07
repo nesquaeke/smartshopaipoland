@@ -196,7 +196,30 @@ function ProductsContent() {
     try {
       setIsLoading(true);
       
-      // Use mock data instead of API calls for GitHub Pages
+      // Try to fetch from API first
+      try {
+        const [productsResponse, categoriesResponse] = await Promise.all([
+          fetch('http://localhost:3535/api/products'),
+          fetch('http://localhost:3535/api/products/categories')
+        ]);
+
+        if (productsResponse.ok && categoriesResponse.ok) {
+          const productsData = await productsResponse.json();
+          const categoriesData = await categoriesResponse.json();
+          
+          setProducts(productsData.data || []);
+          setCategories(categoriesData.data || []);
+          
+          // Group products by category
+          const grouped = groupProductsByCategory(productsData.data || []);
+          setGroupedProducts(grouped);
+          return; // Exit if API calls are successful
+        }
+      } catch (apiError) {
+        console.warn('API not available, falling back to mock data:', apiError);
+      }
+      
+      // Fallback to mock data if API is not available
       setProducts(mockProducts);
       setCategories(mockCategories);
       

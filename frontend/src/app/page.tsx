@@ -229,7 +229,30 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      // Use mock data instead of API calls for GitHub Pages
+      // Try to fetch from API first
+      try {
+        const [productsResponse, storesResponse, categoriesResponse] = await Promise.all([
+          fetch('http://localhost:3535/api/products/trending'),
+          fetch('http://localhost:3535/api/stores'),
+          fetch('http://localhost:3535/api/products/categories')
+        ]);
+
+        if (productsResponse.ok && storesResponse.ok && categoriesResponse.ok) {
+          const productsData = await productsResponse.json();
+          const storesData = await storesResponse.json();
+          const categoriesData = await categoriesResponse.json();
+          
+          setTrendingProducts(productsData.data || []);
+          setAllProducts(productsData.data || []);
+          setStores(storesData.data || []);
+          setCategories(categoriesData.data || []);
+          return; // Exit if API calls are successful
+        }
+      } catch (apiError) {
+        console.warn('API not available, falling back to mock data:', apiError);
+      }
+      
+      // Fallback to mock data if API is not available
       setTrendingProducts(mockProducts);
       setAllProducts(mockProducts);
       setStores(mockStores);
@@ -243,7 +266,23 @@ export default function Home() {
 
   const fetchStats = async () => {
     try {
-      // Use static stats for GitHub Pages
+      // Try to fetch real stats from API
+      try {
+        const response = await fetch('http://localhost:3535/health');
+        if (response.ok) {
+          const statsData = await response.json();
+          setStats({
+            total_products: statsData.total_products || 64,
+            total_stores: statsData.total_stores || 50,
+            total_categories: statsData.total_categories || 19
+          });
+          return; // Exit if API call is successful
+        }
+      } catch (apiError) {
+        console.warn('Stats API not available, using default stats:', apiError);
+      }
+      
+      // Fallback to static stats if API is not available
       setStats({
         total_products: 64,
         total_stores: 50,
@@ -251,12 +290,6 @@ export default function Home() {
       });
     } catch (error) {
       console.error('Error fetching stats:', error);
-      // Fallback values
-      setStats({
-        total_products: 64,
-        total_stores: 50,
-        total_categories: 19
-      });
     }
   };
 

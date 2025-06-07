@@ -141,7 +141,25 @@ function StoresContent() {
   const fetchStoresWithProducts = async () => {
     try {
       setIsLoading(true);
-      // Use mock data instead of API call for GitHub Pages
+      
+      // Try to fetch from API first
+      try {
+        const response = await fetch('http://localhost:3535/api/stores/with-products');
+        
+        if (response.ok) {
+          const storesData = await response.json();
+          setStoresWithProducts(storesData.data || []);
+          
+          // Group stores by type
+          const grouped = groupStoresByType(storesData.data || []);
+          setGroupedStores(grouped);
+          return; // Exit if API call is successful
+        }
+      } catch (apiError) {
+        console.warn('API not available, falling back to mock data:', apiError);
+      }
+      
+      // Fallback to mock data if API is not available
       setStoresWithProducts(mockStoresWithProducts);
       
       // Group stores by type
