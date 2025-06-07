@@ -1,0 +1,35 @@
+{
+  "name": "smartshopai-poland",
+  "version": "1.0.0",
+  "description": "🛒 SmartShopAI Poland - AI-powered grocery price comparison platform",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "build-all": "cd backend && npm run build 2>/dev/null || echo 'Backend build skipped' && cd ../frontend && npm run build",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && node src/simple-server.js",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:production": "concurrently \"npm run start:backend\" \"cd frontend && npm start\"",
+    "dev": "npm run start",
+    "localhost": "npm run start",
+    "setup": "npm run install-all && echo '✅ Setup complete! Run: npm run dev'"
+  },
+  "keywords": [
+    "grocery",
+    "price-comparison",
+    "ai",
+    "shopping",
+    "poland",
+    "nextjs",
+    "nodejs"
+  ],
+  "author": "SmartShopAI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+} 
