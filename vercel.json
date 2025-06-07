@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "smartshopai-backend",
+      "source": "backend",
+      "builds": [
+        {
+          "src": "backend/src/simple-server.js",
+          "use": "@vercel/node"
+        }
+      ],
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "backend/src/simple-server.js"
+        }
+      ]
+    },
+    {
+      "name": "smartshopai-frontend", 
+      "source": "frontend",
+      "framework": "nextjs"
+    }
+  ]
+} 
