@@ -135,8 +135,8 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [stats, setStats] = useState<Stats>({
-    total_products: 64,
-    total_stores: 50,
+    total_products: 111,
+    total_stores: 68,
     total_categories: 19
   });
   const [nearbyStores, setNearbyStores] = useState<any[]>([]);
@@ -1421,7 +1421,7 @@ export default function Home() {
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>© 2024 GroceryCompare Poland. Wszystkie prawa zastrzeżone.</p>
-            <p className="mt-2 text-sm">Aktualizacja cen: co 15 minut | Dane z 9 sieci handlowych</p>
+            <p className="mt-2 text-sm">Aktualizacja cen: co 15 minut | Dane z 68 sieci handlowych</p>
           </div>
         </div>
       </footer>
