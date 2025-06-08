@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Backend API for GroceryCompare Poland - Intelligent grocery price comparison platform",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -27,16 +31,20 @@
     "axios": "^1.9.0",
     "bcryptjs": "^3.0.2",
     "cheerio": "^1.0.0",
+    "compression": "^1.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.0",
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
     "openai": "^5.0.1",
     "pg": "^8.16.0",
     "puppeteer": "^24.9.0",
+    "redis": "^5.5.6",
     "winston": "^3.17.0"
   },
   "devDependencies": {

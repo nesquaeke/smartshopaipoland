@@ -133,10 +133,37 @@ function StoresContent() {
   const [groupedStores, setGroupedStores] = useState<GroupedStores>({});
   const [isLoading, setIsLoading] = useState(true);
   const [selectedType, setSelectedType] = useState('');
+  const [cart, setCart] = useState<any[]>([]);
+  const [favoriteItems, setFavoriteItems] = useState<any[]>([]);
+  const [compareList, setCompareList] = useState<any[]>([]);
 
   useEffect(() => {
     fetchStoresWithProducts();
   }, []);
+
+  const translateCategory = (category: string): string => {
+    const translations: { [key: string]: string } = {
+      'fruits': 'Owoce',
+      'bread': 'Pieczywo',
+      'dairy': 'Nabiał',
+      'meat': 'Mięso',
+      'vegetables': 'Warzywa',
+      'drinks': 'Napoje',
+      'sweets': 'Słodycze',
+      'snacks': 'Przekąski',
+      'beverages': 'Napoje',
+      'frozen': 'Mrożonki',
+      'canned': 'Konserwy',
+      'household': 'Gospodarstwo domowe',
+      'personal_care': 'Higiena osobista',
+      'electronics': 'Elektronika',
+      'home_improvement': 'Dom i ogród',
+      'furniture': 'Meble',
+      'beauty': 'Kosmetyki',
+      'health': 'Zdrowie'
+    };
+    return translations[category] || category;
+  };
 
   const fetchStoresWithProducts = async () => {
     try {
@@ -144,14 +171,34 @@ function StoresContent() {
       
       // Try to fetch from API first
       try {
-        const response = await fetch('http://localhost:3535/api/stores/with-products');
+        const [storesResponse, productsResponse] = await Promise.all([
+          fetch('http://localhost:3535/api/stores'),
+          fetch('http://localhost:3535/api/products')
+        ]);
         
-        if (response.ok) {
-          const storesData = await response.json();
-          setStoresWithProducts(storesData.data || []);
+        if (storesResponse.ok && productsResponse.ok) {
+          const storesData = await storesResponse.json();
+          const productsData = await productsResponse.json();
+          
+          // Combine stores with their products
+          const stores = storesData.stores || [];
+          const products = productsData.products || [];
+          
+          const storesWithProducts = stores.map((store: any) => ({
+            ...store,
+            categories: store.categories?.map((cat: string) => translateCategory(cat)) || [],
+            products: products.filter((product: any) => 
+              product.prices?.some((price: any) => price.store_name === store.name)
+            ).map((product: any) => ({
+              ...product,
+              price_at_store: product.prices?.find((price: any) => price.store_name === store.name) || { store_name: store.name, price: 0 }
+            }))
+          }));
+          
+          setStoresWithProducts(storesWithProducts);
           
           // Group stores by type
-          const grouped = groupStoresByType(storesData.data || []);
+          const grouped = groupStoresByType(storesWithProducts);
           setGroupedStores(grouped);
           return; // Exit if API call is successful
         }
@@ -222,6 +269,62 @@ function StoresContent() {
   const filteredGroupedStores = selectedType 
     ? { [selectedType]: groupedStores[selectedType] || [] }
     : groupedStores;
+
+  // Add cart functionality
+  const addToCart = async (productId: number, storeId: number) => {
+    try {
+      const store = storesWithProducts.find(s => s.id === storeId);
+      const product = store?.products.find(p => p.id === productId);
+      
+      if (!store || !product) return;
+
+      const cartItem = {
+        id: Date.now(),
+        product_id: productId,
+        product_name: product.name,
+        product_description: product.description,
+        category_icon: product.category_icon,
+        brand: product.brand,
+        store_name: store.name,
+        store_id: storeId,
+        price: product.price_at_store?.price || 0,
+        quantity: 1,
+        original_price: product.price_at_store?.price ? product.price_at_store.price * 1.2 : undefined,
+        is_promotion: product.price_at_store?.is_promotion || false,
+        discount_percentage: product.price_at_store?.discount_percentage || 0
+      };
+
+      // Save to localStorage
+      const existingCart = JSON.parse(localStorage.getItem('smartshop_cart') || '[]');
+      const existingItemIndex = existingCart.findIndex((item: any) => 
+        item.product_id === productId && item.store_id === storeId
+      );
+
+      if (existingItemIndex >= 0) {
+        existingCart[existingItemIndex].quantity += 1;
+      } else {
+        existingCart.push(cartItem);
+      }
+
+      localStorage.setItem('smartshop_cart', JSON.stringify(existingCart));
+      setCart(existingCart);
+
+      // Show success feedback
+      const button = document.querySelector(`[data-product-id="${productId}"]`);
+      if (button) {
+        const originalText = button.textContent;
+        button.textContent = '✅ Dodano!';
+        button.classList.add('bg-green-600');
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('bg-green-600');
+        }, 2000);
+      }
+
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -421,12 +524,21 @@ function StoresContent() {
                                     {isCurrentStoreBest ? '🏆 Najlepsze' : '💙 Dostępne'}
                                   </span>
                                 </div>
-                                <Link
-                                  href={`/products/${product.id}`}
-                                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-3 py-1.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
-                                >
-                                  🔍 Porównaj
-                                </Link>
+                                <div className="flex gap-1">
+                                  <button
+                                    onClick={() => addToCart(product.id, store.id)}
+                                    data-product-id={product.id}
+                                    className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-2 py-1.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
+                                  >
+                                    🛒
+                                  </button>
+                                  <Link
+                                    href={`/products/${product.id}`}
+                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-2 py-1.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
+                                  >
+                                    🔍
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>

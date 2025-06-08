@@ -22,9 +22,13 @@ interface Product {
 interface Category {
   id: number;
   name: string;
-  name_pl: string;
   icon: string;
   product_count: number;
+  featured_products?: {
+    id: number;
+    name: string;
+    min_price: number;
+  }[];
 }
 
 interface GroupedProducts {
@@ -115,10 +119,10 @@ const mockProducts: Product[] = [
 ];
 
 const mockCategories: Category[] = [
-  { id: 1, name: "Fruits", name_pl: "Owoce", icon: "🍌", product_count: 25 },
-  { id: 2, name: "Dairy", name_pl: "Nabiał", icon: "🥛", product_count: 18 },
-  { id: 3, name: "Bakery", name_pl: "Pieczywo", icon: "🍞", product_count: 12 },
-  { id: 4, name: "Beverages", name_pl: "Napoje", icon: "💧", product_count: 20 }
+  { id: 1, name: "Fruits", icon: "🍌", product_count: 25 },
+  { id: 2, name: "Dairy", icon: "🥛", product_count: 18 },
+  { id: 3, name: "Bakery", icon: "🍞", product_count: 12 },
+  { id: 4, name: "Beverages", icon: "💧", product_count: 20 }
 ];
 
 const mockStores: Store[] = [
@@ -200,18 +204,18 @@ function ProductsContent() {
       try {
         const [productsResponse, categoriesResponse] = await Promise.all([
           fetch('http://localhost:3535/api/products'),
-          fetch('http://localhost:3535/api/products/categories')
+          fetch('http://localhost:3535/api/categories')
         ]);
 
         if (productsResponse.ok && categoriesResponse.ok) {
           const productsData = await productsResponse.json();
           const categoriesData = await categoriesResponse.json();
           
-          setProducts(productsData.data || []);
-          setCategories(categoriesData.data || []);
+          setProducts(productsData.products || []);
+          setCategories(categoriesData.categories || []);
           
           // Group products by category
-          const grouped = groupProductsByCategory(productsData.data || []);
+          const grouped = groupProductsByCategory(productsData.products || []);
           setGroupedProducts(grouped);
           return; // Exit if API calls are successful
         }
@@ -235,7 +239,19 @@ function ProductsContent() {
 
   const fetchStores = async () => {
     try {
-      // Use mock data instead of API call for GitHub Pages
+      // Try to fetch from API first
+      try {
+        const storesResponse = await fetch('http://localhost:3535/api/stores');
+        if (storesResponse.ok) {
+          const storesData = await storesResponse.json();
+          setStores(storesData.stores || []);
+          return;
+        }
+      } catch (apiError) {
+        console.warn('Stores API not available, falling back to mock data:', apiError);
+      }
+      
+      // Fallback to mock data if API is not available
       setStores(mockStores);
     } catch (error) {
       console.error('Error fetching stores:', error);
@@ -251,7 +267,6 @@ function ProductsContent() {
         const category = categories.find(c => c.id === categoryId) || {
           id: categoryId,
           name: product.category_name.toLowerCase(),
-          name_pl: product.category_name,
           icon: product.category_icon,
           product_count: 0
         };
@@ -371,7 +386,7 @@ function ProductsContent() {
     setTimeout(() => document.body.removeChild(toastDiv), 3000);
   };
 
-  const selectedCategoryName = categories.find(c => c.id.toString() === selectedCategory)?.name_pl || '';
+  const selectedCategoryName = categories.find(c => c.id.toString() === selectedCategory)?.name || '';
 
   return (
     <div className={`min-h-screen transition-all duration-300 ${
@@ -502,7 +517,7 @@ function ProductsContent() {
                 <option value="">{t.allCategories}</option>
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
-                    {category.icon} {category.name_pl}
+                    {category.icon} {category.name}
                   </option>
                 ))}
               </select>
@@ -555,7 +570,7 @@ function ProductsContent() {
                     <div className="flex items-center">
                       <span className="text-5xl mr-4">{category.icon}</span>
                       <div>
-                        <h3 className="text-3xl font-bold text-gray-900">{category.name_pl}</h3>
+                        <h3 className="text-3xl font-bold text-gray-900">{category.name}</h3>
                         <p className="text-gray-600">{products.length} produktów dostępnych</p>
                       </div>
                     </div>
@@ -639,12 +654,24 @@ function ProductsContent() {
                                   <span className="font-semibold text-green-600">{bestStore?.store_name}</span>
                                   <div className="text-xs">💚 najlepsze</div>
                                 </div>
-                                <Link
-                                  href={`/products/${product.id}`}
-                                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
-                                >
-                                  🔍 Zobacz
-                                </Link>
+                                <div className="flex gap-1">
+                                  <button
+                                    onClick={() => {
+                                      const store = stores.find(s => s.name === bestStore?.store_name);
+                                      if (store) addToCart(product.id, store.id);
+                                    }}
+                                    data-product-id={product.id}
+                                    className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-2 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
+                                  >
+                                    🛒
+                                  </button>
+                                  <Link
+                                    href={`/products/${product.id}`}
+                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg text-xs transform hover:scale-110"
+                                  >
+                                    🔍 Zobacz
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           </div>

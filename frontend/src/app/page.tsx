@@ -149,10 +149,41 @@ export default function Home() {
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
   const [compareList, setCompareList] = useState<any[]>([]);
   
-  // Theme and language states
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [language, setLanguage] = useState<'pl' | 'en'>('pl');
-  const [cart, setCart] = useState<any[]>([]);
+  // Theme and language states with localStorage persistence
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('smartshop_theme') === 'dark';
+    }
+    return false;
+  });
+  
+  const [language, setLanguage] = useState<'pl' | 'en'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('smartshop_language') as 'pl' | 'en') || 'pl';
+    }
+    return 'pl';
+  });
+  
+  const [cart, setCart] = useState<any[]>(() => {
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem('smartshop_cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+    return [];
+  });
+
+  // Persist settings
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('smartshop_theme', isDarkMode ? 'dark' : 'light');
+    }
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('smartshop_language', language);
+    }
+  }, [language]);
   
   // Multilingual texts
   const texts = {
@@ -162,26 +193,64 @@ export default function Home() {
       heroTitle: "Inteligentne porównanie cen",
       heroSubtitle: "produktów spożywczych w Polsce",
       heroDescription: "Oszczędzaj czas i pieniądze dzięki AI! Porównujemy ceny z największych sieci handlowych w Polsce.",
-      searchPlaceholder: "Czego szukasz? (np. banany, mleko, czekolada)",
-      searchButton: "Szukaj AI",
+      searchPlaceholder: "Szukaj produktów lub sklepów...",
+      searchButton: "Szukaj",
       searchTip: "najtańsze mleko lub promocje na owoce",
-      products: "Produktów",
-      stores: "Sieci handlowych",
-      categories: "Kategorii",
-      savings: "Średnia oszczędność",
+      topCategories: "Top Kategorie",
       popularCategories: "Popularne kategorie",
-      nearbyStores: "Sklepy w pobliżu",
+      allCategories: "Wszystkie kategorie",
       bestOffers: "Najlepsze oferty",
-      activePromotions: "Promocje aktywne",
+      activePromotions: "Aktywne promocje",
+      nearbyStores: "Sklepy w pobliżu",
+      compareProducts: "Porównaj produkty",
+      detailedComparison: "Szczegółowe porównanie",
+      addToCart: "Dodaj do koszyka",
       addToFavorites: "Dodaj do ulubionych",
       addToCompare: "Dodaj do porównania",
       trackPrice: "Śledź cenę",
-      addToCart: "Dodaj",
-      viewProduct: "Zobacz",
-      compareProducts: "Porównanie produktów",
-      detailedComparison: "Szczegółowe porównanie",
+      viewProduct: "Zobacz produkt",
+      products: "produktów",
+      stores: "sklepów",
+      categories: "kategorii",
+      storeLocations: "lokalizacji w Polsce",
+      viewAllProducts: "Zobacz wszystkie produkty",
+      viewAllStores: "Zobacz wszystkie sklepy",
+      smartShopping: "Smart Shopping",
+      myCart: "Mój koszyk",
+      cartEmpty: "Koszyk pusty",
+      total: "Razem",
+      savings: "Oszczędności",
+      checkout: "Przejdź do kasy",
+      recommendedForYou: "Polecane dla Ciebie",
+      darkMode: "Tryb ciemny",
+      lightMode: "Tryb jasny",
+      language: "Język",
+      home: "Główna",
+      about: "O nas",
+      contact: "Kontakt",
+      privacy: "Polityka prywatności",
+      terms: "Regulamin",
+      followUs: "Śledź nas",
+      newsletterTitle: "Bądź na bieżąco",
+      newsletterDesc: "Otrzymuj najlepsze oferty i promocje",
+      subscribe: "Zapisz się",
+      footerDescription: "SmartShopAI - Inteligentne porównywanie cen w Polsce. Znajdź najlepsze oferty dzięki sztucznej inteligencji.",
+      footerQuickLinks: "Szybkie linki",
+      footerCategories: "Kategorie",
+      footerSupport: "Wsparcie",
+      allRightsReserved: "Wszystkie prawa zastrzeżone",
       aiFeatures: "Funkcje AI",
-      aiDescription: "Nasze rozwiązania AI pomagają znaleźć najlepsze oferty i zaplanować zakupy"
+      aiDescription: "Nasze rozwiązania AI pomagają znaleźć najlepsze oferty i zaplanować zakupy",
+      allProducts: "Wszystkie produkty",
+      allProductsDesc: "Przeglądaj wszystkie dostępne produkty",
+      allStores: "Wszystkie sklepy",
+      allStoresDesc: "Przeglądaj wszystkie dostępne sklepy",
+      shoppingCart: "Koszyk",
+      shoppingCartDesc: "Przeglądaj zawartość swojego koszyka",
+      yemekler: "Polonya Yemekleri",
+      yemeklerDesc: "Maliyet analizi ile yemek tasarrufu",
+      recentSearches: "Ostatnie wyszukiwania",
+      clearHistory: "Wyczyść historię"
     },
     en: {
       siteName: "SmartShopAI",
@@ -189,26 +258,64 @@ export default function Home() {
       heroTitle: "Smart price comparison",
       heroSubtitle: "for groceries in Poland",
       heroDescription: "Save time and money with AI! We compare prices from the largest retail chains in Poland.",
-      searchPlaceholder: "What are you looking for? (e.g. bananas, milk, chocolate)",
-      searchButton: "AI Search",
+      searchPlaceholder: "Search products or stores...",
+      searchButton: "Search",
       searchTip: "cheapest milk or fruit promotions",
-      products: "Products",
-      stores: "Store Chains",
-      categories: "Categories",
-      savings: "Average Savings",
+      topCategories: "Top Categories",
       popularCategories: "Popular Categories",
-      nearbyStores: "Nearby Stores",
+      allCategories: "All categories",
       bestOffers: "Best Offers",
       activePromotions: "Active Promotions",
+      nearbyStores: "Nearby Stores",
+      compareProducts: "Compare Products",
+      detailedComparison: "Detailed Comparison",
+      addToCart: "Add to Cart",
       addToFavorites: "Add to Favorites",
       addToCompare: "Add to Compare",
       trackPrice: "Track Price",
-      addToCart: "Add",
-      viewProduct: "View",
-      compareProducts: "Product Comparison",
-      detailedComparison: "Detailed Comparison",
+      viewProduct: "View Product",
+      products: "products",
+      stores: "stores",
+      categories: "categories",
+      storeLocations: "locations in Poland",
+      viewAllProducts: "View All Products",
+      viewAllStores: "View All Stores", 
+      smartShopping: "Smart Shopping",
+      myCart: "My Cart",
+      cartEmpty: "Cart Empty",
+      total: "Total",
+      savings: "Savings",
+      checkout: "Checkout",
+      recommendedForYou: "Recommended for You",
+      darkMode: "Dark Mode",
+      lightMode: "Light Mode",
+      language: "Language",
+      home: "Home",
+      about: "About",
+      contact: "Contact",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      followUs: "Follow Us",
+      newsletterTitle: "Stay Updated",
+      newsletterDesc: "Get the best deals and promotions",
+      subscribe: "Subscribe",
+      footerDescription: "SmartShopAI - Intelligent price comparison in Poland. Find the best deals with artificial intelligence.",
+      footerQuickLinks: "Quick Links",
+      footerCategories: "Categories",
+      footerSupport: "Support",
+      allRightsReserved: "All rights reserved",
       aiFeatures: "AI Features",
-      aiDescription: "Our AI solutions help find the best deals and plan your shopping"
+      aiDescription: "Our AI solutions help find the best deals and plan your shopping",
+      allProducts: "All Products",
+      allProductsDesc: "Browse all available products",
+      allStores: "All Stores",
+      allStoresDesc: "Browse all available stores",
+      shoppingCart: "Shopping Cart",
+      shoppingCartDesc: "Browse your shopping cart",
+      yemekler: "Polonya Yemekleri",
+      yemeklerDesc: "Maliyet analizi ile yemek tasarrufu",
+      recentSearches: "Recent Searches",
+      clearHistory: "Clear History"
     }
   };
   
@@ -338,59 +445,90 @@ export default function Home() {
 
   const addToCart = async (productId: number, storeId: number) => {
     try {
+      console.log('🛒 AddToCart Debug:', { productId, storeId });
+      
       const product = allProducts.find(p => p.id === productId);
       const store = stores.find(s => s.id === storeId);
       
-      if (!product || !store) {
-        alert('❌ Produkt lub sklep nie został znaleziony');
+      console.log('🎯 Found product:', product?.name);
+      console.log('🏪 Found store:', store?.name);
+      console.log('📊 Available stores:', stores.map(s => `${s.id}: ${s.name}`));
+      
+      if (!product) {
+        alert(`❌ Produkt o ID ${productId} nie został znaleziony`);
+        return;
+      }
+      
+      if (!store) {
+        alert(`❌ Sklep o ID ${storeId} nie został znaleziony. Dostępne sklepy: ${stores.map(s => s.name).join(', ')}`);
         return;
       }
 
       const price = product.prices.find(p => p.store_name === store.name);
+      console.log('💰 Price info:', price);
+      console.log('🏷️ Product prices:', product.prices);
+      
       if (!price) {
-        alert('❌ Produkt niedostępny w tym sklepie');
+        alert(`❌ Produkt "${product.name}" niedostępny w sklepie "${store.name}". Dostępny w: ${product.prices.map(p => p.store_name).join(', ')}`);
         return;
       }
 
-      // Calculate savings compared to highest price
-      const highestPrice = Math.max(...product.prices.map(p => p.price));
-      const savings = highestPrice - price.price;
-
-      // Add to local cart
+      // Create cart item with the correct structure that sepet page expects
       const cartItem = {
-        productId,
-        storeId,
-        product,
-        store,
+        id: Date.now(),
+        product_id: productId,
+        product_name: product.name,
+        product_description: product.description,
+        category_icon: product.category_icon,
+        brand: product.brand,
+        store_name: store.name,
+        store_id: storeId,
         price: price.price,
         quantity: 1,
-        savings,
-        isPromotion: price.is_promotion,
-        discountPercentage: price.discount_percentage || 0
+        original_price: price.price * 1.2, // Simulate original price
+        is_promotion: price.is_promotion || false,
+        discount_percentage: price.discount_percentage || 0,
+        savings: price.price * 0.2 // Simple savings calculation
       };
 
-      setCart(prev => {
-        const existingItem = prev.find(item => item.productId === productId && item.storeId === storeId);
-        if (existingItem) {
-          return prev.map(item => 
-            item.productId === productId && item.storeId === storeId
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          );
-        } else {
-          return [...prev, cartItem];
-        }
-      });
+      // Update localStorage cart
+      const existingCart = JSON.parse(localStorage.getItem('smartshop_cart') || '[]');
+      const existingItemIndex = existingCart.findIndex((item: any) => 
+        item.product_id === productId && item.store_id === storeId
+      );
+
+      let updatedCart;
+      if (existingItemIndex >= 0) {
+        existingCart[existingItemIndex].quantity += 1;
+        updatedCart = existingCart;
+      } else {
+        updatedCart = [...existingCart, cartItem];
+      }
+
+      localStorage.setItem('smartshop_cart', JSON.stringify(updatedCart));
+      
+      // Update local cart state to match localStorage format
+      setCart(updatedCart);
+
+      // Calculate savings for display
+      const highestPrice = Math.max(...product.prices.map(p => p.price));
+      const savings = highestPrice - price.price;
 
       // Show success message with savings
       const toastDiv = document.createElement('div');
       toastDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 font-bold';
-      toastDiv.innerHTML = `✅ ${product.name} dodany do koszyka!<br/>💰 Oszczędzasz: ${savings.toFixed(2)} zł`;
+      toastDiv.innerHTML = `✅ ${product.name} dodany do koszyka!<br/>💰 Oszczędzasz: ${savings.toFixed(2)} zł<br/>🏪 W sklepie: ${store.name}`;
       document.body.appendChild(toastDiv);
-      setTimeout(() => document.body.removeChild(toastDiv), 4000);
+      setTimeout(() => {
+        if (document.body.contains(toastDiv)) {
+          document.body.removeChild(toastDiv);
+        }
+      }, 4000);
+      
+      console.log('✅ Cart updated successfully!', cartItem);
     } catch (error) {
-      console.error('Error adding to cart:', error);
-      alert('❌ Błąd podczas dodawania do koszyka');
+      console.error('❌ Error adding to cart:', error);
+      alert('❌ Błąd podczas dodawania do koszyka: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
@@ -449,10 +587,14 @@ export default function Home() {
   const getRecommendations = () => {
     if (cart.length === 0) return [];
     
-    const cartCategories = [...new Set(cart.map(item => item.product.category_id))];
+    // Extract category IDs from cart items using the flat structure
+    const cartProductIds = cart.map(item => item.product_id);
+    const cartProducts = allProducts.filter(product => cartProductIds.includes(product.id));
+    const cartCategories = [...new Set(cartProducts.map(product => product.category_id))];
+    
     const recommendations = allProducts.filter(product => 
       cartCategories.includes(product.category_id) && 
-      !cart.some(item => item.product.id === product.id)
+      !cartProductIds.includes(product.id)
     ).slice(0, 3);
     
     return recommendations;
@@ -520,18 +662,18 @@ export default function Home() {
             <div className="flex items-center space-x-2">
               {/* Cart Indicator */}
               <div className="relative">
-                <button className={`relative p-2 sm:p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
+                <Link href="/sepet" className={`relative p-2 sm:p-3 rounded-xl transition-all duration-300 hover:scale-110 ${
                   isDarkMode 
                     ? 'bg-gradient-to-r from-gray-700 to-gray-800 border border-gray-600 text-white hover:from-gray-600 hover:to-gray-700' 
                     : 'bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200 text-gray-800 hover:from-emerald-200 hover:to-blue-200'
-                } shadow-lg hover:shadow-xl`}>
+                } shadow-lg hover:shadow-xl block`}>
                   <span className="text-lg sm:text-xl">🛒</span>
                   {cart.length > 0 && (
                     <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse shadow-lg">
                       {cart.length}
                     </span>
                   )}
-                </button>
+                </Link>
                 <div className={`text-xs text-center mt-1 font-medium hidden sm:block ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {language === 'pl' ? 'Sepetim' : 'My Cart'}
                 </div>
@@ -1106,11 +1248,13 @@ export default function Home() {
               <div key={index} className={`p-3 rounded-lg border ${isDarkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'}`}>
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h5 className="font-bold text-sm">{item.product.name}</h5>
-                    <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{item.store.name}</p>
+                    <h5 className="font-bold text-sm">{item.product_name || item.product?.name}</h5>
+                    <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{item.store_name || item.store?.name}</p>
                     <p className="text-sm font-bold text-green-600">{formatPrice(item.price)}</p>
-                    {item.savings > 0 && (
-                      <p className="text-xs text-green-600">💰 Oszczędność: {item.savings.toFixed(2)} zł</p>
+                    {(item.savings > 0 || (item.original_price && item.original_price > item.price)) && (
+                      <p className="text-xs text-green-600">
+                        💰 Oszczędność: {item.savings ? item.savings.toFixed(2) : ((item.original_price - item.price) * item.quantity).toFixed(2)} zł
+                      </p>
                     )}
                   </div>
                   <div className="text-right">
@@ -1131,12 +1275,18 @@ export default function Home() {
             <div className="flex justify-between items-center mb-4">
               <span className="text-sm font-medium">{language === 'pl' ? 'Oszczędności:' : 'Savings:'}</span>
               <span className="text-sm font-bold text-green-600">
-                {formatPrice(cart.reduce((sum, item) => sum + (item.savings * item.quantity), 0))}
+                {formatPrice(cart.reduce((sum, item) => {
+                  const savings = item.savings || (item.original_price ? (item.original_price - item.price) : 0);
+                  return sum + (savings * item.quantity);
+                }, 0))}
               </span>
             </div>
-            <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">
-              🛒 {language === 'pl' ? 'Przejdź do kasy' : 'Checkout'}
-            </button>
+            <Link 
+              href="/sepet"
+              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all block text-center"
+            >
+              🛒 {language === 'pl' ? 'Przejdź do sepetu' : 'Go to Cart'}
+            </Link>
             
             {/* Product Recommendations */}
             {getRecommendations().length > 0 && (
@@ -1384,47 +1534,196 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="text-lg font-bold mb-4">🛒 GroceryCompare</h4>
-              <p className="text-gray-400">
-                Inteligentna platforma porównywania cen produktów spożywczych w Polsce.
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-8">
+            {/* Company Info */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center mb-6">
+                <span className="text-4xl mr-3">🛒</span>
+                <div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                    {t.siteName}
+                  </h3>
+                  <span className="text-blue-300 text-sm font-medium">{t.motto}</span>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {t.footerDescription}
               </p>
+              
+              {/* Newsletter Signup */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h4 className="text-lg font-bold mb-3 text-blue-300">📧 {t.newsletterTitle}</h4>
+                <p className="text-gray-300 text-sm mb-4">{t.newsletterDesc}</p>
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="Email..."
+                    className="flex-1 px-4 py-2 rounded-xl bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:border-blue-400"
+                  />
+                  <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl font-bold transition-all">
+                    {t.subscribe}
+                  </button>
+                </div>
+              </div>
             </div>
+
+            {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-bold mb-4">Produkty</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/products" className="hover:text-white">Wszystkie produkty</Link></li>
-                <li><Link href="/categories" className="hover:text-white">Kategorie</Link></li>
-                <li><Link href="/products/trending" className="hover:text-white">Promocje</Link></li>
+              <h4 className="text-lg font-bold mb-6 text-blue-300">{t.footerQuickLinks}</h4>
+              <ul className="space-y-3">
+                <li><Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors">{t.home}</Link></li>
+                <li><Link href="/products" className="text-gray-300 hover:text-blue-400 transition-colors">{t.viewAllProducts}</Link></li>
+                <li><Link href="/stores" className="text-gray-300 hover:text-blue-400 transition-colors">{t.viewAllStores}</Link></li>
+                <li><Link href="/smart-shopping" className="text-gray-300 hover:text-blue-400 transition-colors">{t.smartShopping}</Link></li>
+                <li><Link href="/sepet" className="text-gray-300 hover:text-blue-400 transition-colors">{t.myCart}</Link></li>
               </ul>
             </div>
+
+            {/* Categories */}
             <div>
-              <h4 className="text-lg font-bold mb-4">Sklepy</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/stores" className="hover:text-white">Wszystkie sklepy</Link></li>
-                <li><Link href="/stores?type=discount" className="hover:text-white">Dyskonty</Link></li>
-                <li><Link href="/stores?type=hypermarket" className="hover:text-white">Hipermarkety</Link></li>
+              <h4 className="text-lg font-bold mb-6 text-blue-300">{t.footerCategories}</h4>
+              <ul className="space-y-3">
+                {categories.slice(0, 6).map((category) => (
+                  <li key={category.id}>
+                    <Link 
+                      href={`/products?category=${category.id}`} 
+                      className="text-gray-300 hover:text-blue-400 transition-colors flex items-center"
+                    >
+                      <span className="mr-2">{category.icon}</span>
+                      {language === 'pl' ? category.name_pl : category.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
+
+            {/* Support */}
             <div>
-              <h4 className="text-lg font-bold mb-4">AI & Pomocy</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/ai" className="hover:text-white">AI Asystent</Link></li>
-                <li><Link href="/help" className="hover:text-white">Pomoc</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Kontakt</Link></li>
+              <h4 className="text-lg font-bold mb-6 text-blue-300">{t.footerSupport}</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">{t.about}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">{t.contact}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">{t.privacy}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">{t.terms}</a></li>
               </ul>
+              
+              {/* Social Media */}
+              <div className="mt-8">
+                <h5 className="text-sm font-bold mb-4 text-blue-300">{t.followUs}</h5>
+                <div className="flex space-x-3">
+                  <a href="#" className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-xl flex items-center justify-center transition-colors">
+                    <span className="text-white font-bold">f</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-blue-400 hover:bg-blue-500 rounded-xl flex items-center justify-center transition-colors">
+                    <span className="text-white font-bold">t</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-pink-500 hover:bg-pink-600 rounded-xl flex items-center justify-center transition-colors">
+                    <span className="text-white font-bold">i</span>
+                  </a>
+                  <a href="#" className="w-10 h-10 bg-green-600 hover:bg-green-700 rounded-xl flex items-center justify-center transition-colors">
+                    <span className="text-white font-bold">w</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2024 GroceryCompare Poland. Wszystkie prawa zastrzeżone.</p>
-            <p className="mt-2 text-sm">Aktualizacja cen: co 15 minut | Dane z 68 sieci handlowych</p>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-white/20 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2024 {t.siteName}. {t.allRightsReserved}.
+              </div>
+              <div className="flex items-center space-x-6">
+                <div className="text-blue-300 text-sm font-medium">
+                  📊 {stats.total_products} {t.products} • 🏪 {stats.total_stores} {t.stores} • 📂 {stats.total_categories} {t.categories}
+                </div>
+                <button
+                  onClick={() => setLanguage(language === 'pl' ? 'en' : 'pl')}
+                  className="flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors border border-white/20"
+                >
+                  <span className="text-lg">{language === 'pl' ? '🇺🇸' : '🇵🇱'}</span>
+                  <span className="text-sm font-medium">{language === 'pl' ? 'English' : 'Polski'}</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* Search History */}
+      {searchHistory.length > 0 && (
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-800">
+              {texts[language].recentSearches}
+            </h3>
+            <button
+              onClick={clearSearchHistory}
+              className="text-sm text-gray-500 hover:text-red-500 transition-colors"
+            >
+              {texts[language].clearHistory}
+            </button>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {searchHistory.slice(0, 5).map((query, index) => (
+              <button
+                key={index}
+                onClick={() => setSearchQuery(query)}
+                className="px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors"
+              >
+                {query}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Navigation Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <Link href="/products" className="group bg-white hover:bg-blue-50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:scale-105">
+          <div className="text-center">
+            <div className="text-4xl mb-3">🛍️</div>
+            <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+              {texts[language].allProducts}
+            </h3>
+            <p className="text-gray-600 mt-2">{texts[language].allProductsDesc}</p>
+          </div>
+        </Link>
+
+        <Link href="/stores" className="group bg-white hover:bg-green-50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:scale-105">
+          <div className="text-center">
+            <div className="text-4xl mb-3">🏪</div>
+            <h3 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
+              {texts[language].allStores}
+            </h3>
+            <p className="text-gray-600 mt-2">{texts[language].allStoresDesc}</p>
+          </div>
+        </Link>
+
+        <Link href="/yemekler" className="group bg-white hover:bg-orange-50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:scale-105">
+          <div className="text-center">
+            <div className="text-4xl mb-3">🍽️</div>
+            <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
+              Polonya Yemekleri
+            </h3>
+            <p className="text-gray-600 mt-2">Maliyet analizi ile yemek tasarrufu</p>
+          </div>
+        </Link>
+
+        <Link href="/sepet" className="group bg-white hover:bg-purple-50 rounded-xl shadow-lg p-6 transition-all duration-300 hover:scale-105">
+          <div className="text-center">
+            <div className="text-4xl mb-3">🛒</div>
+            <h3 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
+              {texts[language].shoppingCart}
+            </h3>
+            <p className="text-gray-600 mt-2">{texts[language].shoppingCartDesc}</p>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }

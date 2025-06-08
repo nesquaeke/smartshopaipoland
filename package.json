@@ -1,35 +1,44 @@
 {
   "name": "smartshopai-poland",
-  "version": "1.0.0",
-  "description": "🛒 SmartShopAI Poland - AI-powered grocery price comparison platform",
-  "main": "index.js",
-  "scripts": {
-    "install-all": "cd backend && npm install && cd ../frontend && npm install",
-    "build-all": "cd backend && npm run build 2>/dev/null || echo 'Backend build skipped' && cd ../frontend && npm run build",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && node src/simple-server.js",
-    "start:frontend": "cd frontend && npm run dev",
-    "start:production": "concurrently \"npm run start:backend\" \"cd frontend && npm start\"",
-    "dev": "npm run start",
-    "localhost": "npm run start",
-    "setup": "npm run install-all && echo '✅ Setup complete! Run: npm run dev'"
-  },
-  "keywords": [
-    "grocery",
-    "price-comparison",
-    "ai",
-    "shopping",
-    "poland",
-    "nextjs",
-    "nodejs"
-  ],
-  "author": "SmartShopAI Team",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  },
+  "version": "2.1.0",
+  "description": "🛒 SmartShopAI Poland - AI-Powered Grocery Price Comparison Platform",
+  "main": "backend/src/enhanced-server.js",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev": "npm run start",
+    "build": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm install",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "clean": "rm -rf node_modules backend/node_modules frontend/node_modules frontend/.next",
+    "deploy": "npm run build && npm run start"
+  },
+  "keywords": [
+    "grocery",
+    "price-comparison", 
+    "poland",
+    "ai",
+    "shopping",
+    "nextjs",
+    "nodejs",
+    "comparison-website"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/smartshopai-poland.git"
+  },
+  "author": "SmartShopAI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
   }
 } 
