@@ -1,16 +1,16 @@
 services:
   - type: web
     name: smartshopai-backend
-    env: node
-    plan: free
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
-    healthCheckPath: /health
+    plan: free
     
   - type: web
     name: smartshopai-frontend
