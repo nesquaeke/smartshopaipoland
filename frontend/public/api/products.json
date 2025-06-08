@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Chleb żytni",
+      "description": "Chleb żytni tradycyjny 500g",
+      "brand": "Putka",
+      "category_id": 1,
+      "category_name": "Pieczywo",
+      "category_icon": "🍞",
+      "prices": [
+        { "store_name": "Biedronka", "price": 2.99 },
+        { "store_name": "LIDL", "price": 2.79 },
+        { "store_name": "Carrefour", "price": 3.19 },
+        { "store_name": "Auchan", "price": 3.09 },
+        { "store_name": "Netto", "price": 2.89 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bulka zwykła",
+      "description": "Klasyczna bułka biała 6 sztuk",
+      "brand": "Putka",
+      "category_id": 1,
+      "category_name": "Pieczywo",
+      "category_icon": "🍞",
+      "prices": [
+        { "store_name": "Biedronka", "price": 1.99 },
+        { "store_name": "LIDL", "price": 1.89 },
+        { "store_name": "Żabka", "price": 2.29 },
+        { "store_name": "Freshmarket", "price": 2.19 }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Mleko UHT 3,2%",
+      "description": "Mleko UHT 3,2% tłuszczu 1L",
+      "brand": "Łaciate",
+      "category_id": 2,
+      "category_name": "Nabiał",
+      "category_icon": "🥛",
+      "prices": [
+        { "store_name": "Biedronka", "price": 3.49 },
+        { "store_name": "LIDL", "price": 3.29 },
+        { "store_name": "Carrefour", "price": 3.59 },
+        { "store_name": "Żabka", "price": 3.89 }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Jogurt naturalny grecki",
+      "description": "Jogurt grecki 150g",
+      "brand": "Danone",
+      "category_id": 2,
+      "category_name": "Nabiał",
+      "category_icon": "🥛",
+      "prices": [
+        { "store_name": "Biedronka", "price": 2.29 },
+        { "store_name": "LIDL", "price": 2.19 },
+        { "store_name": "Carrefour", "price": 2.39 },
+        { "store_name": "Auchan", "price": 2.35 }
+      ]
+    }
+  ],
+  "total": 229,
+  "showing": 229
+} 

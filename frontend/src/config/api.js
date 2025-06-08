@@ -1,19 +1,20 @@
 // API Configuration for different environments
 const API_CONFIG = {
   development: {
-    baseURL: 'http://localhost:3535',
+    BACKEND_URL: 'http://localhost:3535',
+    USE_STATIC_DATA: false
   },
   production: {
-    baseURL: 'https://smartshopai-backend.onrender.com',
+    BACKEND_URL: '/smartshopaipoland',
+    USE_STATIC_DATA: true
   }
 };
 
-const getEnvironment = () => {
-  return process.env.NODE_ENV || 'development';
-};
+const env = process.env.NODE_ENV || 'development';
+const config = API_CONFIG[env];
 
-// Use environment variable if available, otherwise use config
-export const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || API_CONFIG[getEnvironment()].baseURL;
+export const BACKEND_URL = config.BACKEND_URL;
+export const USE_STATIC_DATA = config.USE_STATIC_DATA;
 
 // API endpoints
 export const API_ENDPOINTS = {
@@ -29,7 +30,7 @@ export const API_ENDPOINTS = {
 
 // Helper function to build full URL
 export const buildApiUrl = (endpoint) => {
-  return `${API_BASE_URL}${endpoint}`;
+  return `${BACKEND_URL}${endpoint}`;
 };
 
 // Fetch helper with error handling
@@ -55,9 +56,4 @@ export const apiRequest = async (endpoint, options = {}) => {
   }
 };
 
-export default {
-  API_BASE_URL,
-  API_ENDPOINTS,
-  buildApiUrl,
-  apiRequest
-}; 
+export default config; 
