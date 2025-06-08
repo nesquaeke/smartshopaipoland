@@ -4,7 +4,7 @@ const API_CONFIG = {
     baseURL: 'http://localhost:3535',
   },
   production: {
-    baseURL: process.env.NEXT_PUBLIC_BACKEND_URL || 'https://smartshopai-backend.onrender.com',
+    baseURL: 'https://smartshopai-backend.onrender.com',
   }
 };
 
@@ -12,7 +12,8 @@ const getEnvironment = () => {
   return process.env.NODE_ENV || 'development';
 };
 
-export const API_BASE_URL = API_CONFIG[getEnvironment()].baseURL;
+// Use environment variable if available, otherwise use config
+export const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || API_CONFIG[getEnvironment()].baseURL;
 
 // API endpoints
 export const API_ENDPOINTS = {
@@ -31,8 +32,32 @@ export const buildApiUrl = (endpoint) => {
   return `${API_BASE_URL}${endpoint}`;
 };
 
+// Fetch helper with error handling
+export const apiRequest = async (endpoint, options = {}) => {
+  try {
+    const url = buildApiUrl(endpoint);
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+      ...options,
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('API request failed:', error);
+    throw error;
+  }
+};
+
 export default {
   API_BASE_URL,
   API_ENDPOINTS,
-  buildApiUrl
+  buildApiUrl,
+  apiRequest
 }; 

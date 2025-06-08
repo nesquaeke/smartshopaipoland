@@ -1,23 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
   env: {
-    BACKEND_URL: process.env.BACKEND_URL || 'http://localhost:3535',
-    NODE_ENV: process.env.NODE_ENV || 'development'
+    NEXT_PUBLIC_BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL || 'https://smartshopai-backend.onrender.com',
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.BACKEND_URL || 'http://localhost:3535'}/api/:path*`,
-      },
-    ];
-  },
+  // GitHub Pages configuration
+  basePath: process.env.NODE_ENV === 'production' ? '/smartshopaipoland' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/smartshopaipoland/' : '',
   // Enable static exports for better performance
   trailingSlash: true,
   // Optimize images
   images: {
-    domains: ['localhost'],
     unoptimized: true
   },
   // Enable compression
