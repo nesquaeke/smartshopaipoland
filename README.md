@@ -1,4 +1,4 @@
-# 🛒 SmartShopAI Poland
+# 🛒 SmartShopAI Polska
 
 **AI-powered grocery price comparison platform for Poland**
 
