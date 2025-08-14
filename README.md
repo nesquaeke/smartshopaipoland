@@ -15,7 +15,7 @@
 - 🎯 **Smart Shopping Lists** - Optimized routes and budget planning
 - 📊 **Detailed Analytics** - Price trends and savings insights
 - 🇵🇱 **Polish Market Focus** - Real store chains and localized pricing
-- 📱 **Responsive Design** - Works on desktop, tablet, and mobile
+- 📱 **Responsive Design** - Works on desktop, tablet and mobile
 
 ## 🚀 Quick Start
 
